@@ -2,5 +2,32 @@
   "languages": {
     "en": "English",
     "ar": "Arabic"
+  },
+  "common": {
+    "loading": "Loading ...",
+    "noOptions": "No options",
+
+    "something-went-wrong": "something went wrong",
+    "submit": "submit"
+  },
+  "formValidation": {
+    "required": "this field is required",
+    "email": "this field should be an email",
+    "password-confirmation": "passwords does not match"
+  },
+
+  "pages": {
+    "auth": {
+      "sign-up": {
+        "title": "Sing Up",
+        "full-name": "Full Name",
+        "user-name": "User Name",
+        "email": "Email",
+        "city": "City",
+        "password": "Password",
+        "password-confirmation": "Password Confirmation",
+        "do-not-have-account": "do not have account"
+      }
+    }
   }
 }

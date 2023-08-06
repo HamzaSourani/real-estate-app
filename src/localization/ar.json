@@ -2,5 +2,30 @@
   "languages": {
     "en": "انكليزي",
     "ar": "عربي"
+  },
+  "common": {
+    "loading": "تحميل ...",
+    "noOptions": "لا يوجد خيارات",
+    "something-went-wrong": "حدث خطأ ما ",
+    "submit": "ارسال"
+  },
+  "formValidation": {
+    "required": "هذا الحقل مطلوب",
+    "email": "ها الحقل يجب ان يكون بيرد إلكتروني",
+    "password-confirmation": "كلمات المرور غير متطابقة"
+  },
+  "pages": {
+    "auth": {
+      "sign-up": {
+        "title": "إنشاء حساب",
+        "full-name": "الاسم الكامل",
+        "user-name": "اسم المستخدم",
+        "email": "البريد الإلكتروني",
+        "city": "المدينة",
+        "password": "كلمة المرور",
+        "password-confirmation": "تأكيد كلمة المرور",
+        "do-not-have-account": "لا تمتلك حساب"
+      }
+    }
   }
 }

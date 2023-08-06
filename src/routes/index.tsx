@@ -8,8 +8,8 @@ import {
 import App from "../App";
 import Loading from "@/components/other/loading";
 import AuthLayout from "@/components/other/layout/authLayout";
-import SignIn from "@/components/pages/auth/signIn";
-import SignUp from "@/components/pages/auth/signUp";
+import SignIn from "@/pages/auth/signIn";
+import SignUp from "@/pages/auth/signUp";
 
 const Routes = () => {
   const router = createBrowserRouter(
