@@ -7,12 +7,18 @@ import {
 } from "react-router-dom";
 import App from "../App";
 import Loading from "@/components/other/loading";
+import AuthLayout from "@/components/other/layout/authLayout";
+import SignIn from "@/components/pages/auth/signIn";
+import SignUp from "@/components/pages/auth/signUp";
 
 const Routes = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<App />}>
-        <Route path="/login" element={<></>} />
+        <Route path="auth" element={<AuthLayout />}>
+          <Route path="sign-in" element={<SignIn />} />
+          <Route path="sign-up" element={<SignUp />} />
+        </Route>
 
         <Route path="/" element={<></>}>
           {" "}
