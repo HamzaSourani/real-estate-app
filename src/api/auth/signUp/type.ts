@@ -1,4 +1,5 @@
 import { GenericRequestPayload, GenericResponse } from "@/api/type";
+import { SelectObject } from "@/type";
 interface CheckUserNameBody {
   user_name: string;
 }

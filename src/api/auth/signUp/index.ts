@@ -7,6 +7,7 @@ import {
   CheckEmailResponse,
   CheckUserNameResponse,
 } from "./type";
+import { UserInfoResponse } from "../type";
 
 const checkUserName = async ({ body }: CheckUserNamePayload) => {
   const { data } = await publicAxiosInstance.post<CheckUserNameResponse>(
@@ -23,7 +24,7 @@ const checkEmail = async ({ body }: CheckEmailPayload) => {
   return data;
 };
 const signUp = async ({ body }: SignUpPayload) => {
-  const { data } = await publicAxiosInstance.post(
+  const { data } = await publicAxiosInstance.post<UserInfoResponse>(
     API_ROUTE.SIGN_UP.INDEX,
     body
   );

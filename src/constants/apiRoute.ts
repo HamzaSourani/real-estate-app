@@ -6,5 +6,8 @@ const SIGN_UP = {
   CHECK_USER_NAME: "/api/auth/user/registerCheckUserName",
   CHECK_EMAIL: "/api/auth/user/registerCheckEmail",
 };
-const API_ROUTE = { CITY, SIGN_UP };
+const SIGN_IN = {
+  INDEX: "api/auth/user/login",
+};
+const API_ROUTE = { CITY, SIGN_UP, SIGN_IN };
 export default API_ROUTE;

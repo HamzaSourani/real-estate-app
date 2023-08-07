@@ -51,6 +51,10 @@ const useSignUpLogic = () => {
                       },
                       {
                         onSuccess(data, variables, context) {
+                          localStorage.setItem(
+                            "token",
+                            JSON.stringify(data.data.authorisation.token)
+                          );
                           window.location.replace("/");
                         },
                         onError(error, variables, context) {

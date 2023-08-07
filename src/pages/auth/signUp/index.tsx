@@ -44,7 +44,7 @@ const SignUp = () => {
             justifyContent={"center"}
             alignItems={"center"}
             spacing={2}
-            sx={{ width: { xs: "80vw", md: "70vw", lg: "60vw" } }}
+            sx={{ width: { xs: "80vw", sm: "60vw", md: "70vw", lg: "60vw" } }}
           >
             <Grid item xs={12}>
               <Typography fontWeight={"bold"} textAlign={"center"}>
@@ -171,12 +171,12 @@ const SignUp = () => {
                 m={1}
               >
                 <Typography>
-                  {t("pages.auth.sign-up.do-not-have-account")}
+                  {t("pages.auth.sign-up.already-have-account")}
                 </Typography>
                 <Link
                   to={`/${NAVIGATION.AUTH.INDEX}/${NAVIGATION.AUTH.SIGN_IN}`}
                 >
-                  {t("pages.auth.sign-up.title")}
+                  {t("pages.auth.sign-in.title")}
                 </Link>
               </Stack>
             </Grid>

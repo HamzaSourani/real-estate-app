@@ -26,6 +26,12 @@
         "city": "City",
         "password": "Password",
         "password-confirmation": "Password Confirmation",
+        "already-have-account": "already have account"
+      },
+      "sign-in": {
+        "title": "Sing In",
+        "user-name": "User Name",
+        "password": "Password",
         "do-not-have-account": "do not have account"
       }
     }
