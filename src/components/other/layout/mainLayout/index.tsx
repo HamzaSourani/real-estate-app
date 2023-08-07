@@ -1,7 +1,14 @@
-import React from "react";
+import { Outlet } from "react-router-dom";
+import { Box } from "@mui/material";
+import Navbar from "./navbar";
 
 const MainLayout = () => {
-  return <div>MainLayout</div>;
+  return (
+    <Box>
+      <Navbar />
+      {<Outlet />}
+    </Box>
+  );
 };
 
 export default MainLayout;

@@ -6,7 +6,9 @@
   "common": {
     "loading": "Loading ...",
     "noOptions": "No options",
-
+    "villas": "villas",
+    "chalets": "chalets",
+    "houses": "houses",
     "something-went-wrong": "something went wrong",
     "submit": "submit"
   },
@@ -33,7 +35,13 @@
         "user-name": "User Name",
         "password": "Password",
         "do-not-have-account": "do not have account"
+      },
+      "sign-out": {
+        "title": "Sign Out"
       }
+    },
+    "profile": {
+      "title": "User Profile"
     }
   }
 }

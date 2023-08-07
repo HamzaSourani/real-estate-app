@@ -8,9 +8,10 @@ import {
 import App from "../App";
 import Loading from "@/components/other/loading";
 import AuthLayout from "@/components/other/layout/authLayout";
-import SignIn from "@/pages/auth/signIn";
-import SignUp from "@/pages/auth/signUp";
-
+import MainLayout from "@/components/other/layout/mainLayout";
+const SignIn = lazy(() => import("@/pages/auth/signIn"));
+const SignUp = lazy(() => import("@/pages/auth/signUp"));
+const Home = lazy(() => import("@/pages/home"));
 const Routes = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,9 +21,11 @@ const Routes = () => {
           <Route path="sign-up" element={<SignUp />} />
         </Route>
 
-        <Route path="/" element={<></>}>
+        <Route path="/" element={<MainLayout />}>
           {" "}
-          <Route index element={<></>} />
+          <Route index element={<Home />} />
+          <Route path="villas" element={<div>test</div>} />
+          <Route path="test2" element={<div>test2</div>} />
         </Route>
       </Route>
     )

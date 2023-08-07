@@ -6,6 +6,9 @@
   "common": {
     "loading": "تحميل ...",
     "noOptions": "لا يوجد خيارات",
+    "villas": "villas",
+    "chalets": "chalets",
+    "houses": "houses",
     "something-went-wrong": "حدث خطأ ما ",
     "submit": "ارسال"
   },
@@ -25,7 +28,13 @@
         "password": "كلمة المرور",
         "password-confirmation": "تأكيد كلمة المرور",
         "do-not-have-account": "لا تمتلك حساب"
+      },
+      "sign-out": {
+        "title": "Sign Out"
       }
+    },
+    "profile": {
+      "title": "User Profile"
     }
   }
 }
