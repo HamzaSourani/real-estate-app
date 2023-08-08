@@ -4,13 +4,13 @@ import { Navigation, A11y } from "swiper";
 import { Box, alpha } from "@mui/material";
 import SectionLabel from "@/components/other/sectionLabel";
 import NAVIGATION from "@/constants/navigation";
-import { useGetVillasPropertiesQuery } from "@/api/property/queries";
+import { useGetHousesPropertiesQuery } from "@/api/property/queries";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import ProperCard from "@/components/items/cards/property";
-const VillasSection = () => {
-  const { data, isLoading, isError } = useGetVillasPropertiesQuery();
+const HousesSection = () => {
+  const { data, isLoading, isError } = useGetHousesPropertiesQuery();
   if (isLoading) return <></>;
   if (isError) return <></>;
   return (
@@ -23,11 +23,11 @@ const VillasSection = () => {
         pb: 7,
       }}
     >
-      <SectionLabel label="common.villas" href={NAVIGATION.MAIN_PAGES.VILLAS} />
+      <SectionLabel label="common.houses" href={NAVIGATION.MAIN_PAGES.HOUSES} />
       <Swiper
         modules={[Navigation, A11y]}
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={4}
         navigation
         style={{ width: "100%", height: "100%" }}
       >
@@ -41,4 +41,4 @@ const VillasSection = () => {
   );
 };
 
-export default VillasSection;
+export default HousesSection;

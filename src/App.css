@@ -1,9 +1,9 @@
 :root {
   font-size: 14px;
 
-  --primary-color-main: #90caf9;
-  --primary-color-dark: #42a5f5;
-  --primary-color-light: #e3f2fd;
+  --primary-color-main: #1f2937;
+  --primary-color-dark: #151c26;
+  --primary-color-light: #4b535f;
 }
 ::-webkit-scrollbar {
   width: 5px;

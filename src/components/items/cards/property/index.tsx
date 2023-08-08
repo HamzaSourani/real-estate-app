@@ -64,7 +64,7 @@ const ProperCard = ({
                 component={"span"}
                 sx={{
                   ml: 1,
-                  color: (theme) => theme.palette.secondary.dark,
+
                   fontWeight: "initial",
                 }}
               >
@@ -79,7 +79,7 @@ const ProperCard = ({
                 component={"span"}
                 sx={{
                   ml: 1,
-                  color: (theme) => theme.palette.secondary.dark,
+
                   fontWeight: "initial",
                 }}
               >
@@ -90,13 +90,13 @@ const ProperCard = ({
           <Grid item xs={6}>
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <AttachMoneyIcon color="primary" />
-              <Typography color={"secondary"}>{price}</Typography>
+              <Typography>{price}</Typography>
             </Stack>
           </Grid>
           <Grid item xs={6}>
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <LocationOnIcon color="primary" />
-              <Typography color={"secondary"}>{city.label}</Typography>
+              <Typography>{city.label}</Typography>
             </Stack>
           </Grid>
         </Grid>
@@ -104,11 +104,11 @@ const ProperCard = ({
       <CardActions>
         <Stack direction={"row"} alignItems={"center"} spacing={1}>
           {is_favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          <Typography color={"secondary"}>{favorite_count}</Typography>
+          <Typography>{favorite_count}</Typography>
         </Stack>
         <Stack direction={"row"} alignItems={"center"} spacing={1}>
           <VisibilityIcon color="primary" />
-          <Typography color={"secondary"}>{views_count}</Typography>
+          <Typography>{views_count}</Typography>
         </Stack>
       </CardActions>
     </Card>
