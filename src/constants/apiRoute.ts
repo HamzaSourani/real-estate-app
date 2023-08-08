@@ -10,6 +10,7 @@ const SIGN_IN = {
   INDEX: "api/auth/user/login",
 };
 const PROPERTY = {
+  GET_ALL: "/api/property/index",
   GET_SPECIAL: "/api/property/indexSpecial",
 };
 const API_ROUTE = { CITY, SIGN_UP, SIGN_IN, PROPERTY };

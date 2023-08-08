@@ -10,6 +10,7 @@ import {
   Box,
   Typography,
   Stack,
+  Grid,
 } from "@mui/material";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -17,6 +18,9 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Property } from "@/api/property/type";
+import { ContractType } from "@/type";
+import ForSellIcon from "../../svg/forSellIcon";
+import ForRentIcon from "../../svg/forRentIcon";
 
 const ProperCard = ({
   name,
@@ -37,6 +41,13 @@ const ProperCard = ({
       <CardHeader
         title={name}
         subheader={moment(date_of_publish).format("MMM Do YY")}
+        action={
+          contract_type === ContractType.SELL ? (
+            <ForSellIcon sx={{ color: "red" }} />
+          ) : (
+            <ForRentIcon sx={{ color: "green" }} />
+          )
+        }
       />
       <CardMedia
         component={"img"}
@@ -45,49 +56,50 @@ const ProperCard = ({
         alt={name}
       />
       <CardContent>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gridTemplateRows: "repeat(2, 1fr)",
-            gap: 2,
-          }}
-        >
-          <Typography color={"primary"} sx={{ fontWeight: "500" }}>
-            {t("components.property-card.rooms")}
-            <Box
-              component={"span"}
-              sx={{
-                ml: 1,
-                color: (theme) => theme.palette.secondary.dark,
-                fontWeight: "initial",
-              }}
-            >
-              {bed_rooms}
-            </Box>
-          </Typography>
-          <Typography color={"primary"} sx={{ fontWeight: "500" }}>
-            {t("components.property-card.area")}
-            <Box
-              component={"span"}
-              sx={{
-                ml: 1,
-                color: (theme) => theme.palette.secondary.dark,
-                fontWeight: "initial",
-              }}
-            >
-              {sqft_living}
-            </Box>
-          </Typography>
-          <Stack direction={"row"} alignItems={"center"} spacing={1}>
-            <AttachMoneyIcon color="primary" />
-            <Typography color={"secondary"}>{price}</Typography>
-          </Stack>
-          <Stack direction={"row"} alignItems={"center"} spacing={1}>
-            <LocationOnIcon color="primary" />
-            <Typography color={"secondary"}>{city.label}</Typography>
-          </Stack>
-        </Box>
+        <Grid container spacing={1}>
+          <Grid item xs={6}>
+            <Typography color={"primary"} sx={{ fontWeight: "500" }}>
+              {t("components.property-card.rooms")}
+              <Box
+                component={"span"}
+                sx={{
+                  ml: 1,
+                  color: (theme) => theme.palette.secondary.dark,
+                  fontWeight: "initial",
+                }}
+              >
+                {bed_rooms}
+              </Box>
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography color={"primary"} sx={{ fontWeight: "500" }}>
+              {t("components.property-card.area")}
+              <Box
+                component={"span"}
+                sx={{
+                  ml: 1,
+                  color: (theme) => theme.palette.secondary.dark,
+                  fontWeight: "initial",
+                }}
+              >
+                {sqft_living}
+              </Box>
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Stack direction={"row"} alignItems={"center"} spacing={1}>
+              <AttachMoneyIcon color="primary" />
+              <Typography color={"secondary"}>{price}</Typography>
+            </Stack>
+          </Grid>
+          <Grid item xs={6}>
+            <Stack direction={"row"} alignItems={"center"} spacing={1}>
+              <LocationOnIcon color="primary" />
+              <Typography color={"secondary"}>{city.label}</Typography>
+            </Stack>
+          </Grid>
+        </Grid>
       </CardContent>
       <CardActions>
         <Stack direction={"row"} alignItems={"center"} spacing={1}>
