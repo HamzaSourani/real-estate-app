@@ -12,6 +12,12 @@
     "something-went-wrong": "حدث خطأ ما ",
     "submit": "ارسال"
   },
+  "components": {
+    "property-card": {
+      "rooms": "rooms",
+      "area": "area"
+    }
+  },
   "formValidation": {
     "required": "هذا الحقل مطلوب",
     "email": "ها الحقل يجب ان يكون بيرد إلكتروني",

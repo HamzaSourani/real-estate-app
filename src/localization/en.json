@@ -12,6 +12,12 @@
     "something-went-wrong": "something went wrong",
     "submit": "submit"
   },
+  "components": {
+    "property-card": {
+      "rooms": "rooms",
+      "area": "area"
+    }
+  },
   "formValidation": {
     "required": "this field is required",
     "email": "this field should be an email",

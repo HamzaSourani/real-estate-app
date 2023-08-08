@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, A11y } from "swiper";
 import { Box, Paper } from "@mui/material";
 import { useGetSpecialPropertiesQuery } from "@/api/property/queries";
 import "swiper/css";
