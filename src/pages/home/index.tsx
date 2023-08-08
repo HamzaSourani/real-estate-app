@@ -1,7 +1,12 @@
 import React from "react";
+import SpecialPropertiesSlide from "@/components/pages/home/specialPropertiesSlide";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <SpecialPropertiesSlide />
+    </div>
+  );
 };
 
 export default Home;

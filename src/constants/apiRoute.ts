@@ -9,5 +9,8 @@ const SIGN_UP = {
 const SIGN_IN = {
   INDEX: "api/auth/user/login",
 };
-const API_ROUTE = { CITY, SIGN_UP, SIGN_IN };
+const PROPERTY = {
+  GET_SPECIAL: "/api/property/indexSpecial",
+};
+const API_ROUTE = { CITY, SIGN_UP, SIGN_IN, PROPERTY };
 export default API_ROUTE;

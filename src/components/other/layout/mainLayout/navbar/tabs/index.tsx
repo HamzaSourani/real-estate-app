@@ -1,11 +1,10 @@
 import * as React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import NAVIGATION from "@/constants/navigation";
-import { indexof } from "stylis";
 
 interface LinkTabProps {
   label: string;
@@ -39,11 +38,7 @@ const TABS = [
 ];
 export default function NavTabs() {
   const { pathname } = useLocation();
-  //   const [value, setValue] = React.useState(-1);
   const { t } = useTranslation();
-  //   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-  //     setValue(newValue);
-  //   };
 
   return (
     <Box>
@@ -51,7 +46,6 @@ export default function NavTabs() {
         value={TABS.findIndex(
           (tab) => tab.label.endsWith(pathname.slice(1)) && !!pathname.slice(1)
         )}
-        // onChange={handleChange}
         sx={{
           "&.Mui-selected": {
             color: "white",
