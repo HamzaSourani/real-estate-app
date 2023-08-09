@@ -9,6 +9,7 @@ import {
   Toolbar,
   Tooltip,
 } from "@mui/material";
+import useAuthorization from "@/hooks/useAuthorization";
 import LogoIcon from "@/components/items/svg/logo";
 import SignInIcon from "@mui/icons-material/Login";
 import NAVIGATION from "@/constants/navigation";
@@ -16,16 +17,8 @@ import MenuProfile from "./menuProfile";
 import NavTabs from "./tabs";
 
 const Navbar = () => {
-  const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
   const { t } = useTranslation();
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setIsAuthorized(true);
-    }
-  }, []);
-
+  const isAuthorized = useAuthorization();
   return (
     <AppBar position="static">
       <Toolbar>

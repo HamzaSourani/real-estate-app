@@ -10,7 +10,7 @@ const PARTICLES_OPTIONS: ISourceOptions = {
       enable: true,
     },
     color: {
-      value: "#fff",
+      value: ["#F59E0B", "#1F2937", "#fff"],
     },
     shape: {
       type: "circle",
@@ -63,7 +63,7 @@ const PARTICLES_OPTIONS: ISourceOptions = {
     },
   },
   background: {
-    color: "#90caf9",
+    color: "#4b535f",
   },
 };
 export default PARTICLES_OPTIONS;

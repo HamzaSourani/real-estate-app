@@ -7,16 +7,19 @@
     "loading": "تحميل ...",
     "noOptions": "لا يوجد خيارات",
     "show-more": "عرض المزيد",
-    "villas": "villas",
-    "chalets": "chalets",
-    "houses": "houses",
+    "home": "الرئيسية",
+    "villas": "فيلات",
+    "chalets": "شاليهات",
+    "houses": "منازل",
     "something-went-wrong": "حدث خطأ ما ",
     "submit": "ارسال"
   },
   "components": {
     "property-card": {
       "rooms": "rooms",
-      "area": "area"
+      "area": "area",
+      "city": "city",
+      "price": "price"
     }
   },
   "formValidation": {
@@ -37,11 +40,14 @@
         "do-not-have-account": "لا تمتلك حساب"
       },
       "sign-out": {
-        "title": "Sign Out"
+        "title": "تسجيل خروج"
       }
     },
     "profile": {
-      "title": "User Profile"
+      "title": "ملف المستخدم"
+    },
+    "forbidden": {
+      "title": "انت لا تمتلك صلاحية لزيارة هذه الصفحة"
     }
   }
 }

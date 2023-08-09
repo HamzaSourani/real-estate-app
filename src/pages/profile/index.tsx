@@ -1,18 +1,16 @@
-import { Outlet } from "react-router-dom";
+import UserCard from "@/components/pages/profile/userCard";
 import { Box } from "@mui/material";
+import React from "react";
 import { useGetUserProfile } from "@/api/user/qeuries";
 import useAuthorization from "@/hooks/useAuthorization";
-import Navbar from "./navbar";
-
-const MainLayout = () => {
+const Profile = () => {
   const isAuthorized = useAuthorization();
   const userProfileQuery = useGetUserProfile(isAuthorized);
   return (
     <Box>
-      <Navbar />
-      <Box mt={2}>{<Outlet />}</Box>
+      <UserCard />
     </Box>
   );
 };
 
-export default MainLayout;
+export default Profile;

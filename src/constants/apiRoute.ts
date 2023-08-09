@@ -13,5 +13,12 @@ const PROPERTY = {
   GET_ALL: "/api/property/index",
   GET_SPECIAL: "/api/property/indexSpecial",
 };
-const API_ROUTE = { CITY, SIGN_UP, SIGN_IN, PROPERTY };
+const IMAGE = {
+  UPLOAD: "/api/image/store",
+};
+const USER = {
+  GET_PROFILE: "/api/user/showProfile",
+  ADD_IMAGE: "/api/user/addImage",
+};
+const API_ROUTE = { CITY, SIGN_UP, SIGN_IN, PROPERTY, IMAGE, USER };
 export default API_ROUTE;

@@ -32,6 +32,7 @@ function LinkTab(props: LinkTabProps) {
   );
 }
 const TABS = [
+  { label: "common.home", href: NAVIGATION.MAIN_PAGES.HOME },
   { label: "common.villas", href: NAVIGATION.MAIN_PAGES.VILLAS },
   { label: "common.chalets", href: NAVIGATION.MAIN_PAGES.CHALETS },
   { label: "common.houses", href: NAVIGATION.MAIN_PAGES.HOUSES },
@@ -43,9 +44,7 @@ export default function NavTabs() {
   return (
     <Box>
       <Tabs
-        value={TABS.findIndex(
-          (tab) => tab.label.endsWith(pathname.slice(1)) && !!pathname.slice(1)
-        )}
+        value={TABS.findIndex((tab) => tab.label.endsWith(pathname.slice(1)))}
         sx={{
           "&.Mui-selected": {
             color: "white",

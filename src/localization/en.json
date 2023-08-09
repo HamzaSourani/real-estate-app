@@ -7,6 +7,7 @@
     "loading": "Loading ...",
     "noOptions": "No options",
     "show-more": "show more",
+    "home": "home",
     "villas": "villas",
     "chalets": "chalets",
     "houses": "houses",
@@ -16,7 +17,9 @@
   "components": {
     "property-card": {
       "rooms": "rooms",
-      "area": "area"
+      "area": "area",
+      "city": "city",
+      "price": "price"
     }
   },
   "formValidation": {
@@ -49,6 +52,9 @@
     },
     "profile": {
       "title": "User Profile"
+    },
+    "forbidden": {
+      "title": "you do not have permission to visit this page"
     }
   }
 }

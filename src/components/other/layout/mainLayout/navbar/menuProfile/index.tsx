@@ -12,16 +12,45 @@ import SignOutIcon from "@mui/icons-material/Logout";
 import UserProfileIcon from "@mui/icons-material/AccountCircle";
 
 import useAnchorEle from "@/hooks/useAnchorEle";
+import { useNavigate } from "react-router-dom";
+import NAVIGATION from "@/constants/navigation";
+
 const MenuProfile = () => {
   const [open, anchorEl, handleClick, handleClose] = useAnchorEle();
+  const navigate = useNavigate();
   const { t } = useTranslation();
+  const handleNavigate =  (href: string) => {
+     handleClose();
+    navigate(href);
+  };
+  const handleSignOut = () => {
+    handleClose();
+  };
+  const MENU_PROFILE_ITEM = [
+    {
+      label: "pages.profile.title",
+      icon: <UserProfileIcon />,
+
+      handleNavigate,
+    },
+    {
+      label: "pages.addProperty",
+      icon: <UserProfileIcon />,
+      handleNavigate,
+    },
+    {
+      label: "pages.auth.sign-out.title",
+      icon: <SignOutIcon />,
+      handleNavigate,
+    },
+  ];
   return (
     <Tooltip title={t("pages.profile.title")}>
       <>
         <IconButton onClick={handleClick}>
           <Avatar src="" />
         </IconButton>
-        <Menu
+       {open&& <Menu
           anchorEl={anchorEl}
           id="account-menu"
           open={open}
@@ -56,7 +85,9 @@ const MenuProfile = () => {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          <MenuItem onClick={handleClose}>
+          <MenuItem
+            onClick={() => handleNavigate(`/${NAVIGATION.MAIN_PAGES.PROFILE}`)}
+          >
             <ListItemIcon>
               <UserProfileIcon />
             </ListItemIcon>
@@ -68,7 +99,7 @@ const MenuProfile = () => {
             </ListItemIcon>
             <Typography>{t("pages.auth.sign-out.title")}</Typography>
           </MenuItem>
-        </Menu>
+        </Menu>}
       </>
     </Tooltip>
   );

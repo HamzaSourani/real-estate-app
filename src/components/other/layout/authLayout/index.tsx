@@ -27,7 +27,7 @@ const AuthLayout = () => {
               p: 4,
               backdropFilter: "blur(2px)",
               backgroundColor: (theme) =>
-                alpha(theme.palette.common.white, 0.5),
+                alpha(theme.palette.common.white, 0.3),
             }}
           >
             <Outlet />

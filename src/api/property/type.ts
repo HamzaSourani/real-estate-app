@@ -24,6 +24,29 @@ export interface Image {
   media_url: string;
   hash: string;
 }
+export type GetPropertyParamsKeys =
+  | "page"
+  | "perPage"
+  | "name"
+  | "address"
+  | "bed_rooms"
+  | "bath_rooms"
+  | "kitchens"
+  | "floors"
+  | "floorsLevel"
+  | "north"
+  | "south"
+  | "east"
+  | "west"
+  | "city_id"
+  | "region_id"
+  | "type_id"
+  | "contact_type"
+  | "price_min"
+  | "price_max"
+  | "sqft_living_min"
+  | "sqft_living_max"
+  | "sort";
 export type GetPropertyParams = Partial<{
   page: number;
   perPage: number;

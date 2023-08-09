@@ -4,9 +4,11 @@ const AUTH = {
   SIGN_IN: "sign-in",
 };
 const MAIN_PAGES = {
+  HOME: "",
   VILLAS: "villas",
   CHALETS: "chalets",
   HOUSES: "houses",
+  PROFILE: "profile",
 };
 const NAVIGATION = {
   AUTH,
