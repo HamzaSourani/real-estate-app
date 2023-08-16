@@ -5,14 +5,17 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import { useUploadImageMutation } from "@/api/image/queries";
 import { UserProfileResponse } from "@/api/user/type";
 import { useAddImageMutation } from "@/api/user/qeuries";
+import { showSuccess } from "@/libs/reactToastify";
+import { useTranslation } from "react-i18next";
 const UserImageField = () => {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const userProfile: UserProfileResponse | undefined = queryClient.getQueryData(
     ["get-user-profile"]
   );
   const { mutate: uploadImage } = useUploadImageMutation();
   const { mutate: addImage } = useAddImageMutation();
-  console.log(userProfile);
+
   const handleUploadImage = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       uploadImage(
@@ -24,6 +27,7 @@ const UserImageField = () => {
               {
                 onSuccess(data, variables, context) {
                   queryClient.refetchQueries(["get-user-profile"]);
+                  showSuccess(t("operation-succeeded"));
                 },
               }
             );

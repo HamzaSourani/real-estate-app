@@ -11,6 +11,8 @@
     "villas": "villas",
     "chalets": "chalets",
     "houses": "houses",
+    "add-property": "add property",
+    "operation-succeeded": " operation succeeded",
     "something-went-wrong": "something went wrong",
     "submit": "submit"
   },
@@ -51,7 +53,9 @@
       }
     },
     "profile": {
-      "title": "User Profile"
+      "title": "User Profile",
+      "do-not-have-favorite-properties": " do not have favorite properties go to ",
+      "do-not-have-properties": " do not have properties "
     },
     "forbidden": {
       "title": "you do not have permission to visit this page"

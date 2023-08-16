@@ -44,6 +44,11 @@ const MuiTheme: FC<PropsWithChildren<{}>> = ({ children }) => {
           disableScrollLock: true,
         },
       },
+      MuiSkeleton: {
+        defaultProps: {
+          animation: "wave",
+        },
+      },
     },
   });
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;

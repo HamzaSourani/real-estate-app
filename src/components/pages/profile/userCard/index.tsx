@@ -1,16 +1,23 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useQueryClient } from "@tanstack/react-query";
-import { Box, Paper, Stack, Tooltip, Typography } from "@mui/material";
+import { useGetUserProfile } from "@/api/user/qeuries";
+import useAuthorization from "@/hooks/useAuthorization";
+import {
+  Box,
+  Paper,
+  Skeleton,
+  Stack,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import UserImageField from "@/components/items/inputs/imageField/userImageField";
-import { UserProfileResponse } from "@/api/user/type";
 const UserCard = () => {
   const { t } = useTranslation();
-  const queryClient = useQueryClient();
-  const userProfile: UserProfileResponse | undefined = queryClient.getQueryData(
-    ["get-user-profile"]
-  );
+
+  const isAuthorized = useAuthorization();
+  const { data: userProfile, isLoading } = useGetUserProfile(isAuthorized);
+
   return (
     <Box
       sx={{
@@ -43,7 +50,11 @@ const UserCard = () => {
           color="primary"
           textAlign={"center"}
         >
-          {userProfile?.data.user.full_name}
+          {isLoading ? (
+            <Skeleton sx={{ m: "auto" }} width={200} />
+          ) : (
+            userProfile?.data.user.full_name
+          )}
         </Typography>
         <Typography
           variant="h5"
@@ -52,7 +63,11 @@ const UserCard = () => {
           textAlign={"center"}
           my={1}
         >
-          {userProfile?.data.user.email}
+          {isLoading ? (
+            <Skeleton sx={{ m: "auto" }} width={150} />
+          ) : (
+            userProfile?.data.user.email
+          )}
         </Typography>
         <Stack
           mb={5}
@@ -64,7 +79,13 @@ const UserCard = () => {
           <Tooltip title={t("components.property-card.city")}>
             <LocationOnIcon color="secondary" />
           </Tooltip>
-          <Typography>{userProfile?.data.user.city.label}</Typography>
+          <Typography>
+            {isLoading ? (
+              <Skeleton width={80} />
+            ) : (
+              userProfile?.data.user.city.label
+            )}
+          </Typography>
         </Stack>
       </Paper>
     </Box>

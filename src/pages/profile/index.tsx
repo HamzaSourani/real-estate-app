@@ -1,14 +1,11 @@
-import UserCard from "@/components/pages/profile/userCard";
 import { Box } from "@mui/material";
-import React from "react";
-import { useGetUserProfile } from "@/api/user/qeuries";
-import useAuthorization from "@/hooks/useAuthorization";
+import UserCard from "@/components/pages/profile/userCard";
+import UserPropertiesTabs from "@/components/pages/profile/userPropertiesTabs";
 const Profile = () => {
-  const isAuthorized = useAuthorization();
-  const userProfileQuery = useGetUserProfile(isAuthorized);
   return (
     <Box>
       <UserCard />
+      <UserPropertiesTabs />
     </Box>
   );
 };

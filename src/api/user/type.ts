@@ -1,5 +1,6 @@
 import { SelectObject } from "@/type";
 import { GenericResponse } from "../type";
+import { PROPERTIES_TABS } from "@/components/pages/profile/userPropertiesTabs/type";
 
 export type UserProfileResponse = GenericResponse<UserProfile>;
 export interface UserProfile {
@@ -25,4 +26,7 @@ export interface Image {
 }
 export interface AddImageBody {
   image: string;
+}
+export interface UserPropertiesQueryParams {
+  tab: PROPERTIES_TABS;
 }

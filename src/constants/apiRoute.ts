@@ -18,6 +18,8 @@ const IMAGE = {
 };
 const USER = {
   GET_PROFILE: "/api/user/showProfile",
+  GET_PROPERTIES: "/api/user/indexProperties",
+  GET_FAVORITE_PROPERTIES: "/api/user/indexFavoriteProperties",
   ADD_IMAGE: "/api/user/addImage",
 };
 const API_ROUTE = { CITY, SIGN_UP, SIGN_IN, PROPERTY, IMAGE, USER };

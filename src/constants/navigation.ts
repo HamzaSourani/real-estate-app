@@ -9,6 +9,7 @@ const MAIN_PAGES = {
   CHALETS: "chalets",
   HOUSES: "houses",
   PROFILE: "profile",
+  ADD_PROPERTY: "",
 };
 const NAVIGATION = {
   AUTH,

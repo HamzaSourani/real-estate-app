@@ -11,6 +11,8 @@
     "villas": "فيلات",
     "chalets": "شاليهات",
     "houses": "منازل",
+    "add-property": "إضافة عقار",
+    "operation-succeeded": " تمت العملية بنجاح",
     "something-went-wrong": "حدث خطأ ما ",
     "submit": "ارسال"
   },
@@ -44,7 +46,9 @@
       }
     },
     "profile": {
-      "title": "ملف المستخدم"
+      "title": "ملف المستخدم",
+      "do-not-have-favorite-properties": "لا تمتلك عقارات مفضلة إذهب إلى ",
+      "do-not-have-properties": " لا تمتلك عقار"
     },
     "forbidden": {
       "title": "انت لا تمتلك صلاحية لزيارة هذه الصفحة"

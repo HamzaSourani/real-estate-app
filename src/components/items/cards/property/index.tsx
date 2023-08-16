@@ -37,7 +37,7 @@ const ProperCard = ({
 }: Property) => {
   const { t } = useTranslation();
   return (
-    <Card>
+    <Card sx={{ maxWidth: 415 }}>
       <CardHeader
         title={name}
         subheader={moment(date_of_publish).format("MMM Do YY")}
