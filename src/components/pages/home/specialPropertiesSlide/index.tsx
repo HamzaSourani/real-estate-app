@@ -1,19 +1,27 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, A11y } from "swiper";
 import { Box, Paper } from "@mui/material";
 import { useGetSpecialPropertiesQuery } from "@/api/property/queries";
+import Loading from "./loading";
+import Error from "./error";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Empty from "./empty";
 
 const SpecialPropertiesSlide = () => {
-  const { data, isLoading, isError } = useGetSpecialPropertiesQuery();
-  if (isLoading) return <></>;
-  if (isError) return <></>;
+  const { t } = useTranslation();
+  const { data, isLoading, isFetching, isError } =
+    useGetSpecialPropertiesQuery();
+
+  if (isLoading || isFetching) return <Loading />;
+  if (isError) return <Error message={t("common.something-went-wrong")} />;
+  if (!!!data.data.properties.length) return <Empty />;
   return (
     <Box
-      height={{ xs: 100, sm: 200, md: 300, lg: 400 }}
+      height={{ xs: 200, sm: 250, md: 350, lg: 400 }}
       display={"flex"}
       flexDirection={"row"}
       justifyContent={"center"}

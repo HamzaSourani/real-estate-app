@@ -20,3 +20,24 @@
   border: 0.1px solid transparent;
   background-clip: content-box;
 }
+
+@media (min-width: 0px) and( max-width:599px) {
+  .slide-section {
+    width: 305px !important;
+  }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .slide-section {
+    width: 305px !important;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .slide-section {
+    width: 305px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .slide-section {
+    width: 305px !important;
+  }
+}

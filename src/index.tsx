@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./localization/I18next";
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Wrapper from "./Wrapper";
-
+import "./localization/I18next";
+import "./index.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

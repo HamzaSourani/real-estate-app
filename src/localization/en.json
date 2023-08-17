@@ -52,6 +52,24 @@
         "title": "Sign Out"
       }
     },
+    "home": {
+      "special-properties": {
+        "empty": "there is no special properties",
+        "error": "failed to load special properties"
+      },
+      "houses-section": {
+        "empty": "there is no house properties",
+        "error": "failed to load house properties"
+      },
+      "villas-section": {
+        "empty": "there is no villa properties",
+        "error": "failed to load villa properties"
+      },
+      "chalets-section": {
+        "empty": "there is no chalet properties",
+        "error": "failed to load chalet properties"
+      }
+    },
     "profile": {
       "title": "User Profile",
       "do-not-have-favorite-properties": " do not have favorite properties go to ",

@@ -1,9 +1,9 @@
 import React from "react";
 import { Box } from "@mui/material";
 import SpecialPropertiesSlide from "@/components/pages/home/specialPropertiesSlide";
-import VillasSection from "@/components/pages/home/villasSection";
-import ChaletsSection from "@/components/pages/home/chaletsSection";
-import HousesSection from "@/components/pages/home/housesSection";
+import VillasSection from "@/components/pages/home/slidesSections/villasSection";
+import ChaletsSection from "@/components/pages/home/slidesSections/chaletsSection";
+import HousesSection from "@/components/pages/home/slidesSections/housesSection";
 
 const Home = () => {
   return (

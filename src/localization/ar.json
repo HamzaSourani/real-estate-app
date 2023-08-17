@@ -50,6 +50,24 @@
       "do-not-have-favorite-properties": "لا تمتلك عقارات مفضلة إذهب إلى ",
       "do-not-have-properties": " لا تمتلك عقار"
     },
+    "home": {
+      "special-properties": {
+        "empty": "there is no special properties",
+        "error": "failed to load special properties"
+      },
+      "houses-section": {
+        "empty": "there is no house properties",
+        "error": "failed to load house properties"
+      },
+      "villas-section": {
+        "empty": "there is no villa properties",
+        "error": "failed to load villa properties"
+      },
+      "chalets-section": {
+        "empty": "there is no chalet properties",
+        "error": "failed to load chalet properties"
+      }
+    },
     "forbidden": {
       "title": "انت لا تمتلك صلاحية لزيارة هذه الصفحة"
     }

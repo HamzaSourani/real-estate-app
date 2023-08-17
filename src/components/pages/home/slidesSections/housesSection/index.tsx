@@ -1,18 +1,26 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y } from "swiper";
 import { Box, alpha } from "@mui/material";
-import SectionLabel from "@/components/other/sectionLabel";
 import NAVIGATION from "@/constants/navigation";
-import { useGetHousesPropertiesQuery } from "@/api/property/queries";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import SectionLabel from "@/components/other/sectionLabel";
 import ProperCard from "@/components/items/cards/property";
+import LoadingPropertiesSlide from "@/components/pages/home/slidesSections/fullBack/loading";
+import ErrorPropertiesSlide from "@/components/pages/home/slidesSections/fullBack/error";
+import EmptyPropertiesSlide from "@/components/pages/home/slidesSections/fullBack/empty";
+import { useGetHousesPropertiesQuery } from "@/api/property/queries";
 const HousesSection = () => {
+  const { t } = useTranslation();
   const { data, isLoading, isError } = useGetHousesPropertiesQuery();
-  if (isLoading) return <></>;
-  if (isError) return <></>;
+  if (isLoading) return <LoadingPropertiesSlide isBgColor />;
+  if (isError)
+    return (
+      <ErrorPropertiesSlide message={t("pages.home.houses-section.error")} />
+    );
+  if (!!!data.data.properties.length)
+    return (
+      <EmptyPropertiesSlide message={t("pages.home.houses-section.empty")} />
+    );
   return (
     <Box
       sx={{
@@ -27,12 +35,12 @@ const HousesSection = () => {
       <Swiper
         modules={[Navigation, A11y]}
         spaceBetween={20}
-        slidesPerView={4}
+        slidesPerView={"auto"}
         navigation
         style={{ width: "100%", height: "100%" }}
       >
         {data.data.properties.map((property, index) => (
-          <SwiperSlide key={property.id}>
+          <SwiperSlide className="slide-section" key={property.id}>
             <ProperCard {...property} />
           </SwiperSlide>
         ))}
