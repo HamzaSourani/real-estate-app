@@ -8,7 +8,9 @@ import ResponsiveStepper from "@/components/pages/addProperty/responsiveStepper"
 const AddEditProperty = () => {
   const [activeStep, setActiveStep] = useState(0);
   const { t } = useTranslation();
-  const reqNumber = number().required(t("form-validation.required"));
+  const reqNumber = number()
+    .required(t("form-validation.required"))
+    .min(0, t("form-validation.min-to-zero"));
   const reqString = string().required(t("form-validation.required"));
   const reqSelectObject = object()
     .shape({

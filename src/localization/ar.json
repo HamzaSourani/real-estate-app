@@ -27,7 +27,8 @@
   "form-validation": {
     "required": "هذا الحقل مطلوب",
     "email": "ها الحقل يجب ان يكون بيرد إلكتروني",
-    "password-confirmation": "كلمات المرور غير متطابقة"
+    "password-confirmation": "كلمات المرور غير متطابقة",
+    "min-to-zero": "this field must be equal or grater than zero"
   },
   "pages": {
     "auth": {

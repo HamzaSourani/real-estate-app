@@ -28,7 +28,8 @@
   "form-validation": {
     "required": "this field is required",
     "email": "this field should be an email",
-    "password-confirmation": "passwords does not match"
+    "password-confirmation": "passwords does not match",
+    "min-to-zero": "this field must be equal or grater than zero"
   },
 
   "pages": {
