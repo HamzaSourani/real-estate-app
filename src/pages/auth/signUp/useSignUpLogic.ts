@@ -83,22 +83,22 @@ const useSignUpLogic = () => {
     );
   };
   const validationSchema = Yup.object().shape({
-    full_name: Yup.string().required(t("formValidation.required")),
-    user_name: Yup.string().required(t("formValidation.required")),
+    full_name: Yup.string().required(t("form-validation.required")),
+    user_name: Yup.string().required(t("form-validation.required")),
     email: Yup.string()
-      .email(t("formValidation.email"))
-      .required(t("formValidation.required")),
+      .email(t("form-validation.email"))
+      .required(t("form-validation.required")),
     city: Yup.object()
       .shape({ id: Yup.string(), label: Yup.string() })
-      .required(t("formValidation.requied")),
-    password: Yup.string().min(8).required(t("formValidation.required")!),
+      .required(t("form-validation.requied")),
+    password: Yup.string().min(8).required(t("form-validation.required")!),
     password_confirmation: Yup.string()
       .oneOf(
         [Yup.ref("password"), undefined],
-        t("formValidation.password-confirmation")!
+        t("form-validation.password-confirmation")!
       )
       .min(8)
-      .required(t("formValidation.required")!),
+      .required(t("form-validation.required")!),
   });
   const initialValues: InitialValues = {
     full_name: "",

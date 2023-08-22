@@ -2,9 +2,13 @@ import { SelectObject } from "@/type";
 
 export interface AddPropertyValues {
   name: string;
-  contract_type: number;
-  detail: string;
   city: SelectObject | null;
+  propertyType: SelectObject | null;
+  region: SelectObject | null;
+  furnish: SelectObject | null;
+  address: string;
+  detail: string;
+  cladding: SelectObject | null;
   features: SelectObject[];
   water_front: boolean;
   images: string[];
@@ -32,9 +36,4 @@ export interface AddPropertyValues {
   east: boolean;
   west: boolean;
   price: number;
-  address: string;
-  type: string;
-  region: string;
-  furnish: string;
-  cladding: string;
 }

@@ -32,8 +32,8 @@ const useSignInLogic = () => {
     );
   };
   const validationSchema = Yup.object().shape({
-    user_name: Yup.string().required(t("formValidation.required")),
-    password: Yup.string().min(8).required(t("formValidation.required")!),
+    user_name: Yup.string().required(t("form-validation.required")),
+    password: Yup.string().min(8).required(t("form-validation.required")!),
   });
   const initialValues: InitialValues = {
     user_name: "",

@@ -10,8 +10,14 @@ const SIGN_IN = {
   INDEX: "api/auth/user/login",
 };
 const PROPERTY = {
-  GET_ALL: "/api/property/index",
+  GET_PROPERTIES: "/api/property/index",
   GET_SPECIAL: "/api/property/indexSpecial",
+  GET_REGIONS: "/api/region/index",
+  GET_PROPERTY_TYPES: "/api/type/index",
+  GET_FURNISHES: "/api/furnish/index",
+  GET_CLADDINGS: "/api/cladding/index",
+  GET_FEATURES: "/api/feature/index",
+  ADD_FEATURE: "/api/feature/store",
 };
 const IMAGE = {
   UPLOAD: "/api/image/store",

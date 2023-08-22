@@ -8,36 +8,28 @@ import ResponsiveStepper from "@/components/pages/addProperty/responsiveStepper"
 const AddEditProperty = () => {
   const [activeStep, setActiveStep] = useState(0);
   const { t } = useTranslation();
-  const reqNumber = number().required(t("form.required"));
-  const reqString = string().required(t("form.required"));
+  const reqNumber = number().required(t("form-validation.required"));
+  const reqString = string().required(t("form-validation.required"));
+  const reqSelectObject = object()
+    .shape({
+      id: reqString,
+      label: reqString,
+    })
+    .required(t("form-validation.required"));
   const validationSchema = [
     object().shape({
       name: reqString,
-      contract_type: reqNumber,
+      city: reqSelectObject,
+      region: reqSelectObject,
+      propertyType: reqSelectObject,
+      furnish: reqSelectObject,
+      cladding: reqSelectObject,
       detail: reqString,
-      city: object()
-        .shape({
-          id: reqString,
-          labe: reqString,
-        })
-        .required(),
+      address: reqString,
       features: array()
-        .of(
-          object().shape({
-            id: reqString,
-            labe: reqString,
-          })
-        )
+        .of(reqSelectObject)
         .test("length", (features) => features?.length! > 0),
       water_front: boolean(),
-      images: array()
-        .of(
-          object().shape({
-            id: reqString,
-            labe: reqString,
-          })
-        )
-        .test("length", (images) => images?.length! > 0),
     }),
     object().shape({
       bed_rooms: reqNumber,
@@ -71,14 +63,26 @@ const AddEditProperty = () => {
       west: boolean(),
     }),
     object().shape({
+      images: array()
+        .of(
+          object().shape({
+            id: reqString,
+            label: reqString,
+          })
+        )
+        .test("length", (images) => images?.length! > 0),
       price: reqNumber,
     }),
   ];
   const addPropertyValues: AddPropertyValues = {
     name: "",
-    contract_type: 0,
-    detail: "",
     city: null,
+    propertyType: null,
+    region: null,
+    furnish: null,
+    address: "",
+    detail: "",
+    cladding: null,
     features: [],
     water_front: false,
     images: [],
@@ -106,11 +110,6 @@ const AddEditProperty = () => {
     east: false,
     west: false,
     price: 0,
-    address: "",
-    type: "",
-    region: "",
-    furnish: "",
-    cladding: "",
   };
 
   return (

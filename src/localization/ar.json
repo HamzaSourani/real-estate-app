@@ -24,7 +24,7 @@
       "price": "price"
     }
   },
-  "formValidation": {
+  "form-validation": {
     "required": "هذا الحقل مطلوب",
     "email": "ها الحقل يجب ان يكون بيرد إلكتروني",
     "password-confirmation": "كلمات المرور غير متطابقة"
@@ -80,10 +80,14 @@
       },
       "form-fields": {
         "name": "name",
-        "contract-type": "contract type",
+        "address": "address",
+        "property-type": "property type",
+        "region": "region",
+        "furnish": "furnish",
+        "cladding": "cladding",
         "details": "details",
         "city": "city",
-        "feature": "feature",
+        "features": "features",
         "water-front": "water front",
         "images": "images",
         "bedrooms": "bedrooms",
@@ -114,7 +118,9 @@
       "pagination": {
         "next": "next",
         "back": "back"
-      }
+      },
+      "add": "add",
+      "failed-to-add-new-feature": "failed to add new feature please try agin"
     },
     "forbidden": {
       "title": "انت لا تمتلك صلاحية لزيارة هذه الصفحة"

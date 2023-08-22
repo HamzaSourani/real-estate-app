@@ -4,7 +4,21 @@ import { GenericResponse } from "../type";
 export type PropertiesResponse = GenericResponse<{
   properties: Property[];
 }>;
-
+export type RegionsResponse = GenericResponse<{
+  regions: SelectObject[];
+}>;
+export type PropertyTypesResponse = GenericResponse<{
+  types: SelectObject[];
+}>;
+export type FurnishesResponse = GenericResponse<{
+  furnishes: SelectObject[];
+}>;
+export type CladdingsResponse = GenericResponse<{
+  claddings: SelectObject[];
+}>;
+export type FeaturesResponse = GenericResponse<{
+  features: SelectObject[];
+}>;
 export interface Property {
   id: number;
   name: string;
@@ -19,7 +33,12 @@ export interface Property {
   city: SelectObject;
   image: Image;
 }
-
+export interface AddFeatureBody {
+  name: string;
+}
+export type AddFeatureResponse = GenericResponse<{
+  feature: SelectObject;
+}>;
 export interface Image {
   media_url: string;
   hash: string;
@@ -52,6 +71,11 @@ export type GetPropertyParams = Partial<{
 }>;
 export interface AddPropertyBody {
   name: string;
+  address: string;
+  type_id: string;
+  region_id: string;
+  furnish_id: string;
+  cladding_id: string;
   contract_type: number;
   detail: string;
   city_id: string;
@@ -82,9 +106,4 @@ export interface AddPropertyBody {
   east: boolean;
   west: boolean;
   price: number;
-  address: string;
-  type_id: string;
-  region_id: string;
-  furnish_id: string;
-  cladding_id: string;
 }

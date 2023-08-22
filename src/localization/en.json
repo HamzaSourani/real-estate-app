@@ -25,7 +25,7 @@
       "price": "price"
     }
   },
-  "formValidation": {
+  "form-validation": {
     "required": "this field is required",
     "email": "this field should be an email",
     "password-confirmation": "passwords does not match"
@@ -88,10 +88,14 @@
       },
       "form-fields": {
         "name": "name",
-        "contract-type": "contract type",
-        "details": "details",
+        "address": "address",
+        "property-type": "property type",
+        "region": "region",
+        "furnish": "furnish",
+        "cladding": "cladding",
+        "detail": "detail",
         "city": "city",
-        "feature": "feature",
+        "features": "features",
         "water-front": "water front",
         "images": "images",
         "bedrooms": "bedrooms",
@@ -122,7 +126,9 @@
       "pagination": {
         "next": "next",
         "back": "back"
-      }
+      },
+      "add": "add",
+      "failed-to-add-new-feature": "failed to add new feature please try agin"
     },
     "forbidden": {
       "title": "you do not have permission to visit this page"

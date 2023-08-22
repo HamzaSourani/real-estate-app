@@ -10,7 +10,7 @@ const MainLayout = () => {
   return (
     <Box>
       <Navbar />
-      <Box mt={2}>{<Outlet />}</Box>
+      <Box>{<Outlet />}</Box>
     </Box>
   );
 };
