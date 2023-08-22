@@ -16,6 +16,7 @@ const SignUp = lazy(() => import("@/pages/auth/signUp"));
 const Home = lazy(() => import("@/pages/home"));
 const Forbidden = lazy(() => import("@/pages/forbidden"));
 const Profile = lazy(() => import("@/pages/profile"));
+const AddEditProperty = lazy(() => import("@/pages/addEditProperty"));
 const Routes = () => {
   const isAuthorized = useAuthorization();
   const router = createBrowserRouter(
@@ -34,6 +35,10 @@ const Routes = () => {
           <Route
             path={NAVIGATION.MAIN_PAGES.PROFILE}
             element={isAuthorized ? <Profile /> : <Forbidden />}
+          />
+          <Route
+            path="add-property"
+            element={isAuthorized ? <AddEditProperty /> : <Forbidden />}
           />
         </Route>
       </Route>

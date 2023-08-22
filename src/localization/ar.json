@@ -47,6 +47,7 @@
     },
     "profile": {
       "title": "ملف المستخدم",
+      "add-property": "إضافة عقار",
       "do-not-have-favorite-properties": "لا تمتلك عقارات مفضلة إذهب إلى ",
       "do-not-have-properties": " لا تمتلك عقار"
     },
@@ -66,6 +67,53 @@
       "chalets-section": {
         "empty": "there is no chalet properties",
         "error": "failed to load chalet properties"
+      }
+    },
+    "add-property": {
+      "steps": {
+        "info": "info",
+        "rooms-and-floor-details": "rooms and floor details",
+        "areas-in-square-feet": "areas in square feet",
+        "rating-and-date": "rating and date",
+        "location-and-directions": "location and directions",
+        "price": "price"
+      },
+      "form-fields": {
+        "name": "name",
+        "contract-type": "contract type",
+        "details": "details",
+        "city": "city",
+        "feature": "feature",
+        "water-front": "water front",
+        "images": "images",
+        "bedrooms": "bedrooms",
+        "bathrooms": "bathrooms",
+        "kitchens": "kitchens",
+        "floors": "floors",
+        "floor-level": "floor level",
+        "sqft-living": "living",
+        "sqft-living-15": "living 15",
+        "sqft-lot": "lot",
+        "sqft-lot-15": "lot 15",
+        "above": "above",
+        "basement": "basement",
+        "view": "view",
+        "condition": "condition",
+        "grade": "grade",
+        "yr-build": "year of build",
+        "yr-renovated": "year of renovated",
+        "zp-code": "zp code",
+        "lat": "alt",
+        "long": "long",
+        "north": "north",
+        "south": "south",
+        "east": "east",
+        "west": "west",
+        "price": "price"
+      },
+      "pagination": {
+        "next": "next",
+        "back": "back"
       }
     },
     "forbidden": {
