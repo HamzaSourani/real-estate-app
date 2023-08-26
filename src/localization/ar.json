@@ -128,6 +128,7 @@
         "back": "back"
       },
       "add": "add",
+      "upload-image": "upload image",
       "failed-to-add-new-feature": "failed to add new feature please try agin"
     },
     "forbidden": {
