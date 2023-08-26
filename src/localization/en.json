@@ -15,7 +15,14 @@
     "operation-succeeded": " operation succeeded",
     "something-went-wrong": "something went wrong",
     "submit": "submit",
-    "create": "create"
+    "create": "create",
+    "rates": {
+      "very-poor": "very poor",
+      "poor": "poor",
+      "good": "good",
+      "very-good": "very good",
+      "excellent": "excellent"
+    }
   },
   "components": {
     "property-card": {
@@ -115,7 +122,7 @@
         "grade": "grade",
         "yr-build": "year of build",
         "yr-renovated": "year of renovated",
-        "zp-code": "zp code",
+        "zip-code": "zip code",
         "lat": "alt",
         "long": "long",
         "north": "north",

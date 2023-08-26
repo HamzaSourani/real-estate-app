@@ -13,8 +13,10 @@ import {
   useGetFeaturesQuery,
 } from "@/api/property/queries";
 import { AddPropertyValues } from "@/pages/addEditProperty/type";
-import { SelectObject } from "@/type";
-export type FeatureSelectObject = SelectObject & { newFeatureLabel?: string };
+import { AutocompleteObject } from "@/type";
+export type FeatureSelectObject = AutocompleteObject & {
+  newFeatureLabel?: string;
+};
 const filter = createFilterOptions<FeatureSelectObject>();
 const FeaturesAutocomplete = () => {
   const { t } = useTranslation();
@@ -24,7 +26,7 @@ const FeaturesAutocomplete = () => {
     useGetFeaturesQuery();
   const { mutate: addFeature } = useAddFeatureMutation();
 
-  const handleChange = (e: any, features: SelectObject[]) => {
+  const handleChange = (e: any, features: AutocompleteObject[]) => {
     const isNewFeature = features.findIndex((feature) => feature.id === "-1");
     if (isNewFeature !== -1) {
       const newFeature = features[isNewFeature];

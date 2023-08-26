@@ -1,15 +1,15 @@
-import { SelectObject } from "@/type";
+import { AutocompleteObject } from "@/type";
 
 export interface AddPropertyValues {
   name: string;
-  city: SelectObject | null;
-  propertyType: SelectObject | null;
-  region: SelectObject | null;
-  furnish: SelectObject | null;
+  city: AutocompleteObject | null;
+  propertyType: AutocompleteObject | null;
+  region: AutocompleteObject | null;
+  furnish: AutocompleteObject | null;
   address: string;
   detail: string;
-  cladding: SelectObject | null;
-  features: SelectObject[];
+  cladding: AutocompleteObject | null;
+  features: AutocompleteObject[];
   water_front: boolean;
   images: string[];
   bed_rooms: number;
@@ -23,9 +23,9 @@ export interface AddPropertyValues {
   sqft_lot_15: number;
   sqft_above: number;
   sqft_basement: number;
-  view: number;
-  condition: number;
-  grade: number;
+  view: number | null;
+  condition: number | null;
+  grade: number | null;
   yr_built: string;
   yr_renovated: string;
   zip_code: string;

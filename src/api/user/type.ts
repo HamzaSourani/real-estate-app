@@ -1,4 +1,4 @@
-import { SelectObject } from "@/type";
+import { AutocompleteObject } from "@/type";
 import { GenericResponse } from "../type";
 import { PROPERTIES_TABS } from "@/components/pages/profile/userPropertiesTabs/type";
 
@@ -10,7 +10,7 @@ export interface UserProfile {
 export interface User {
   id: number;
   full_name: string;
-  city: SelectObject;
+  city: AutocompleteObject;
   email: string;
   image: Image;
 }

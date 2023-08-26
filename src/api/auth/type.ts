@@ -1,4 +1,4 @@
-import { SelectObject } from "@/type";
+import { AutocompleteObject } from "@/type";
 import { GenericResponse } from "../type";
 
 export type UserInfoResponse = GenericResponse<UserInfo>;
@@ -17,7 +17,7 @@ export interface User {
   full_name: string;
   user_name: string;
   email: string;
-  city: SelectObject;
+  city: AutocompleteObject;
   image: Image;
 }
 

@@ -14,7 +14,14 @@
     "add-property": "إضافة عقار",
     "operation-succeeded": " تمت العملية بنجاح",
     "something-went-wrong": "حدث خطأ ما ",
-    "submit": "ارسال"
+    "submit": "ارسال",
+    "rates": {
+      "very-poor": "very poor",
+      "poor": "poor",
+      "good": "good",
+      "very-good": "very good",
+      "excellent": "excellent"
+    }
   },
   "components": {
     "property-card": {
@@ -107,7 +114,7 @@
         "grade": "grade",
         "yr-build": "year of build",
         "yr-renovated": "year of renovated",
-        "zp-code": "zp code",
+        "zip-code": "zip code",
         "lat": "alt",
         "long": "long",
         "north": "north",

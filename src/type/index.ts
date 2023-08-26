@@ -1,5 +1,9 @@
-export interface SelectObject {
+export interface AutocompleteObject {
   id: string;
+  label: string;
+}
+export interface SelectObject {
+  value: number;
   label: string;
 }
 export enum ContractType {

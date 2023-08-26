@@ -75,7 +75,9 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
     const errors = (await setTouched(
       touchedValues[activeStep]
     )) as FormikErrors<AddPropertyValues>;
-    if (Object.keys(errors).length === 0) setActiveStep((pre) => pre + 1);
+    if (Object.keys(errors).length === 0) {
+    }
+    setActiveStep((pre) => pre + 1);
   };
   const handleBack = () => {
     setActiveStep((pre) => pre - 1);

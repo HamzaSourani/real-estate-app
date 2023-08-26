@@ -1,23 +1,23 @@
-import { ContractType, PropertyType, SelectObject } from "@/type";
+import { ContractType, PropertyType, AutocompleteObject } from "@/type";
 import { GenericResponse } from "../type";
 
 export type PropertiesResponse = GenericResponse<{
   properties: Property[];
 }>;
 export type RegionsResponse = GenericResponse<{
-  regions: SelectObject[];
+  regions: AutocompleteObject[];
 }>;
 export type PropertyTypesResponse = GenericResponse<{
-  types: SelectObject[];
+  types: AutocompleteObject[];
 }>;
 export type FurnishesResponse = GenericResponse<{
-  furnishes: SelectObject[];
+  furnishes: AutocompleteObject[];
 }>;
 export type CladdingsResponse = GenericResponse<{
-  claddings: SelectObject[];
+  claddings: AutocompleteObject[];
 }>;
 export type FeaturesResponse = GenericResponse<{
-  features: SelectObject[];
+  features: AutocompleteObject[];
 }>;
 export interface Property {
   id: number;
@@ -30,14 +30,14 @@ export interface Property {
   is_favorite: boolean;
   favorite_count: number;
   views_count: number;
-  city: SelectObject;
+  city: AutocompleteObject;
   image: Image;
 }
 export interface AddFeatureBody {
   name: string;
 }
 export type AddFeatureResponse = GenericResponse<{
-  feature: SelectObject;
+  feature: AutocompleteObject;
 }>;
 export interface Image {
   media_url: string;
