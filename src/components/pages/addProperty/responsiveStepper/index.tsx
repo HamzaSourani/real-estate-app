@@ -76,8 +76,8 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
       touchedValues[activeStep]
     )) as FormikErrors<AddPropertyValues>;
     if (Object.keys(errors).length === 0) {
+      setActiveStep((pre) => pre + 1);
     }
-    setActiveStep((pre) => pre + 1);
   };
   const handleBack = () => {
     setActiveStep((pre) => pre - 1);
@@ -89,7 +89,7 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
       onClick={handleBack}
       disabled={activeStep === Steps.INFO}
     >
-      {t("pages.add-property.pagination.back")}
+      {t("pages.add-edit-property.pagination.back")}
     </Button>
   );
   const NextButton =
@@ -100,7 +100,7 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
       />
     ) : (
       <Button variant="contained" onClick={handleNext}>
-        {t("pages.add-property.pagination.next")}
+        {t("pages.add-edit-property.pagination.next")}
       </Button>
     );
   if (xs) {

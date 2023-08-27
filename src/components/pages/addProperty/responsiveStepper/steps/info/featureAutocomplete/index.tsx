@@ -38,7 +38,7 @@ const FeaturesAutocomplete = () => {
             setFieldValue("features", [...features, data.data.feature]);
           },
           onError() {
-            showError(t("pages.add-property.failed-to-add-new-feature"));
+            showError(t("pages.add-edit-property.failed-to-add-new-feature"));
             features.splice(isNewFeature, 1);
             setFieldValue("features", features);
           },
@@ -53,7 +53,7 @@ const FeaturesAutocomplete = () => {
   ) => (
     <li {...props}>
       {option?.newFeatureLabel
-        ? `${t("pages.add-property.add")} ${option.newFeatureLabel}`
+        ? `${t("pages.add-edit-property.add")} ${option.newFeatureLabel}`
         : option.label}
     </li>
   );
@@ -91,7 +91,7 @@ const FeaturesAutocomplete = () => {
         <TextField
           {...params}
           name="features"
-          label={t("pages.add-property.form-fields.features")}
+          label={t("pages.add-edit-property.form-fields.features")}
           fullWidth
           onBlur={() => setFieldTouched("features", true)}
           error={!!(touched.features && errors.features)}

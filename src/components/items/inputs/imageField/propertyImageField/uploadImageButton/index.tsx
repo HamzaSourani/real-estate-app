@@ -42,7 +42,7 @@ const UploadImageButton = ({ push, setImages }: Props) => {
       <label htmlFor="upload-image">
         <LoadingButton
           component={"span"}
-          buttonText={t("pages.add-property.upload-image")}
+          buttonText={t("pages.add-edit-property.upload-image")}
           isSubmitting={isLoading}
         />
       </label>

@@ -8,9 +8,15 @@ import {
   getCladdings,
   getFeatures,
   addFeature,
+  predictPriceOfProperty,
+  addProperty,
 } from ".";
 import { PropertyType } from "@/type";
-import { AddFeatureBody } from "./type";
+import {
+  AddFeatureBody,
+  AddPropertyBody,
+  PredictPriceOfPropertyBody,
+} from "./type";
 
 const useGetSpecialPropertiesQuery = () =>
   useQuery({
@@ -63,6 +69,17 @@ const useAddFeatureMutation = () =>
     mutationKey: ["add-feature"],
     mutationFn: (body: AddFeatureBody) => addFeature(body),
   });
+const usePredictPriceOfPropertyMutation = () =>
+  useMutation({
+    mutationKey: ["predict-price-of-property"],
+    mutationFn: (body: PredictPriceOfPropertyBody) =>
+      predictPriceOfProperty(body),
+  });
+const useAddProperty = () =>
+  useMutation({
+    mutationKey: ["add-property"],
+    mutationFn: (body: AddPropertyBody) => addProperty(body),
+  });
 export {
   useGetSpecialPropertiesQuery,
   useGetVillasPropertiesQuery,
@@ -74,4 +91,6 @@ export {
   useGetCladdingsQuery,
   useGetFeaturesQuery,
   useAddFeatureMutation,
+  usePredictPriceOfPropertyMutation,
+  useAddProperty,
 };

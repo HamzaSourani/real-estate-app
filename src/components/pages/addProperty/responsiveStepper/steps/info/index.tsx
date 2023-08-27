@@ -44,7 +44,7 @@ const InfoStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <TextField
           name="name"
-          label={t("pages.add-property.form-fields.name")}
+          label={t("pages.add-edit-property.form-fields.name")}
           fullWidth
           value={values.name}
           onBlur={() => setFieldTouched("name", true)}
@@ -89,7 +89,7 @@ const InfoStep = () => {
             <TextField
               {...params}
               name="region"
-              label={t("pages.add-property.form-fields.region")}
+              label={t("pages.add-edit-property.form-fields.region")}
               fullWidth
               onBlur={() => setFieldTouched("region", true)}
               error={!!(touched.region && errors.region)}
@@ -112,7 +112,7 @@ const InfoStep = () => {
             <TextField
               {...params}
               name="propertyType"
-              label={t("pages.add-property.form-fields.property-type")}
+              label={t("pages.add-edit-property.form-fields.property-type")}
               fullWidth
               onBlur={() => setFieldTouched("propertyType", true)}
               error={!!(touched.propertyType && errors.propertyType)}
@@ -139,7 +139,7 @@ const InfoStep = () => {
             <TextField
               {...params}
               name="cladding"
-              label={t("pages.add-property.form-fields.cladding")}
+              label={t("pages.add-edit-property.form-fields.cladding")}
               fullWidth
               onBlur={() => setFieldTouched("cladding", true)}
               error={!!(touched.cladding && errors.cladding)}
@@ -164,7 +164,7 @@ const InfoStep = () => {
             <TextField
               {...params}
               name="furnish"
-              label={t("pages.add-property.form-fields.furnish")}
+              label={t("pages.add-edit-property.form-fields.furnish")}
               fullWidth
               onBlur={() => setFieldTouched("furnish", true)}
               error={!!(touched.furnish && errors.furnish)}
@@ -179,7 +179,7 @@ const InfoStep = () => {
         {" "}
         <TextField
           name="detail"
-          label={t("pages.add-property.form-fields.detail")}
+          label={t("pages.add-edit-property.form-fields.detail")}
           value={values.detail}
           fullWidth
           onBlur={() => setFieldTouched("detail", true)}
@@ -192,7 +192,7 @@ const InfoStep = () => {
         {" "}
         <TextField
           name="address"
-          label={t("pages.add-property.form-fields.address")}
+          label={t("pages.add-edit-property.form-fields.address")}
           value={values.address}
           fullWidth
           onBlur={() => setFieldTouched("address", true)}
@@ -213,7 +213,7 @@ const InfoStep = () => {
               onChange={(e) => setFieldValue("water_front", e.target.checked)}
             />
           }
-          label={t("pages.add-property.form-fields.water-front")}
+          label={t("pages.add-edit-property.form-fields.water-front")}
         />
       </Grid>
     </Grid>

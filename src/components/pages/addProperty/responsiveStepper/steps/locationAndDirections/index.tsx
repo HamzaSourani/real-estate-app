@@ -19,7 +19,7 @@ const LocationAndDirectionsStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <TextField
           name="zip_code"
-          label={t("pages.add-property.form-fields.zip-code")}
+          label={t("pages.add-edit-property.form-fields.zip-code")}
           fullWidth
           value={values.zip_code}
           onBlur={() => setFieldTouched("zip_code", true)}
@@ -33,7 +33,7 @@ const LocationAndDirectionsStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <TextField
           name="lat"
-          label={t("pages.add-property.form-fields.lat")}
+          label={t("pages.add-edit-property.form-fields.lat")}
           fullWidth
           value={values.lat}
           onBlur={() => setFieldTouched("lat", true)}
@@ -45,7 +45,7 @@ const LocationAndDirectionsStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <TextField
           name="long"
-          label={t("pages.add-property.form-fields.long")}
+          label={t("pages.add-edit-property.form-fields.long")}
           fullWidth
           value={values.long}
           onBlur={() => setFieldTouched("long", true)}
@@ -62,7 +62,7 @@ const LocationAndDirectionsStep = () => {
               onChange={(e) => setFieldValue("north", e.target.checked)}
             />
           }
-          label={t("pages.add-property.form-fields.north")}
+          label={t("pages.add-edit-property.form-fields.north")}
         />
       </Grid>{" "}
       <Grid item xs={12}>
@@ -73,7 +73,7 @@ const LocationAndDirectionsStep = () => {
               onChange={(e) => setFieldValue("south", e.target.checked)}
             />
           }
-          label={t("pages.add-property.form-fields.south")}
+          label={t("pages.add-edit-property.form-fields.south")}
         />
       </Grid>{" "}
       <Grid item xs={12}>
@@ -84,7 +84,7 @@ const LocationAndDirectionsStep = () => {
               onChange={(e) => setFieldValue("east", e.target.checked)}
             />
           }
-          label={t("pages.add-property.form-fields.east")}
+          label={t("pages.add-edit-property.form-fields.east")}
         />
       </Grid>{" "}
       <Grid item xs={12}>
@@ -95,7 +95,7 @@ const LocationAndDirectionsStep = () => {
               onChange={(e) => setFieldValue("west", e.target.checked)}
             />
           }
-          label={t("pages.add-property.form-fields.west")}
+          label={t("pages.add-edit-property.form-fields.west")}
         />
       </Grid>
     </Grid>

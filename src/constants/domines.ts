@@ -1,2 +1,3 @@
 const BASE_URL = "https://aqar-api.mohamad-rasoul.website";
-export default BASE_URL;
+const PREDICT_URL = "https://house-prediction-ai.onrender.com";
+export { BASE_URL, PREDICT_URL };

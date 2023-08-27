@@ -76,7 +76,6 @@ export interface AddPropertyBody {
   region_id: string;
   furnish_id: string;
   cladding_id: string;
-  contract_type: number;
   detail: string;
   city_id: string;
   feature_ids: string[];
@@ -106,4 +105,26 @@ export interface AddPropertyBody {
   east: boolean;
   west: boolean;
   price: number;
+}
+export interface PredictPriceOfPropertyBody {
+  bedrooms: number;
+  bathrooms: number;
+  sqft_living: number;
+  sqft_lot: number;
+  floors: number;
+  waterfront: number;
+  view: number;
+  condtion: number;
+  grade: number;
+  sqft_above: number;
+  sqft_basement: number;
+  yr_built: string;
+  yr_renovated: string;
+  zipcode: string;
+  lat: string;
+  sqft_living15: number;
+  sqft_lot15: number;
+}
+export interface PredictPriceOfPropertyResponse {
+  prediction: string;
 }

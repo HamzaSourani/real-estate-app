@@ -1,4 +1,6 @@
+import axios from "axios";
 import API_ROUTE from "@/constants/apiRoute";
+import { PREDICT_URL } from "@/constants/domines";
 import publicAxiosInstance from "../publicAxiosInstance";
 import {
   AddFeatureBody,
@@ -11,7 +13,11 @@ import {
   PropertiesResponse,
   PropertyTypesResponse,
   RegionsResponse,
+  PredictPriceOfPropertyBody,
+  PredictPriceOfPropertyResponse,
+  AddPropertyBody,
 } from "./type";
+import protectedAxiosInstance from "../protectedAxiosInstance";
 
 const getSpecialProperties = async () => {
   const { data } = await publicAxiosInstance.get<PropertiesResponse>(
@@ -70,6 +76,28 @@ const addFeature = async (body: AddFeatureBody) => {
   );
   return data;
 };
+const predictPriceOfProperty = async (body: PredictPriceOfPropertyBody) => {
+  const token = localStorage.getItem("token");
+
+  const { data } = await axios.post<PredictPriceOfPropertyResponse>(
+    `${PREDICT_URL}${API_ROUTE.PROPERTY.PREDICT}`,
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token ?? "")}`,
+        Accept: "application/json",
+      },
+    }
+  );
+  return data;
+};
+const addProperty = async (body: AddPropertyBody) => {
+  const { data } = await protectedAxiosInstance.post(
+    API_ROUTE.PROPERTY.ADD,
+    body
+  );
+  return data;
+};
 export {
   getSpecialProperties,
   getProperties,
@@ -79,4 +107,6 @@ export {
   getCladdings,
   getFeatures,
   addFeature,
+  predictPriceOfProperty,
+  addProperty,
 };

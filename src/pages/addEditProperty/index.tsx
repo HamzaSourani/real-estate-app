@@ -1,16 +1,25 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import { AddPropertyValues } from "./type";
 import { string, number, boolean, object, array } from "yup";
 import ResponsiveStepper from "@/components/pages/addProperty/responsiveStepper";
+import LoadingButton from "@/components/other/loadingButton/LoadingButton";
+import { useAddProperty } from "@/api/property/queries";
+import { showError, showSuccess } from "@/libs/reactToastify";
+import { useNavigate } from "react-router-dom";
 
 const AddEditProperty = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const navigate = useNavigate();
   const { t } = useTranslation();
-  const reqNumber = number()
+  const { mutate: addProperty } = useAddProperty();
+  const reqOneNumber = number()
     .required(t("form-validation.required"))
-    .min(0, t("form-validation.min-to-zero"));
+    .min(1, t("form-validation.min-to", { number: 1 }));
+  const reqZeroNumber = number()
+    .required(t("form-validation.required"))
+    .min(0, t("form-validation.min-to", { number: 0 }));
   const reqString = string().required(t("form-validation.required"));
   const reqSelectObject = object()
     .shape({
@@ -20,7 +29,7 @@ const AddEditProperty = () => {
     .required(t("form-validation.required"));
   const validationSchema = [
     object().shape({
-      name: reqString,
+      name: reqString.min(3, t("form-validation.min-to", { number: 3 })),
       city: reqSelectObject,
       region: reqSelectObject,
       propertyType: reqSelectObject,
@@ -34,24 +43,24 @@ const AddEditProperty = () => {
       water_front: boolean(),
     }),
     object().shape({
-      bed_rooms: reqNumber,
-      bath_rooms: reqNumber,
-      kitchens: reqNumber,
-      floors: reqNumber,
-      floor_level: reqNumber,
+      bed_rooms: reqOneNumber,
+      bath_rooms: reqOneNumber,
+      kitchens: reqOneNumber,
+      floors: reqOneNumber,
+      floor_level: reqOneNumber,
     }),
     object().shape({
-      sqft_living: reqNumber,
-      sqft_living_15: reqNumber,
-      sqft_lot: reqNumber,
-      sqft_lot_15: reqNumber,
-      sqft_above: reqNumber,
-      sqft_basement: reqNumber,
+      sqft_living: reqZeroNumber,
+      sqft_living_15: reqZeroNumber,
+      sqft_lot: reqZeroNumber,
+      sqft_lot_15: reqZeroNumber,
+      sqft_above: reqZeroNumber,
+      sqft_basement: reqZeroNumber,
     }),
     object().shape({
-      view: reqNumber,
-      condition: reqNumber,
-      grade: reqNumber,
+      view: reqZeroNumber,
+      condition: reqZeroNumber,
+      grade: reqZeroNumber,
       yr_built: reqString,
       yr_renovated: reqString,
     }),
@@ -66,14 +75,9 @@ const AddEditProperty = () => {
     }),
     object().shape({
       images: array()
-        .of(
-          object().shape({
-            id: reqString,
-            label: reqString,
-          })
-        )
+        .of(reqString)
         .test("length", (images) => images?.length! > 0),
-      price: reqNumber,
+      price: reqZeroNumber,
     }),
   ];
   const addPropertyValues: AddPropertyValues = {
@@ -114,20 +118,115 @@ const AddEditProperty = () => {
     price: 0,
   };
 
+  const handleAddProperty = (
+    values: AddPropertyValues,
+    helpers: FormikHelpers<AddPropertyValues>
+  ) => {
+    const {
+      name,
+      city,
+      propertyType,
+      region,
+      furnish,
+      address,
+      detail,
+      cladding,
+      features,
+      water_front,
+      images,
+      bed_rooms,
+      bath_rooms,
+      kitchens,
+      floors,
+      floor_level,
+      sqft_living,
+      sqft_living_15,
+      sqft_lot,
+      sqft_lot_15,
+      sqft_above,
+      sqft_basement,
+      view,
+      condition,
+      grade,
+      yr_built,
+      yr_renovated,
+      zip_code,
+      lat,
+      long,
+      north,
+      south,
+      east,
+      west,
+      price,
+    } = values;
+    addProperty(
+      {
+        name,
+        city_id: city?.id!,
+        type_id: propertyType?.id!,
+        region_id: region?.id!,
+        furnish_id: furnish?.id!,
+        address,
+        detail,
+        cladding_id: cladding?.id!,
+        feature_ids: features.map((feature) => feature.id),
+        water_front,
+        images,
+        bed_rooms,
+        bath_rooms,
+        kitchens,
+        floors,
+        floor_level,
+        sqft_living,
+        sqft_living_15,
+        sqft_lot,
+        sqft_lot_15,
+        sqft_above,
+        sqft_basement,
+        view: view!,
+        condition: condition!,
+        grade: grade!,
+        yr_built,
+        yr_renovated,
+        zip_code,
+        lat,
+        long,
+        north,
+        south,
+        east,
+        west,
+        price,
+      },
+      {
+        onSuccess() {
+          showSuccess(t("pages.add-edit-property.add-successfully"));
+          navigate(-1);
+        },
+        onError() {
+          showError(t("pages.add-edit-property.failed"));
+          helpers.setSubmitting(false);
+        },
+      }
+    );
+  };
   return (
     <Formik
       initialValues={addPropertyValues}
       validationSchema={validationSchema[activeStep]}
-      onSubmit={(values, formikHelper) => {
-        console.log(values);
-      }}
+      onSubmit={handleAddProperty}
     >
-      <Form>
-        <ResponsiveStepper
-          activeStep={activeStep}
-          setActiveStep={setActiveStep}
-        />
-      </Form>
+      {({ errors }) => {
+        console.log(errors);
+
+        return (
+          <Form>
+            <ResponsiveStepper
+              activeStep={activeStep}
+              setActiveStep={setActiveStep}
+            />
+          </Form>
+        );
+      }}
     </Formik>
   );
 };

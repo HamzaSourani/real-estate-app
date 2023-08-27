@@ -35,7 +35,7 @@
     "required": "هذا الحقل مطلوب",
     "email": "ها الحقل يجب ان يكون بيرد إلكتروني",
     "password-confirmation": "كلمات المرور غير متطابقة",
-    "min-to-zero": "this field must be equal or grater than zero"
+    "min-to": "this field must be equal or grater than {{number}}"
   },
   "pages": {
     "auth": {
@@ -77,7 +77,7 @@
         "error": "failed to load chalet properties"
       }
     },
-    "add-property": {
+    "add-edit-property": {
       "steps": {
         "info": "info",
         "rooms-and-floor-details": "rooms and floor details",
@@ -127,9 +127,15 @@
         "next": "next",
         "back": "back"
       },
+      "predict": {
+        "title": "the prediction of your property's price is",
+        "failed": "failed to predict please try again"
+      },
       "add": "add",
       "upload-image": "upload image",
-      "failed-to-add-new-feature": "failed to add new feature please try agin"
+      "failed-to-add-new-feature": "failed to add new feature please try agin",
+      "add-successfully": "your property has been added successfully",
+      "add-failed": "failed to add property please try again"
     },
     "forbidden": {
       "title": "انت لا تمتلك صلاحية لزيارة هذه الصفحة"

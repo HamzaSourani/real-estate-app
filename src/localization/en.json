@@ -36,7 +36,7 @@
     "required": "this field is required",
     "email": "this field should be an email",
     "password-confirmation": "passwords does not match",
-    "min-to-zero": "this field must be equal or grater than zero"
+    "min-to": "this field must be equal or grater than {{number}}"
   },
 
   "pages": {
@@ -85,7 +85,7 @@
       "do-not-have-favorite-properties": " do not have favorite properties go to ",
       "do-not-have-properties": " do not have properties "
     },
-    "add-property": {
+    "add-edit-property": {
       "steps": {
         "info": "info",
         "rooms-and-floor-details": "rooms and floor details",
@@ -135,9 +135,15 @@
         "next": "next",
         "back": "back"
       },
+      "predict": {
+        "title": "the prediction of your property's price is",
+        "failed": "failed to predict please try again"
+      },
       "add": "add",
       "upload-image": "upload image",
-      "failed-to-add-new-feature": "failed to add new feature please try agin"
+      "failed-to-add-new-feature": "failed to add new feature please try agin",
+      "add-successfully": "your property has been added successfully",
+      "add-failed": "failed to add property please try again"
     },
     "forbidden": {
       "title": "you do not have permission to visit this page"

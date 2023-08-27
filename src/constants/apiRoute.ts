@@ -18,6 +18,8 @@ const PROPERTY = {
   GET_CLADDINGS: "/api/cladding/index",
   GET_FEATURES: "/api/feature/index",
   ADD_FEATURE: "/api/feature/store",
+  PREDICT: "/predict",
+  ADD: "/api/property/store",
 };
 const IMAGE = {
   UPLOAD: "/api/image/store",

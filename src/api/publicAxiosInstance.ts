@@ -1,4 +1,4 @@
-import BASE_URL from "@/constants/domines";
+import { BASE_URL } from "@/constants/domines";
 import axios from "axios";
 
 const publicAxiosInstance = axios.create({ baseURL: BASE_URL });
