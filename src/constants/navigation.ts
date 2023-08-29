@@ -5,7 +5,7 @@ const AUTH = {
 };
 const MAIN_PAGES = {
   HOME: "",
-  VILLAS: "villas",
+  VILLAS: "properties/villa",
   CHALETS: "chalets",
   HOUSES: "houses",
   PROFILE: "profile",

@@ -1,5 +1,7 @@
-import { ContractType, PropertyType, AutocompleteObject } from "@/type";
+import { ContractType, AutocompleteObject } from "@/type";
 import { GenericResponse } from "../type";
+import { PROPERTY_TYPE } from "@/constants/property";
+import { Sort } from "@/pages/properties/type";
 
 export type PropertiesResponse = GenericResponse<{
   properties: Property[];
@@ -43,30 +45,52 @@ export interface Image {
   media_url: string;
   hash: string;
 }
-
+export type PropertyFilters = Partial<{
+  page: number;
+  perPage: number;
+  name: string;
+  address: string;
+  bedrooms: number | null;
+  bathrooms: number | null;
+  kitchens: number | null;
+  floors: number | null;
+  floorsLevel: number | null;
+  north: boolean | null;
+  south: boolean | null;
+  east: boolean | null;
+  west: boolean | null;
+  cityId: string | null;
+  regionId: string | null;
+  priceMin: number | null;
+  priceMax: number | null;
+  sqftLivingMin: number | null;
+  sqftLivingMax: number | null;
+  typeId: number | null;
+  sort: Sort;
+}>;
 export type GetPropertyParamsKeys = keyof GetPropertyParams;
+
 export type GetPropertyParams = Partial<{
   page: number;
   perPage: number;
   name: string;
   address: string;
-  bed_rooms: number;
-  bath_rooms: number;
-  kitchens: number;
-  floors: number;
-  floorsLevel: number;
-  north: boolean;
-  south: boolean;
-  east: boolean;
-  west: boolean;
-  city_id: string;
-  region_id: string;
-  type_id: PropertyType;
-  contact_type: ContractType;
-  price_min: number;
-  price_max: number;
-  sqft_living_min: number;
-  sqft_living_max: number;
+  bed_rooms: number | null;
+  bath_rooms: number | null;
+  kitchens: number | null;
+  floors: number | null;
+  floorsLevel: number | null;
+  north: boolean | null;
+  south: boolean | null;
+  east: boolean | null;
+  west: boolean | null;
+  city_id: string | null;
+  region_id: string | null;
+  type_id: number | null;
+  price_min: number | null;
+  price_max: number | null;
+  sqft_living_min: number | null;
+  sqft_living_max: number | null;
   sort: string;
 }>;
 export interface AddPropertyBody {

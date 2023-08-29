@@ -16,6 +16,7 @@ import {
   PredictPriceOfPropertyBody,
   PredictPriceOfPropertyResponse,
   AddPropertyBody,
+  PropertyFilters,
 } from "./type";
 import protectedAxiosInstance from "../protectedAxiosInstance";
 
@@ -25,16 +26,64 @@ const getSpecialProperties = async () => {
   );
   return data;
 };
-const getProperties = async (params: GetPropertyParams) => {
-  const filterParams = Object.keys(params).reduce((acc: any, key: string) => {
-    const transformedKey = `filter[${key}]`;
-    acc[transformedKey] = params[key as GetPropertyParamsKeys];
-    return acc;
-  }, {});
+const getProperties = async (params: PropertyFilters) => {
+  const {
+    page,
+    perPage,
+    name,
+    address,
+    bedrooms,
+    bathrooms,
+    kitchens,
+    floors,
+    floorsLevel,
+    north,
+    south,
+    east,
+    west,
+    cityId,
+    regionId,
+    typeId,
+    priceMin,
+    priceMax,
+    sqftLivingMin,
+    sqftLivingMax,
+    sort,
+  } = params;
+  const getPropertyParams: GetPropertyParams = {
+    page,
+    perPage,
+    name,
+    address,
+    bed_rooms: bedrooms,
+    bath_rooms: bathrooms,
+    kitchens,
+    floors,
+    floorsLevel,
+    north,
+    south,
+    east,
+    west,
+    city_id: cityId,
+    region_id: regionId,
+    type_id: typeId,
+    price_min: priceMin,
+    price_max: priceMax,
+    sqft_living_min: sqftLivingMin,
+    sqft_living_max: sqftLivingMax,
+  };
+  const filterParams = Object.keys(getPropertyParams).reduce(
+    (acc: any, key: string) => {
+      const transformedKey = `filter[${key}]`;
+      acc[transformedKey] = getPropertyParams[key as GetPropertyParamsKeys];
+      return acc;
+    },
+    {}
+  );
   const { data } = await publicAxiosInstance.get<PropertiesResponse>(
     API_ROUTE.PROPERTY.GET_PROPERTIES,
     {
-      params: filterParams,
+      params: { ...filterParams, sort },
     }
   );
   return data;

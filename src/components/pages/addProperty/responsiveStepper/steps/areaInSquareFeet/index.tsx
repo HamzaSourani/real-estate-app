@@ -14,7 +14,7 @@ const AreaInSquareFeetStep = () => {
         <TextField
           name="sqft_living"
           type="number"
-          label={t("pages.add-edit-property.form-fields.sqft-living")}
+          label={t("pages.property.sqft-living")}
           fullWidth
           value={values.sqft_living}
           onBlur={() => setFieldTouched("sqft_living", true)}
@@ -29,7 +29,7 @@ const AreaInSquareFeetStep = () => {
         <TextField
           name="sqft_living_15"
           type="number"
-          label={t("pages.add-edit-property.form-fields.sqft-living-15")}
+          label={t("pages.property.sqft-living-15")}
           fullWidth
           value={values.sqft_living_15}
           onBlur={() => setFieldTouched("sqft_living_15", true)}
@@ -45,7 +45,7 @@ const AreaInSquareFeetStep = () => {
         <TextField
           name="sqft_lot"
           type="number"
-          label={t("pages.add-edit-property.form-fields.sqft-lot")}
+          label={t("pages.property.sqft-lot")}
           fullWidth
           value={values.sqft_lot}
           onBlur={() => setFieldTouched("sqft_lot", true)}
@@ -60,7 +60,7 @@ const AreaInSquareFeetStep = () => {
         <TextField
           name="kitcsqft_lot_15hens"
           type="number"
-          label={t("pages.add-edit-property.form-fields.sqft-lot-15")}
+          label={t("pages.property.sqft-lot-15")}
           fullWidth
           value={values.sqft_lot_15}
           onBlur={() => setFieldTouched("sqft_lot_15", true)}
@@ -75,7 +75,7 @@ const AreaInSquareFeetStep = () => {
         <TextField
           name="sqft_above"
           type="number"
-          label={t("pages.add-edit-property.form-fields.above")}
+          label={t("pages.property.above")}
           fullWidth
           value={values.sqft_above}
           onBlur={() => setFieldTouched("sqft_above", true)}
@@ -90,7 +90,7 @@ const AreaInSquareFeetStep = () => {
         <TextField
           name="sqft_basement"
           type="number"
-          label={t("pages.add-edit-property.form-fields.basement")}
+          label={t("pages.property.basement")}
           fullWidth
           value={values.sqft_basement}
           onBlur={() => setFieldTouched("sqft_basement", true)}

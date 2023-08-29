@@ -13,7 +13,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="bed_rooms"
           type="number"
-          label={t("pages.add-edit-property.form-fields.bedrooms")}
+          label={t("pages.property.bedrooms")}
           fullWidth
           value={values.bed_rooms}
           onBlur={() => setFieldTouched("bed_rooms", true)}
@@ -28,7 +28,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="bath_rooms"
           type="number"
-          label={t("pages.add-edit-property.form-fields.bathrooms")}
+          label={t("pages.property.bathrooms")}
           fullWidth
           value={values.bath_rooms}
           onBlur={() => setFieldTouched("bath_rooms", true)}
@@ -43,7 +43,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="kitchens"
           type="number"
-          label={t("pages.add-edit-property.form-fields.kitchens")}
+          label={t("pages.property.kitchens")}
           fullWidth
           value={values.kitchens}
           onBlur={() => setFieldTouched("kitchens", true)}
@@ -58,7 +58,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="floors"
           type="number"
-          label={t("pages.add-edit-property.form-fields.floors")}
+          label={t("pages.property.floors")}
           fullWidth
           value={values.floors}
           onBlur={() => setFieldTouched("floors", true)}
@@ -71,7 +71,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="floor_level"
           type="number"
-          label={t("pages.add-edit-property.form-fields.floor-level")}
+          label={t("pages.property.floor-level")}
           fullWidth
           value={values.floor_level}
           onBlur={() => setFieldTouched("floor_level", true)}

@@ -15,7 +15,7 @@ import {
   alpha,
 } from "@mui/material";
 import LoadingButton from "@/components/other/loadingButton/LoadingButton";
-import { STEPS } from "@/constants/addProperty";
+import { STEPS } from "@/constants/property";
 import { AddPropertyValues } from "@/pages/addEditProperty/type";
 import { Props, Steps } from "./type";
 import AddPropertyStepperContent from "./content";

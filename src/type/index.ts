@@ -1,3 +1,5 @@
+import { PROPERTY_TYPE } from "@/constants/property";
+
 export interface AutocompleteObject {
   id: string;
   label: string;
@@ -10,8 +12,5 @@ export enum ContractType {
   SELL = 1,
   RENT = 2,
 }
-export enum PropertyType {
-  HOUSE = 1,
-  VILLA = 2,
-  CHALET = 3,
-}
+
+export type PropertyTypeKeys = keyof typeof PROPERTY_TYPE;

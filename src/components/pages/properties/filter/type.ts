@@ -1,0 +1,43 @@
+import { Sort } from "@/pages/properties/type";
+import { Dispatch, SetStateAction } from "react";
+
+export interface Props {
+  page: number;
+  name: string;
+  address: string;
+  bedrooms: number | null;
+  bathrooms: number | null;
+  kitchens: number | null;
+  floors: number | null;
+  floorsLevel: number | null;
+  north: boolean | null;
+  south: boolean | null;
+  east: boolean | null;
+  west: boolean | null;
+  cityId: string | null;
+  regionId: string | null;
+  priceMin: number | null;
+  priceMax: number | null;
+  sqftLivingMin: number | null;
+  sqftLivingMax: number | null;
+  setPage: Dispatch<SetStateAction<number>>;
+  setName: Dispatch<SetStateAction<string>>;
+  setAddress: Dispatch<SetStateAction<string>>;
+  setBedrooms: Dispatch<SetStateAction<number | null>>;
+  setBathrooms: Dispatch<SetStateAction<number | null>>;
+  setKitchens: Dispatch<SetStateAction<number | null>>;
+  setFloors: Dispatch<SetStateAction<number | null>>;
+  setFloorsLevel: Dispatch<SetStateAction<number | null>>;
+  setNorth: Dispatch<SetStateAction<boolean | null>>;
+  setSouth: Dispatch<SetStateAction<boolean | null>>;
+  setEast: Dispatch<SetStateAction<boolean | null>>;
+  setWest: Dispatch<SetStateAction<boolean | null>>;
+  setCityId: Dispatch<SetStateAction<string | null>>;
+  setRegionId: Dispatch<SetStateAction<string | null>>;
+  setPriceMin: Dispatch<SetStateAction<number | null>>;
+  setPriceMax: Dispatch<SetStateAction<number | null>>;
+  setSqftLivingMin: Dispatch<SetStateAction<number | null>>;
+  setSqftLivingMax: Dispatch<SetStateAction<number | null>>;
+  setSort: Dispatch<SetStateAction<Sort>>;
+  handleFilter: () => void;
+}

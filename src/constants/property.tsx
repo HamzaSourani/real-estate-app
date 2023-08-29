@@ -21,4 +21,9 @@ const STEPS = [
   },
   { label: "pages.add-edit-property.steps.price", icon: PriceIcon },
 ];
-export { STEPS };
+const PROPERTY_TYPE = {
+  house: 1,
+  villa: 2,
+  chalet: 3,
+} as const;
+export { STEPS, PROPERTY_TYPE };

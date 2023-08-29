@@ -17,6 +17,7 @@ const Home = lazy(() => import("@/pages/home"));
 const Forbidden = lazy(() => import("@/pages/forbidden"));
 const Profile = lazy(() => import("@/pages/profile"));
 const AddEditProperty = lazy(() => import("@/pages/addEditProperty"));
+const Properties = lazy(() => import("@/pages/properties"));
 const Routes = () => {
   const isAuthorized = useAuthorization();
   const router = createBrowserRouter(
@@ -30,8 +31,7 @@ const Routes = () => {
         <Route path="/" element={<MainLayout />}>
           {" "}
           <Route index element={<Home />} />
-          <Route path="villas" element={<div>test</div>} />
-          <Route path="test2" element={<div>test2</div>} />
+          <Route path="properties/:propertyType" element={<Properties />} />
           <Route
             path={NAVIGATION.MAIN_PAGES.PROFILE}
             element={isAuthorized ? <Profile /> : <Forbidden />}

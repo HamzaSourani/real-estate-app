@@ -11,13 +11,19 @@ import {
   predictPriceOfProperty,
   addProperty,
 } from ".";
-import { PropertyType } from "@/type";
+import { PROPERTY_TYPE } from "@/constants/property";
 import {
   AddFeatureBody,
   AddPropertyBody,
+  GetPropertyParams,
   PredictPriceOfPropertyBody,
+  PropertyFilters,
 } from "./type";
-
+const useGetPropertiesQuery = (params: PropertyFilters) =>
+  useQuery({
+    queryKey: ["get-properties", params.typeId],
+    queryFn: () => getProperties(params),
+  });
 const useGetSpecialPropertiesQuery = () =>
   useQuery({
     queryKey: ["get-special-properties"],
@@ -26,17 +32,17 @@ const useGetSpecialPropertiesQuery = () =>
 const useGetVillasPropertiesQuery = () =>
   useQuery({
     queryKey: ["get-villas-properties"],
-    queryFn: () => getProperties({ type_id: PropertyType.VILLA }),
+    queryFn: () => getProperties({ typeId: PROPERTY_TYPE.villa }),
   });
 const useGetChaletsPropertiesQuery = () =>
   useQuery({
     queryKey: ["get-chalets-properties"],
-    queryFn: () => getProperties({ type_id: PropertyType.CHALET }),
+    queryFn: () => getProperties({ typeId: PROPERTY_TYPE.chalet }),
   });
 const useGetHousesPropertiesQuery = () =>
   useQuery({
     queryKey: ["get-houses-properties"],
-    queryFn: () => getProperties({ type_id: PropertyType.HOUSE }),
+    queryFn: () => getProperties({ typeId: PROPERTY_TYPE.house }),
   });
 const useGetRegionsQuery = () =>
   useQuery({
@@ -81,6 +87,7 @@ const useAddProperty = () =>
     mutationFn: (body: AddPropertyBody) => addProperty(body),
   });
 export {
+  useGetPropertiesQuery,
   useGetSpecialPropertiesQuery,
   useGetVillasPropertiesQuery,
   useGetChaletsPropertiesQuery,

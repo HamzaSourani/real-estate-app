@@ -33,7 +33,7 @@ const RatingAndDateStep = () => {
         <TextField
           name="yr_built"
           type="date"
-          label={t("pages.add-edit-property.form-fields.yr-build")}
+          label={t("pages.property.yr-build")}
           InputLabelProps={{ shrink: true }}
           fullWidth
           value={values.yr_built}
@@ -49,7 +49,7 @@ const RatingAndDateStep = () => {
         <TextField
           name="yr_renovated"
           type="date"
-          label={t("pages.add-edit-property.form-fields.yr-renovated")}
+          label={t("pages.property.yr-renovated")}
           InputLabelProps={{ shrink: true }}
           fullWidth
           value={values.yr_renovated}
@@ -65,21 +65,21 @@ const RatingAndDateStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <SelectFiled<keyof AddPropertyValues>
           name={"grade"}
-          label="pages.add-edit-property.form-fields.grade"
+          label="pages.property.grade"
           options={GRADE_OPTIONS}
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
         <SelectFiled<keyof AddPropertyValues>
           name={"view"}
-          label="pages.add-edit-property.form-fields.view"
+          label="pages.property.view"
           options={VIEW_OPTIONS}
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
         <SelectFiled<keyof AddPropertyValues>
           name={"condition"}
-          label="pages.add-edit-property.form-fields.condition"
+          label="pages.property.condition"
           options={CONDITION_OPTIONS}
         />
       </Grid>
