@@ -7,10 +7,10 @@ import {
   FormControlLabel,
   Switch,
   Autocomplete,
-  Slide,
   Stack,
   Typography,
   Slider,
+  Button,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { useGetRegionsQuery } from "@/api/property/queries";
@@ -18,9 +18,9 @@ import { useGetAllCitiesQuery } from "@/api/city/queries";
 import useAnchorEle from "@/hooks/useAnchorEle";
 import { Props } from "./type";
 import Sort from "./sort";
+import { showError } from "@/libs/reactToastify";
 
 const Filter = ({
-  page,
   name,
   address,
   bedrooms,
@@ -32,13 +32,12 @@ const Filter = ({
   south,
   east,
   west,
-  cityId,
-  regionId,
+  city,
+  region,
   priceMin,
   priceMax,
   sqftLivingMin,
   sqftLivingMax,
-  setPage,
   setName,
   setAddress,
   setBedrooms,
@@ -50,13 +49,14 @@ const Filter = ({
   setSouth,
   setEast,
   setWest,
-  setCityId,
-  setRegionId,
+  setCity,
+  setRegion,
   setPriceMin,
   setPriceMax,
   setSqftLivingMin,
   setSqftLivingMax,
   setSort,
+  refetch,
 }: Props) => {
   const [open, anchorEl, handleClick, handleClose] = useAnchorEle();
   const { t } = useTranslation();
@@ -96,6 +96,25 @@ const Filter = ({
       setSqftLivingMin(newValue[0]);
     }
   };
+  const handleReset = () => {
+    setName("");
+    setAddress("");
+    setBedrooms(null);
+    setBathrooms(null);
+    setKitchens(null);
+    setFloors(null);
+    setFloorsLevel(null);
+    setNorth(null);
+    setSouth(null);
+    setEast(null);
+    setWest(null);
+    setCity(null);
+    setRegion(null);
+    setPriceMin(null);
+    setPriceMax(null);
+    setSqftLivingMin(null);
+    setSqftLivingMax(null);
+  };
   return (
     <>
       <IconButton onClick={handleClick}>
@@ -105,7 +124,10 @@ const Filter = ({
         <Menu
           anchorEl={anchorEl}
           open={open}
-          onClose={handleClose}
+          onClose={() => {
+            handleReset();
+            handleClose();
+          }}
           elevation={1}
           sx={{ width: "100vw" }}
           transformOrigin={{ horizontal: "right", vertical: "top" }}
@@ -117,7 +139,7 @@ const Filter = ({
             </Grid>
             <Grid item xs={7.5} sm={5} md={3.75} lg={3}>
               <TextField
-                label={t("pages.property.name")}
+                label={t("common.property.name")}
                 value={name}
                 fullWidth
                 onChange={(e) => setName(e.target.value)}
@@ -125,7 +147,7 @@ const Filter = ({
             </Grid>
             <Grid item xs={7.5} sm={5} md={3.75} lg={3}>
               <TextField
-                label={t("pages.property.bedrooms")}
+                label={t("common.property.bedrooms")}
                 type="number"
                 fullWidth
                 value={bedrooms}
@@ -134,7 +156,7 @@ const Filter = ({
             </Grid>
             <Grid item xs={7.5} sm={5} md={3.75} lg={3}>
               <TextField
-                label={t("pages.property.bathrooms")}
+                label={t("common.property.bathrooms")}
                 type="number"
                 fullWidth
                 value={bathrooms}
@@ -143,7 +165,7 @@ const Filter = ({
             </Grid>
             <Grid item xs={7.5} sm={5} md={3.75} lg={3}>
               <TextField
-                label={t("pages.property.kitchens")}
+                label={t("common.property.kitchens")}
                 type="number"
                 fullWidth
                 value={kitchens}
@@ -152,7 +174,7 @@ const Filter = ({
             </Grid>
             <Grid item xs={7.5} sm={5} md={3.75} lg={3}>
               <TextField
-                label={t("pages.property.floors")}
+                label={t("common.property.floors")}
                 type="number"
                 fullWidth
                 value={floors}
@@ -161,7 +183,7 @@ const Filter = ({
             </Grid>
             <Grid item xs={7.5} sm={5} md={3.75} lg={3}>
               <TextField
-                label={t("pages.property.floor-level")}
+                label={t("common.property.floor-level")}
                 type="number"
                 fullWidth
                 value={floorsLevel}
@@ -171,9 +193,9 @@ const Filter = ({
             <Grid item xs={7.5} sm={5} md={3.75} lg={3}>
               <Autocomplete
                 options={cities?.data.cities ?? []}
-                inputValue={cityId ?? ""}
-                onInputChange={(e, value) => {
-                  setCityId(value);
+                value={city}
+                onChange={(e, value) => {
+                  setCity(value);
                 }}
                 fullWidth
                 loading={isCityLoading}
@@ -189,16 +211,16 @@ const Filter = ({
             <Grid item xs={7.5} sm={5} md={3.75} lg={3}>
               <Autocomplete
                 options={regions?.data.regions ?? []}
-                inputValue={regionId ?? ""}
-                onInputChange={(e, value) => {
-                  setRegionId(value);
+                value={region}
+                onChange={(e, value) => {
+                  setRegion(value);
                 }}
                 fullWidth
                 loading={isRegionsLoading}
                 renderInput={(params: any) => (
                   <TextField
                     {...params}
-                    label={t("pages.property.region")}
+                    label={t("common.property.region")}
                     fullWidth
                   />
                 )}
@@ -206,7 +228,7 @@ const Filter = ({
             </Grid>
             <Grid item xs={15} lg={6}>
               <TextField
-                label={t("pages.property.address")}
+                label={t("common.property.address")}
                 fullWidth
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -221,7 +243,7 @@ const Filter = ({
                     onChange={(e) => setNorth(e.target.checked)}
                   />
                 }
-                label={t("pages.property.north")}
+                label={t("common.property.north")}
               />
             </Grid>
             <Grid item xs={7.5} sm={3.75} lg={2}>
@@ -233,7 +255,7 @@ const Filter = ({
                     onChange={(e) => setSouth(e.target.checked)}
                   />
                 }
-                label={t("pages.property.south")}
+                label={t("common.property.south")}
               />
             </Grid>
             <Grid item xs={7.5} sm={3.75} lg={2}>
@@ -245,7 +267,7 @@ const Filter = ({
                     onChange={(e) => setEast(e.target.checked)}
                   />
                 }
-                label={t("pages.property.east")}
+                label={t("common.property.east")}
               />
             </Grid>
             <Grid item xs={7.5} sm={3.75} lg={2}>
@@ -257,13 +279,13 @@ const Filter = ({
                     onChange={(e) => setWest(e.target.checked)}
                   />
                 }
-                label={t("pages.property.west")}
+                label={t("common.property.west")}
               />
             </Grid>
 
             <Grid item xs={15} md={12} lg={9}>
               <Stack direction={"column"} spacing={1}>
-                <Typography>{t("pages.property.price")}</Typography>
+                <Typography>{t("common.property.price")}</Typography>
                 <Slider
                   max={500}
                   valueLabelDisplay="auto"
@@ -275,7 +297,7 @@ const Filter = ({
             </Grid>
             <Grid item xs={15} md={12} lg={9}>
               <Stack direction={"column"} spacing={1}>
-                <Typography>{t("pages.property.sqft-living")}</Typography>
+                <Typography>{t("common.property.sqft-living")}</Typography>
                 <Slider
                   max={500}
                   valueLabelDisplay="auto"
@@ -284,6 +306,22 @@ const Filter = ({
                   disableSwap
                 />
               </Stack>
+            </Grid>
+            <Grid item xs={15}>
+              <Button
+                onClick={async () => {
+                  const { status } = await refetch();
+                  if (status === "success") {
+                    handleReset();
+                    handleClose();
+                  } else if (status === "error") {
+                    showError(t("common.property.filter.error"));
+                  }
+                }}
+                variant="contained"
+              >
+                {t("common.property.filter.title")}
+              </Button>
             </Grid>
           </Grid>
         </Menu>

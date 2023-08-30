@@ -33,7 +33,7 @@ const RatingAndDateStep = () => {
         <TextField
           name="yr_built"
           type="date"
-          label={t("pages.property.yr-build")}
+          label={t("common.property.yr-build")}
           InputLabelProps={{ shrink: true }}
           fullWidth
           value={values.yr_built}
@@ -49,7 +49,7 @@ const RatingAndDateStep = () => {
         <TextField
           name="yr_renovated"
           type="date"
-          label={t("pages.property.yr-renovated")}
+          label={t("common.property.yr-renovated")}
           InputLabelProps={{ shrink: true }}
           fullWidth
           value={values.yr_renovated}
@@ -65,21 +65,21 @@ const RatingAndDateStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <SelectFiled<keyof AddPropertyValues>
           name={"grade"}
-          label="pages.property.grade"
+          label="common.property.grade"
           options={GRADE_OPTIONS}
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
         <SelectFiled<keyof AddPropertyValues>
           name={"view"}
-          label="pages.property.view"
+          label="common.property.view"
           options={VIEW_OPTIONS}
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
         <SelectFiled<keyof AddPropertyValues>
           name={"condition"}
-          label="pages.property.condition"
+          label="common.property.condition"
           options={CONDITION_OPTIONS}
         />
       </Grid>

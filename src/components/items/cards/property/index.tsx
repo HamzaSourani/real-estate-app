@@ -22,7 +22,7 @@ import { ContractType } from "@/type";
 import ForSellIcon from "../../svg/forSellIcon";
 import ForRentIcon from "../../svg/forRentIcon";
 
-const ProperCard = ({
+const PropertyCard = ({
   name,
   date_of_publish,
   image,
@@ -115,4 +115,4 @@ const ProperCard = ({
   );
 };
 
-export default ProperCard;
+export default PropertyCard;

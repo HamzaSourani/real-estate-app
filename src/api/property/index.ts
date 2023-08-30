@@ -41,8 +41,8 @@ const getProperties = async (params: PropertyFilters) => {
     south,
     east,
     west,
-    cityId,
-    regionId,
+    city,
+    region,
     typeId,
     priceMin,
     priceMax,
@@ -51,8 +51,6 @@ const getProperties = async (params: PropertyFilters) => {
     sort,
   } = params;
   const getPropertyParams: GetPropertyParams = {
-    page,
-    perPage,
     name,
     address,
     bed_rooms: bedrooms,
@@ -64,8 +62,8 @@ const getProperties = async (params: PropertyFilters) => {
     south,
     east,
     west,
-    city_id: cityId,
-    region_id: regionId,
+    city_id: city?.id,
+    region_id: region?.id,
     type_id: typeId,
     price_min: priceMin,
     price_max: priceMax,
@@ -83,7 +81,7 @@ const getProperties = async (params: PropertyFilters) => {
   const { data } = await publicAxiosInstance.get<PropertiesResponse>(
     API_ROUTE.PROPERTY.GET_PROPERTIES,
     {
-      params: { ...filterParams, sort },
+      params: { ...filterParams, sort, page, perPage },
     }
   );
   return data;

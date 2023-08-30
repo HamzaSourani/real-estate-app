@@ -91,7 +91,7 @@ const FeaturesAutocomplete = () => {
         <TextField
           {...params}
           name="features"
-          label={t("pages.property.features")}
+          label={t("common.property.features")}
           fullWidth
           onBlur={() => setFieldTouched("features", true)}
           error={!!(touched.features && errors.features)}

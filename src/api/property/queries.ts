@@ -1,4 +1,5 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useMutation, useQuery } from "@tanstack/react-query";
+import { PROPERTY_TYPE } from "@/constants/property";
 import {
   getProperties,
   getSpecialProperties,
@@ -11,18 +12,34 @@ import {
   predictPriceOfProperty,
   addProperty,
 } from ".";
-import { PROPERTY_TYPE } from "@/constants/property";
 import {
   AddFeatureBody,
   AddPropertyBody,
-  GetPropertyParams,
   PredictPriceOfPropertyBody,
   PropertyFilters,
 } from "./type";
-const useGetPropertiesQuery = (params: PropertyFilters) =>
-  useQuery({
+const useGetPropertiesInfinityQuery = (params: PropertyFilters) =>
+  useInfiniteQuery({
     queryKey: ["get-properties", params.typeId],
-    queryFn: () => getProperties(params),
+    queryFn: async ({ pageParam = 1 }) => {
+      const data = await getProperties({
+        ...params,
+        page: pageParam,
+        perPage: 12,
+      });
+      return { data, pageParam };
+    },
+    getNextPageParam(lastPage, allPages) {
+      if (
+        allPages.reduce(
+          (acc, pre) => acc + pre.data.data.properties.length,
+          0
+        ) < lastPage.data.data.total
+      ) {
+        return lastPage.pageParam + 1;
+      }
+      return undefined;
+    },
   });
 const useGetSpecialPropertiesQuery = () =>
   useQuery({
@@ -87,7 +104,7 @@ const useAddProperty = () =>
     mutationFn: (body: AddPropertyBody) => addProperty(body),
   });
 export {
-  useGetPropertiesQuery,
+  useGetPropertiesInfinityQuery,
   useGetSpecialPropertiesQuery,
   useGetVillasPropertiesQuery,
   useGetChaletsPropertiesQuery,

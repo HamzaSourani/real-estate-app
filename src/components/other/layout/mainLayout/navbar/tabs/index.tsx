@@ -40,11 +40,11 @@ const TABS = [
 export default function NavTabs() {
   const { pathname } = useLocation();
   const { t } = useTranslation();
-
+  console.log(pathname);
   return (
     <Box>
       <Tabs
-        value={TABS.findIndex((tab) => tab.label.endsWith(pathname.slice(1)))}
+        value={TABS.findIndex((tab) => tab.href === pathname.slice(1))}
         sx={{
           "&.Mui-selected": {
             color: "white",

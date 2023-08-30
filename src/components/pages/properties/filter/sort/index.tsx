@@ -20,17 +20,17 @@ const Sort = ({ setSort }: Props) => {
 
   const SORT_ITEMS = [
     {
-      label: "pages.property.price",
+      label: "common.property.price",
       value: "price",
       icon: <ArrowUpwardIcon />,
     },
     {
-      label: "pages.property.price",
+      label: "common.property.price",
       value: "-price",
       icon: <ArrowDownwardIcon />,
     },
     {
-      label: "pages.property.create-at",
+      label: "common.property.create-at",
       value: "createAt",
       icon: null,
     },
@@ -38,7 +38,7 @@ const Sort = ({ setSort }: Props) => {
   return (
     <>
       <Button onClick={handleClick} startIcon={<SortIcon />}>
-        {t("pages.property.sort")}
+        {t("common.property.sort")}
       </Button>
       {open && (
         <Menu

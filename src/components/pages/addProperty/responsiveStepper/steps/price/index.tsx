@@ -107,7 +107,7 @@ const PriceStep = () => {
         <TextField
           name="price"
           type="number"
-          label={t("pages.property.price")}
+          label={t("common.property.price")}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">

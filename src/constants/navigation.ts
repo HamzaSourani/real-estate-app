@@ -6,8 +6,9 @@ const AUTH = {
 const MAIN_PAGES = {
   HOME: "",
   VILLAS: "properties/villa",
-  CHALETS: "chalets",
-  HOUSES: "houses",
+  CHALETS: "properties/chalet",
+  HOUSES: "properties/house",
+  PROPERTIES: "properties",
   PROFILE: "profile",
   ADD_PROPERTY: "add-edit-property",
 };

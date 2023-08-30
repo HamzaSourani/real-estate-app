@@ -19,7 +19,7 @@ const LocationAndDirectionsStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <TextField
           name="zip_code"
-          label={t("pages.property.zip-code")}
+          label={t("common.property.zip-code")}
           fullWidth
           value={values.zip_code}
           onBlur={() => setFieldTouched("zip_code", true)}
@@ -33,7 +33,7 @@ const LocationAndDirectionsStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <TextField
           name="lat"
-          label={t("pages.property.lat")}
+          label={t("common.property.lat")}
           fullWidth
           value={values.lat}
           onBlur={() => setFieldTouched("lat", true)}
@@ -45,7 +45,7 @@ const LocationAndDirectionsStep = () => {
       <Grid item xs={12} sm={6} md={4}>
         <TextField
           name="long"
-          label={t("pages.property.long")}
+          label={t("common.property.long")}
           fullWidth
           value={values.long}
           onBlur={() => setFieldTouched("long", true)}
@@ -62,7 +62,7 @@ const LocationAndDirectionsStep = () => {
               onChange={(e) => setFieldValue("north", e.target.checked)}
             />
           }
-          label={t("pages.property.north")}
+          label={t("common.property.north")}
         />
       </Grid>{" "}
       <Grid item xs={12}>
@@ -73,7 +73,7 @@ const LocationAndDirectionsStep = () => {
               onChange={(e) => setFieldValue("south", e.target.checked)}
             />
           }
-          label={t("pages.property.south")}
+          label={t("common.property.south")}
         />
       </Grid>{" "}
       <Grid item xs={12}>
@@ -84,7 +84,7 @@ const LocationAndDirectionsStep = () => {
               onChange={(e) => setFieldValue("east", e.target.checked)}
             />
           }
-          label={t("pages.property.east")}
+          label={t("common.property.east")}
         />
       </Grid>{" "}
       <Grid item xs={12}>
@@ -95,7 +95,7 @@ const LocationAndDirectionsStep = () => {
               onChange={(e) => setFieldValue("west", e.target.checked)}
             />
           }
-          label={t("pages.property.west")}
+          label={t("common.property.west")}
         />
       </Grid>
     </Grid>

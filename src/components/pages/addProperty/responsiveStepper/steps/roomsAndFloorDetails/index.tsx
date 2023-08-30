@@ -13,7 +13,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="bed_rooms"
           type="number"
-          label={t("pages.property.bedrooms")}
+          label={t("common.property.bedrooms")}
           fullWidth
           value={values.bed_rooms}
           onBlur={() => setFieldTouched("bed_rooms", true)}
@@ -28,7 +28,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="bath_rooms"
           type="number"
-          label={t("pages.property.bathrooms")}
+          label={t("common.property.bathrooms")}
           fullWidth
           value={values.bath_rooms}
           onBlur={() => setFieldTouched("bath_rooms", true)}
@@ -43,7 +43,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="kitchens"
           type="number"
-          label={t("pages.property.kitchens")}
+          label={t("common.property.kitchens")}
           fullWidth
           value={values.kitchens}
           onBlur={() => setFieldTouched("kitchens", true)}
@@ -58,7 +58,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="floors"
           type="number"
-          label={t("pages.property.floors")}
+          label={t("common.property.floors")}
           fullWidth
           value={values.floors}
           onBlur={() => setFieldTouched("floors", true)}
@@ -71,7 +71,7 @@ const RoomsAndFloorDetailsStep = () => {
         <TextField
           name="floor_level"
           type="number"
-          label={t("pages.property.floor-level")}
+          label={t("common.property.floor-level")}
           fullWidth
           value={values.floor_level}
           onBlur={() => setFieldTouched("floor_level", true)}

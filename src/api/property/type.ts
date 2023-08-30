@@ -5,6 +5,7 @@ import { Sort } from "@/pages/properties/type";
 
 export type PropertiesResponse = GenericResponse<{
   properties: Property[];
+  total: number;
 }>;
 export type RegionsResponse = GenericResponse<{
   regions: AutocompleteObject[];
@@ -59,8 +60,8 @@ export type PropertyFilters = Partial<{
   south: boolean | null;
   east: boolean | null;
   west: boolean | null;
-  cityId: string | null;
-  regionId: string | null;
+  city: AutocompleteObject | null;
+  region: AutocompleteObject | null;
   priceMin: number | null;
   priceMax: number | null;
   sqftLivingMin: number | null;
