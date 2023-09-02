@@ -7,7 +7,7 @@ import HousesSection from "@/components/pages/home/slidesSections/housesSection"
 
 const Home = () => {
   return (
-    <Box>
+    <Box mt={4}>
       <SpecialPropertiesSlide />
       <VillasSection />
       <ChaletsSection />

@@ -16,8 +16,8 @@ const HasNoProperties = () => {
         <Box component={"span"}>
           {t("pages.profile.do-not-have-properties")}
         </Box>
-        <Link to={NAVIGATION.MAIN_PAGES.ADD_PROPERTY}>
-          {t("common.add-edit-property")}
+        <Link to={`/${NAVIGATION.MAIN_PAGES.ADD_PROPERTY}`}>
+          {t("pages.add-edit-property.add")}
         </Link>
       </Typography>
     </Stack>

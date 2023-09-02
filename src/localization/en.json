@@ -12,7 +12,6 @@
     "chalets": "chalets",
     "houses": "houses",
     "properties": "properties",
-    "add-property": "add property",
     "operation-succeeded": " operation succeeded",
     "something-went-wrong": "something went wrong",
     "submit": "submit",
@@ -150,7 +149,7 @@
         "title": "the prediction of your property's price is",
         "failed": "failed to predict please try again"
       },
-      "add": "add",
+      "add": "add property",
       "upload-image": "upload image",
       "failed-to-add-new-feature": "failed to add new feature please try agin",
       "add-successfully": "your property has been added successfully",

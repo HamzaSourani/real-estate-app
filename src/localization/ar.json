@@ -12,7 +12,6 @@
     "chalets": "شاليهات",
     "houses": "منازل",
     "properties": "properties",
-    "add-property": "إضافة عقار",
     "operation-succeeded": " تمت العملية بنجاح",
     "something-went-wrong": "حدث خطأ ما ",
     "submit": "ارسال",
@@ -136,7 +135,7 @@
         "title": "the prediction of your property's price is",
         "failed": "failed to predict please try again"
       },
-      "add": "add",
+      "add": "add property",
       "upload-image": "upload image",
       "failed-to-add-new-feature": "failed to add new feature please try agin",
       "add-successfully": "your property has been added successfully",

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Tabs, Tab, alpha } from "@mui/material";
+import { Box, Tabs, Tab, alpha, Grid } from "@mui/material";
 import {
   useGetUserFavoriteProperties,
   useGetUserProperties,
@@ -28,6 +28,7 @@ const UserPropertiesTabs = () => {
   return (
     <Box
       sx={{
+        py: 2,
         my: 2,
         px: 2,
         bgcolor: (theme) => alpha(theme.palette.primary.main, 0.1),
@@ -39,36 +40,44 @@ const UserPropertiesTabs = () => {
           <Tab label="favorite properties" />
         </Tabs>
       </Box>
-      <Box sx={{ display: "flex", rowGap: 2, columnGap: 2 }}>
+      <Grid container spacing={2} py={4}>
         {selectedTab === PROPERTIES_TABS.USER_PROPERTIES &&
           (isPropertiesLoading ? (
             <SkeletonCards />
           ) : properties?.data.properties.length ? (
             properties?.data.properties.map((property) => (
-              <ProperCard
-                key={property.id}
-                {...property}
-                queryKey="get-user-properties"
-              />
+              <Grid item xs={12} sm={6} md={4} lg={3}>
+                <ProperCard
+                  key={property.id}
+                  {...property}
+                  queryKey="get-user-properties"
+                />
+              </Grid>
             ))
           ) : (
-            <HasNoProperties />
+            <Grid item xs={12}>
+              <HasNoProperties />
+            </Grid>
           ))}
         {selectedTab === PROPERTIES_TABS.USER_FAVORITE_PROPERTIES &&
           (isFavoritePropertiesLoading ? (
             <SkeletonCards />
           ) : favoriteProperties?.data.properties.length ? (
             favoriteProperties?.data.properties.map((property) => (
-              <ProperCard
-                key={property.id}
-                {...property}
-                queryKey="get-user-favorite-properties"
-              />
+              <Grid item xs={12} sm={6} md={4} lg={3}>
+                <ProperCard
+                  key={property.id}
+                  {...property}
+                  queryKey="get-user-favorite-properties"
+                />
+              </Grid>
             ))
           ) : (
-            <HasNoFavoriteProperties />
+            <Grid item xs={12}>
+              <HasNoFavoriteProperties />
+            </Grid>
           ))}
-      </Box>
+      </Grid>
     </Box>
   );
 };

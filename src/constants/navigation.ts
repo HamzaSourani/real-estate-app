@@ -10,7 +10,7 @@ const MAIN_PAGES = {
   HOUSES: "properties/house",
   PROPERTIES: "properties",
   PROFILE: "profile",
-  ADD_PROPERTY: "add-edit-property",
+  ADD_PROPERTY: "add-property",
 };
 const NAVIGATION = {
   AUTH,

@@ -1,13 +1,13 @@
-import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import SkeletonProperCard from "@/components/items/cards/property/skeleton";
 
 const SkeletonCards = () => {
   return (
     <>
       {Array.from(new Array(3)).map((card) => (
-        <Box width={400}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
           <SkeletonProperCard key={card} />
-        </Box>
+        </Grid>
       ))}
     </>
   );
