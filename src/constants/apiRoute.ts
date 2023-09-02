@@ -29,6 +29,7 @@ const USER = {
   GET_PROPERTIES: "/api/user/indexProperties",
   GET_FAVORITE_PROPERTIES: "/api/user/indexFavoriteProperties",
   ADD_IMAGE: "/api/user/addImage",
+  CHANGE_PASSWORD: "/api/user/updatePassword",
   TOGGLE_FAVORITE: (propertyId: string) =>
     `/api/user/property/${propertyId}/toggleFavorites`,
 };

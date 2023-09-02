@@ -16,6 +16,7 @@
     "something-went-wrong": "something went wrong",
     "submit": "submit",
     "create": "create",
+    "cancel": "cancel",
     "rates": {
       "very-poor": "very poor",
       "poor": "poor",
@@ -74,8 +75,16 @@
       "price": "price"
     },
     "un-auth-dialog": {
-      "content": "you are un authorized, sign in to have all site's features",
-      "cancel": "cancel"
+      "title": "you are un authorized, sign in to have all site's features"
+    },
+    "change-password-dialog": {
+      "title": "change password",
+      "change": "change",
+      "old-password": "old password",
+      "new-password": "new password",
+      "new-password-confirmation": "new password confirmation",
+      "success": "password changed successfully",
+      "failed": "failed to change password"
     }
   },
   "form-validation": {

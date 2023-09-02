@@ -2,6 +2,7 @@ import API_ROUTE from "@/constants/apiRoute";
 import protectedAxiosInstance from "../protectedAxiosInstance";
 import {
   AddImageBody,
+  ChangePasswordBody,
   ToggleFavoriteParams,
   UserProfileResponse,
 } from "./type";
@@ -30,6 +31,13 @@ const toggleFavorite = async ({ propertyId }: ToggleFavoriteParams) => {
   );
   return data;
 };
+const changePassword = async (body: ChangePasswordBody) => {
+  const { data } = await protectedAxiosInstance.post(
+    API_ROUTE.USER.CHANGE_PASSWORD,
+    body
+  );
+  return data;
+};
 const addImage = async (body: AddImageBody) => {
   const { data } = await protectedAxiosInstance.post<UserProfileResponse>(
     API_ROUTE.USER.ADD_IMAGE,
@@ -42,5 +50,6 @@ export {
   getUserProperties,
   getUserFavoriteProperties,
   toggleFavorite,
+  changePassword,
   addImage,
 };

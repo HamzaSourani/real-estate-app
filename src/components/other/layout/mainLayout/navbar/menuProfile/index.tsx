@@ -11,12 +11,20 @@ import {
 import SignOutIcon from "@mui/icons-material/Logout";
 import UserProfileIcon from "@mui/icons-material/AccountCircle";
 import AddPropertyIcon from "@mui/icons-material/AddHome";
+import PasswordIcon from "@mui/icons-material/Password";
 import useAnchorEle from "@/hooks/useAnchorEle";
 import { useNavigate } from "react-router-dom";
 import NAVIGATION from "@/constants/navigation";
+import useToggleEle from "@/hooks/useToggleEle";
+import ChangePassword from "@/components/items/dialog/changePassword";
 
 const MenuProfile = () => {
   const [open, anchorEl, handleClick, handleClose] = useAnchorEle();
+  const [
+    openChangePasswordDialog,
+    handleOpenChangePasswordDialog,
+    handleCloseChangePasswordDialog,
+  ] = useToggleEle(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
   const handleNavigate = (href: string) => {
@@ -106,6 +114,14 @@ const MenuProfile = () => {
               </ListItemIcon>
               <Typography>{t("pages.profile.add-property")}</Typography>
             </MenuItem>
+            <MenuItem onClick={() => handleOpenChangePasswordDialog()}>
+              <ListItemIcon>
+                <PasswordIcon />
+              </ListItemIcon>
+              <Typography>
+                {t("components.change-password-dialog.title")}
+              </Typography>
+            </MenuItem>
             <MenuItem onClick={handleClose}>
               <ListItemIcon>
                 <SignOutIcon />
@@ -114,6 +130,10 @@ const MenuProfile = () => {
             </MenuItem>
           </Menu>
         )}
+        <ChangePassword
+          open={openChangePasswordDialog}
+          handleClose={handleCloseChangePasswordDialog}
+        />
       </>
     </Tooltip>
   );

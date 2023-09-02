@@ -15,6 +15,7 @@
     "operation-succeeded": " تمت العملية بنجاح",
     "something-went-wrong": "حدث خطأ ما ",
     "submit": "ارسال",
+    "cancel": "cancel",
     "rates": {
       "very-poor": "very poor",
       "poor": "poor",
@@ -69,6 +70,18 @@
       "area": "area",
       "city": "city",
       "price": "price"
+    },
+    "un-auth-dialog": {
+      "title": "you are un authorized, sign in to have all site's features"
+    },
+    "change-password-dialog": {
+      "title": "change password",
+      "change": "change",
+      "old-password": "old password",
+      "new-password": "new password",
+      "new-password-confirmation": "new password confirmation",
+      "success": "password changed successfully",
+      "failed": "failed to change password"
     }
   },
   "form-validation": {

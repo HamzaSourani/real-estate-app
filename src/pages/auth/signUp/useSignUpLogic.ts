@@ -91,14 +91,13 @@ const useSignUpLogic = () => {
     city: Yup.object()
       .shape({ id: Yup.string(), label: Yup.string() })
       .required(t("form-validation.requied")),
-    password: Yup.string().min(8).required(t("form-validation.required")!),
+    password: Yup.string()
+      .required(t("form-validation.required"))
+      .min(8, t("form-validaton.min-to", { number: 8 })),
     password_confirmation: Yup.string()
-      .oneOf(
-        [Yup.ref("password"), undefined],
-        t("form-validation.password-confirmation")!
-      )
-      .min(8)
-      .required(t("form-validation.required")!),
+      .required(t("form-validation.required"))
+      .min(8, t("form-validaton.min-to", { number: 8 }))
+      .oneOf([Yup.ref("password")], t("form-validation.password-confirmation")),
   });
   const initialValues: InitialValues = {
     full_name: "",

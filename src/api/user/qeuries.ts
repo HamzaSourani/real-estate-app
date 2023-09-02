@@ -6,9 +6,11 @@ import {
   getUserProperties,
   getUserProfile,
   toggleFavorite,
+  changePassword,
 } from ".";
 import {
   AddImageBody,
+  ChangePasswordBody,
   ToggleFavoriteParams,
   UserPropertiesQueryParams,
 } from "./type";
@@ -79,6 +81,12 @@ const useToggleFavoriteMutation = (queryKey: string, propertyId: string) => {
     },
   });
 };
+const useChangePasswordMutation = () =>
+  useMutation({
+    mutationKey: ["change-password"],
+    mutationFn: (body: ChangePasswordBody) => changePassword(body),
+  });
+
 const useAddImageMutation = () =>
   useMutation({
     mutationKey: ["add-user-image"],
@@ -89,5 +97,6 @@ export {
   useGetUserProperties,
   useGetUserFavoriteProperties,
   useToggleFavoriteMutation,
+  useChangePasswordMutation,
   useAddImageMutation,
 };

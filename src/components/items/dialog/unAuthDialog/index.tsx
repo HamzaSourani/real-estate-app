@@ -19,7 +19,7 @@ const UnAuthorizedDialog = ({ open, handleClose }: Props) => {
   const { t } = useTranslation();
   return (
     <Dialog open={open} onClose={handleClose} TransitionComponent={Transition}>
-      <DialogTitle>{t("components.un-auth-dialog.content")}</DialogTitle>
+      <DialogTitle>{t("components.un-auth-dialog.title")}</DialogTitle>
       <DialogContent>
         <Stack justifyContent={"center"} alignItems={"center"}>
           <NoAccountsIcon color="error" sx={{ fontSize: "5rem" }} />
@@ -35,7 +35,7 @@ const UnAuthorizedDialog = ({ open, handleClose }: Props) => {
           {t("pages.auth.sign-in.title")}
         </Button>
         <Button variant="contained" color="secondary" onClick={handleClose}>
-          {t("components.un-auth-dialog.cancel")}
+          {t("common.cancel")}
         </Button>
       </DialogActions>
     </Dialog>

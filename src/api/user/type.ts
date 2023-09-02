@@ -1,6 +1,7 @@
 import { AutocompleteObject } from "@/type";
 import { GenericResponse } from "../type";
 import { PROPERTIES_TABS } from "@/components/pages/profile/userPropertiesTabs/type";
+import { ChangePasswordFormValues } from "@/components/items/dialog/changePassword/type";
 
 export type UserProfileResponse = GenericResponse<UserProfile>;
 export interface UserProfile {
@@ -33,3 +34,4 @@ export interface UserPropertiesQueryParams {
 export interface ToggleFavoriteParams {
   propertyId: string;
 }
+export interface ChangePasswordBody extends ChangePasswordFormValues {}
