@@ -45,7 +45,11 @@ const UserPropertiesTabs = () => {
             <SkeletonCards />
           ) : properties?.data.properties.length ? (
             properties?.data.properties.map((property) => (
-              <ProperCard key={property.id} {...property} />
+              <ProperCard
+                key={property.id}
+                {...property}
+                queryKey="get-user-properties"
+              />
             ))
           ) : (
             <HasNoProperties />
@@ -55,7 +59,11 @@ const UserPropertiesTabs = () => {
             <SkeletonCards />
           ) : favoriteProperties?.data.properties.length ? (
             favoriteProperties?.data.properties.map((property) => (
-              <ProperCard key={property.id} {...property} />
+              <ProperCard
+                key={property.id}
+                {...property}
+                queryKey="get-user-favorite-properties"
+              />
             ))
           ) : (
             <HasNoFavoriteProperties />

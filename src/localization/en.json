@@ -73,6 +73,10 @@
       "area": "area",
       "city": "city",
       "price": "price"
+    },
+    "un-auth-dialog": {
+      "content": "you are un authorized, sign in to have all site's features",
+      "cancel": "cancel"
     }
   },
   "form-validation": {

@@ -29,6 +29,8 @@ const USER = {
   GET_PROPERTIES: "/api/user/indexProperties",
   GET_FAVORITE_PROPERTIES: "/api/user/indexFavoriteProperties",
   ADD_IMAGE: "/api/user/addImage",
+  TOGGLE_FAVORITE: (propertyId: string) =>
+    `/api/user/property/${propertyId}/toggleFavorites`,
 };
 const API_ROUTE = { CITY, SIGN_UP, SIGN_IN, PROPERTY, IMAGE, USER };
 export default API_ROUTE;

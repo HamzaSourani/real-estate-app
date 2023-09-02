@@ -30,3 +30,6 @@ export interface AddImageBody {
 export interface UserPropertiesQueryParams {
   tab: PROPERTIES_TABS;
 }
+export interface ToggleFavoriteParams {
+  propertyId: string;
+}

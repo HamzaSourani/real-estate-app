@@ -1,6 +1,5 @@
-import { ContractType, AutocompleteObject } from "@/type";
+import { AutocompleteObject } from "@/type";
 import { GenericResponse } from "../type";
-import { PROPERTY_TYPE } from "@/constants/property";
 import { Sort } from "@/pages/properties/type";
 
 export type PropertiesResponse = GenericResponse<{
@@ -23,7 +22,7 @@ export type FeaturesResponse = GenericResponse<{
   features: AutocompleteObject[];
 }>;
 export interface Property {
-  id: number;
+  id: string;
   name: string;
   date_of_publish: string;
   contract_type: number;

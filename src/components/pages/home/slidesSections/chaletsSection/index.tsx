@@ -12,6 +12,7 @@ import EmptyPropertiesSlide from "@/components/pages/home/slidesSections/fullBac
 const ChaletsSection = () => {
   const { t } = useTranslation();
   const { data, isLoading, isError } = useGetChaletsPropertiesQuery();
+
   if (isLoading) return <LoadingPropertiesSlide />;
   if (isError)
     return (
@@ -43,7 +44,7 @@ const ChaletsSection = () => {
       >
         {data.data.properties.map((property, index) => (
           <SwiperSlide className="slide-section" key={property.id}>
-            <ProperCard {...property} />
+            <ProperCard {...property} queryKey={"get-chalets-properties"} />
           </SwiperSlide>
         ))}
       </Swiper>

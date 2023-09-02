@@ -145,7 +145,7 @@ const Properties = () => {
             properties?.pages.map((page) =>
               page.data.data.properties.map((property) => (
                 <Grid item xs={12} sm={6} md={4} lg={3}>
-                  <PropertyCard {...property} />
+                  <PropertyCard {...property} queryKey="get-properties" />
                 </Grid>
               ))
             )

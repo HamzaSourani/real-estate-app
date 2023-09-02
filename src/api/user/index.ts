@@ -1,8 +1,11 @@
 import API_ROUTE from "@/constants/apiRoute";
 import protectedAxiosInstance from "../protectedAxiosInstance";
-import { AddImageBody, UserProfileResponse } from "./type";
+import {
+  AddImageBody,
+  ToggleFavoriteParams,
+  UserProfileResponse,
+} from "./type";
 import { PropertiesResponse } from "../property/type";
-
 const getUserProfile = async () => {
   const { data } = await protectedAxiosInstance.get<UserProfileResponse>(
     API_ROUTE.USER.GET_PROFILE
@@ -21,6 +24,12 @@ const getUserFavoriteProperties = async () => {
   );
   return data;
 };
+const toggleFavorite = async ({ propertyId }: ToggleFavoriteParams) => {
+  const { data } = await protectedAxiosInstance.post(
+    API_ROUTE.USER.TOGGLE_FAVORITE(propertyId)
+  );
+  return data;
+};
 const addImage = async (body: AddImageBody) => {
   const { data } = await protectedAxiosInstance.post<UserProfileResponse>(
     API_ROUTE.USER.ADD_IMAGE,
@@ -32,5 +41,6 @@ export {
   getUserProfile,
   getUserProperties,
   getUserFavoriteProperties,
+  toggleFavorite,
   addImage,
 };
