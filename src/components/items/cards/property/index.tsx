@@ -24,7 +24,7 @@ import ForRentIcon from "../../svg/forRentIcon";
 import { useToggleFavoriteMutation } from "@/api/user/qeuries";
 import { Props } from "./type";
 import useToggleEle from "@/hooks/useToggleEle";
-import UnAuthorizedDialog from "../../dialog/unAuthorized";
+import UnAuthorizedDialog from "../../dialog/unAuthDialog";
 import useAuthorization from "@/hooks/useAuthorization";
 
 const PropertyCard = ({
