@@ -12,12 +12,13 @@ import {
 import NoAccountsIcon from "@mui/icons-material/NoAccounts";
 import NAVIGATION from "@/constants/navigation";
 import { Props } from "./type";
+import Transition from "../transition";
 
 const UnAuthorizedDialog = ({ open, handleClose }: Props) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={open} onClose={handleClose} TransitionComponent={Transition}>
       <DialogTitle>{t("components.un-auth-dialog.content")}</DialogTitle>
       <DialogContent>
         <Stack justifyContent={"center"} alignItems={"center"}>
@@ -28,7 +29,7 @@ const UnAuthorizedDialog = ({ open, handleClose }: Props) => {
         <Button
           variant="contained"
           onClick={() => {
-            navigate(NAVIGATION.AUTH.SIGN_IN);
+            navigate(`/${NAVIGATION.AUTH.INDEX}/${NAVIGATION.AUTH.SIGN_IN}`);
           }}
         >
           {t("pages.auth.sign-in.title")}
