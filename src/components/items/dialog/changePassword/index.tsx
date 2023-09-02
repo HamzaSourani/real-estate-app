@@ -67,7 +67,14 @@ const ChangePassword = ({ open, handleClose }: Props) => {
         validationSchema={validationSchema}
         onSubmit={handleChangePassword}
       >
-        {({ values, isSubmitting, touched, errors, handleChange }) => {
+        {({
+          values,
+          isSubmitting,
+          touched,
+          errors,
+          handleChange,
+          setFieldTouched,
+        }) => {
           return (
             <Form>
               <DialogTitle>
@@ -81,6 +88,7 @@ const ChangePassword = ({ open, handleClose }: Props) => {
                     fullWidth
                     value={values.old_password}
                     onChange={handleChange}
+                    onBlur={() => setFieldTouched("old_password", true)}
                     error={!!(touched.old_password && errors.old_password)}
                     helperText={
                       touched.old_password && errors.old_password
@@ -94,6 +102,7 @@ const ChangePassword = ({ open, handleClose }: Props) => {
                     fullWidth
                     value={values.new_password}
                     onChange={handleChange}
+                    onBlur={() => setFieldTouched("new_password", true)}
                     error={!!(touched.new_password && errors.new_password)}
                     helperText={
                       touched.new_password && errors.new_password
@@ -109,6 +118,9 @@ const ChangePassword = ({ open, handleClose }: Props) => {
                     fullWidth
                     value={values.new_password_confirmation}
                     onChange={handleChange}
+                    onBlur={() =>
+                      setFieldTouched("old_password-confirmation", true)
+                    }
                     error={
                       !!(
                         touched.new_password_confirmation &&
