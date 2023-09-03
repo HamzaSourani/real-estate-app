@@ -11,9 +11,14 @@ import {
   Typography,
   Slider,
   Button,
+  Skeleton,
 } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import { useGetRegionsQuery } from "@/api/property/queries";
+import {
+  useGetAreaRangeQuery,
+  useGetPriceRangeQuery,
+  useGetRegionsQuery,
+} from "@/api/property/queries";
 import { useGetAllCitiesQuery } from "@/api/city/queries";
 import useAnchorEle from "@/hooks/useAnchorEle";
 import { Props } from "./type";
@@ -62,6 +67,10 @@ const Filter = ({
   const { t } = useTranslation();
   const { data: cities, isLoading: isCityLoading } = useGetAllCitiesQuery();
   const { data: regions, isLoading: isRegionsLoading } = useGetRegionsQuery();
+  const { data: priceRange, isLoading: isPriceRangeLoading } =
+    useGetPriceRangeQuery();
+  const { data: areaRange, isLoading: isAreaRangeLoading } =
+    useGetAreaRangeQuery();
   const minPriceDistance = 0;
   const minSqftLivingDistance = 0;
   const handelChangePriceRange = (
@@ -286,25 +295,35 @@ const Filter = ({
             <Grid item xs={15} md={12} lg={9}>
               <Stack direction={"column"} spacing={1}>
                 <Typography>{t("common.property.price")}</Typography>
-                <Slider
-                  max={500}
-                  valueLabelDisplay="auto"
-                  value={[priceMin ?? 0, priceMax ?? 0]}
-                  onChange={handelChangePriceRange}
-                  disableSwap
-                />
+                {isPriceRangeLoading ? (
+                  <Skeleton />
+                ) : (
+                  <Slider
+                    max={priceRange?.data.max_price}
+                    min={priceRange?.data.min_price}
+                    valueLabelDisplay="auto"
+                    value={[priceMin ?? 0, priceMax ?? 0]}
+                    onChange={handelChangePriceRange}
+                    disableSwap
+                  />
+                )}
               </Stack>
             </Grid>
             <Grid item xs={15} md={12} lg={9}>
               <Stack direction={"column"} spacing={1}>
                 <Typography>{t("common.property.sqft-living")}</Typography>
-                <Slider
-                  max={500}
-                  valueLabelDisplay="auto"
-                  value={[sqftLivingMin ?? 0, sqftLivingMax ?? 0]}
-                  onChange={handelChangeSqftLivingRange}
-                  disableSwap
-                />
+                {isAreaRangeLoading ? (
+                  <Skeleton />
+                ) : (
+                  <Slider
+                    max={areaRange?.data.max_area}
+                    min={areaRange?.data.min_area}
+                    valueLabelDisplay="auto"
+                    value={[sqftLivingMin ?? 0, sqftLivingMax ?? 0]}
+                    onChange={handelChangeSqftLivingRange}
+                    disableSwap
+                  />
+                )}
               </Stack>
             </Grid>
             <Grid item xs={15}>

@@ -95,9 +95,10 @@ const MenuProfile = () => {
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
           >
             <MenuItem
-              onClick={() =>
-                handleNavigate(`/${NAVIGATION.MAIN_PAGES.PROFILE}`)
-              }
+              onClick={() => {
+                handleClose();
+                handleNavigate(`/${NAVIGATION.MAIN_PAGES.PROFILE}`);
+              }}
             >
               <ListItemIcon>
                 <UserProfileIcon />
@@ -105,16 +106,22 @@ const MenuProfile = () => {
               <Typography>{t("pages.profile.title")}</Typography>
             </MenuItem>
             <MenuItem
-              onClick={() =>
-                handleNavigate(`/${NAVIGATION.MAIN_PAGES.ADD_PROPERTY}`)
-              }
+              onClick={() => {
+                handleClose();
+                handleNavigate(`/${NAVIGATION.MAIN_PAGES.ADD_PROPERTY}`);
+              }}
             >
               <ListItemIcon>
                 <AddPropertyIcon />
               </ListItemIcon>
               <Typography>{t("pages.profile.add-property")}</Typography>
             </MenuItem>
-            <MenuItem onClick={() => handleOpenChangePasswordDialog()}>
+            <MenuItem
+              onClick={() => {
+                handleClose();
+                handleOpenChangePasswordDialog();
+              }}
+            >
               <ListItemIcon>
                 <PasswordIcon />
               </ListItemIcon>

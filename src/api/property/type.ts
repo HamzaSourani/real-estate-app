@@ -44,6 +44,14 @@ export interface AddFeatureBody {
 export type AddFeatureResponse = GenericResponse<{
   feature: AutocompleteObject;
 }>;
+export type PriceRangResponse = GenericResponse<{
+  max_price: number;
+  min_price: number;
+}>;
+export type AreaRangResponse = GenericResponse<{
+  max_area: number;
+  min_area: number;
+}>;
 export interface Image {
   media_url: string;
   hash: string;

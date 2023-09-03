@@ -12,6 +12,8 @@ import {
   predictPriceOfProperty,
   addProperty,
   deleteProperty,
+  getPriceRange,
+  getAreaRange,
 } from ".";
 import {
   AddFeatureBody,
@@ -89,6 +91,16 @@ const useGetFeaturesQuery = () =>
     queryKey: ["get-features"],
     queryFn: () => getFeatures(),
   });
+const useGetPriceRangeQuery = () =>
+  useQuery({
+    queryKey: ["get-price-range"],
+    queryFn: () => getPriceRange(),
+  });
+const useGetAreaRangeQuery = () =>
+  useQuery({
+    queryKey: ["get-area-range"],
+    queryFn: () => getAreaRange(),
+  });
 const useAddFeatureMutation = () =>
   useMutation({
     mutationKey: ["add-feature"],
@@ -121,6 +133,8 @@ export {
   useGetFurnishesQuery,
   useGetCladdingsQuery,
   useGetFeaturesQuery,
+  useGetPriceRangeQuery,
+  useGetAreaRangeQuery,
   useAddFeatureMutation,
   usePredictPriceOfPropertyMutation,
   useAddPropertyMutation,

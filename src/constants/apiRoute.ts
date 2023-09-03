@@ -20,6 +20,8 @@ const PROPERTY = {
   ADD_FEATURE: "/api/feature/store",
   PREDICT: "/predict",
   ADD: "/api/property/store",
+  GET_PRICE_RANGE: "/api/property/priceRange",
+  GET_AREA_RANGE: "/api/property/areaRange",
   DELETE: (propertyId: string) => `/api/property/${propertyId}/destroy`,
 };
 const IMAGE = {

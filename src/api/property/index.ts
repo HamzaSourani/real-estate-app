@@ -18,6 +18,8 @@ import {
   AddPropertyBody,
   PropertyFilters,
   DeletePropertyParams,
+  PriceRangResponse,
+  AreaRangResponse,
 } from "./type";
 import protectedAxiosInstance from "../protectedAxiosInstance";
 
@@ -139,6 +141,18 @@ const predictPriceOfProperty = async (body: PredictPriceOfPropertyBody) => {
   );
   return data;
 };
+const getPriceRange = async () => {
+  const { data } = await publicAxiosInstance.get<PriceRangResponse>(
+    API_ROUTE.PROPERTY.GET_PRICE_RANGE
+  );
+  return data;
+};
+const getAreaRange = async () => {
+  const { data } = await publicAxiosInstance.get<AreaRangResponse>(
+    API_ROUTE.PROPERTY.GET_AREA_RANGE
+  );
+  return data;
+};
 const addProperty = async (body: AddPropertyBody) => {
   const { data } = await protectedAxiosInstance.post(
     API_ROUTE.PROPERTY.ADD,
@@ -163,5 +177,7 @@ export {
   addFeature,
   predictPriceOfProperty,
   addProperty,
+  getPriceRange,
+  getAreaRange,
   deleteProperty,
 };

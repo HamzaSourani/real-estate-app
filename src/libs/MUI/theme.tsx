@@ -35,13 +35,13 @@ const MuiTheme: FC<PropsWithChildren<{}>> = ({ children }) => {
     components: {
       MuiMenu: {
         defaultProps: {
-          disableScrollLock: true,
+          // disableScrollLock: true,
         },
       },
 
       MuiDialog: {
         defaultProps: {
-          disableScrollLock: true,
+          // disableScrollLock: true,
         },
       },
       MuiSkeleton: {
