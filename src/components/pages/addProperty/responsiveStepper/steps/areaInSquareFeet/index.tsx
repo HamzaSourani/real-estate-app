@@ -58,7 +58,7 @@ const AreaInSquareFeetStep = () => {
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
         <TextField
-          name="kitcsqft_lot_15hens"
+          name="sqft_lot_15"
           type="number"
           label={t("common.property.sqft-lot-15")}
           fullWidth

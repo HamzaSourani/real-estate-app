@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useFormikContext, FieldArray, FieldArrayRenderProps } from "formik";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { AddPropertyValues } from "@/pages/addEditProperty/type";
 import UploadImageButton from "./uploadImageButton";
 
 const PropertyImageField = () => {
+  const { t } = useTranslation();
   const [images, setImages] = useState<string[]>([]);
   const { values } = useFormikContext<AddPropertyValues>();
   return (
@@ -20,6 +22,9 @@ const PropertyImageField = () => {
           }}
         >
           <UploadImageButton push={push} setImages={setImages} />
+          {values.images.length >= 10 && (
+            <Typography>{t("pages.add-edit-property.max-images")}</Typography>
+          )}
           <Box
             sx={{
               display: "flex",

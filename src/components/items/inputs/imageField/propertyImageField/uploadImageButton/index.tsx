@@ -1,11 +1,14 @@
 import { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
+import { useFormikContext } from "formik";
 import { useUploadImageMutation } from "@/api/image/queries";
-import { showError } from "@/libs/reactToastify";
+import { AddPropertyValues } from "@/pages/addEditProperty/type";
 import LoadingButton from "@/components/other/loadingButton/LoadingButton";
+import { showError } from "@/libs/reactToastify";
 import { Props } from "./type";
 const UploadImageButton = ({ push, setImages }: Props) => {
   const { t } = useTranslation();
+  const { values } = useFormikContext<AddPropertyValues>();
   const { mutate: uploadImage, isLoading } = useUploadImageMutation();
   const handleUploadImage = (
     e: ChangeEvent<HTMLInputElement>,
@@ -42,6 +45,7 @@ const UploadImageButton = ({ push, setImages }: Props) => {
       <label htmlFor="upload-image">
         <LoadingButton
           component={"span"}
+          disabled={values.images.length >= 10}
           buttonText={t("pages.add-edit-property.upload-image")}
           isSubmitting={isLoading}
         />
