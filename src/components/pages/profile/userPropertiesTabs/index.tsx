@@ -51,6 +51,7 @@ const UserPropertiesTabs = () => {
                   key={property.id}
                   {...property}
                   queryKey="get-user-properties"
+                  isUserProperty
                 />
               </Grid>
             ))

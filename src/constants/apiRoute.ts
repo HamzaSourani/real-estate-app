@@ -20,6 +20,7 @@ const PROPERTY = {
   ADD_FEATURE: "/api/feature/store",
   PREDICT: "/predict",
   ADD: "/api/property/store",
+  DELETE: (propertyId: string) => `/api/property/${propertyId}/destroy`,
 };
 const IMAGE = {
   UPLOAD: "/api/image/store",

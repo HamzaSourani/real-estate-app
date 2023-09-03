@@ -11,10 +11,12 @@ import {
   addFeature,
   predictPriceOfProperty,
   addProperty,
+  deleteProperty,
 } from ".";
 import {
   AddFeatureBody,
   AddPropertyBody,
+  DeletePropertyParams,
   PredictPriceOfPropertyBody,
   PropertyFilters,
 } from "./type";
@@ -98,10 +100,15 @@ const usePredictPriceOfPropertyMutation = () =>
     mutationFn: (body: PredictPriceOfPropertyBody) =>
       predictPriceOfProperty(body),
   });
-const useAddProperty = () =>
+const useAddPropertyMutation = () =>
   useMutation({
     mutationKey: ["add-property"],
     mutationFn: (body: AddPropertyBody) => addProperty(body),
+  });
+const useDeletePropertyMutation = () =>
+  useMutation({
+    mutationKey: ["delete-property"],
+    mutationFn: (params: DeletePropertyParams) => deleteProperty(params),
   });
 export {
   useGetPropertiesInfinityQuery,
@@ -116,5 +123,6 @@ export {
   useGetFeaturesQuery,
   useAddFeatureMutation,
   usePredictPriceOfPropertyMutation,
-  useAddProperty,
+  useAddPropertyMutation,
+  useDeletePropertyMutation,
 };

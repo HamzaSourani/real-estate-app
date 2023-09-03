@@ -13,6 +13,7 @@ import {
   Grid,
   IconButton,
 } from "@mui/material";
+
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -26,6 +27,7 @@ import { Props } from "./type";
 import useToggleEle from "@/hooks/useToggleEle";
 import UnAuthorizedDialog from "../../dialog/unAuthDialog";
 import useAuthorization from "@/hooks/useAuthorization";
+import PropertyOptions from "./options";
 
 const PropertyCard = ({
   id,
@@ -41,6 +43,7 @@ const PropertyCard = ({
   favorite_count,
   views_count,
   queryKey,
+  isUserProperty = false,
 }: Props) => {
   const { t } = useTranslation();
   const [
@@ -60,7 +63,9 @@ const PropertyCard = ({
           title={name}
           subheader={moment(date_of_publish).format("MMM Do YY")}
           action={
-            contract_type === ContractType.SELL ? (
+            isUserProperty ? (
+              <PropertyOptions id={id} name={name} />
+            ) : contract_type === ContractType.SELL ? (
               <ForSellIcon sx={{ color: "red" }} />
             ) : (
               <ForRentIcon sx={{ color: "green" }} />

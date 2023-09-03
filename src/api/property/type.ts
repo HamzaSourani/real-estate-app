@@ -21,6 +21,9 @@ export type CladdingsResponse = GenericResponse<{
 export type FeaturesResponse = GenericResponse<{
   features: AutocompleteObject[];
 }>;
+export interface DeletePropertyParams {
+  propertyId: string;
+}
 export interface Property {
   id: string;
   name: string;

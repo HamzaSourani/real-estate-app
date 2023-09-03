@@ -72,7 +72,9 @@
       "rooms": "rooms",
       "area": "area",
       "city": "city",
-      "price": "price"
+      "price": "price",
+      "edit-property": "edit property",
+      "delete-property": "delete property"
     },
     "un-auth-dialog": {
       "title": "you are un authorized, sign in to have all site's features"
@@ -85,6 +87,12 @@
       "new-password-confirmation": "new password confirmation",
       "success": "password changed successfully",
       "failed": "failed to change password"
+    },
+    "delete-property-dialog": {
+      "title": "are you shore you want to delete {{propertyName}} property",
+      "delete": "delete",
+      "success": "{{propertyName}} has been deleted successfully",
+      "failed": "failed to delete {{propertyName}}"
     }
   },
   "form-validation": {

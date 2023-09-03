@@ -40,6 +40,10 @@ const Routes = () => {
             path="add-property"
             element={isAuthorized ? <AddEditProperty /> : <Forbidden />}
           />
+          <Route
+            path="property/:propertyId/update"
+            element={isAuthorized ? <AddEditProperty /> : <Forbidden />}
+          />
         </Route>
       </Route>
     )

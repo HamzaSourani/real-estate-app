@@ -5,7 +5,7 @@ import { AddPropertyValues } from "./type";
 import { string, number, boolean, object, array } from "yup";
 import ResponsiveStepper from "@/components/pages/addProperty/responsiveStepper";
 import LoadingButton from "@/components/other/loadingButton/LoadingButton";
-import { useAddProperty } from "@/api/property/queries";
+import { useAddPropertyMutation } from "@/api/property/queries";
 import { showError, showSuccess } from "@/libs/reactToastify";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const AddEditProperty = () => {
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { mutate: addProperty } = useAddProperty();
+  const { mutate: addProperty } = useAddPropertyMutation();
   const reqOneNumber = number()
     .required(t("form-validation.required"))
     .min(1, t("form-validation.min-to", { number: 1 }));

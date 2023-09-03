@@ -11,6 +11,7 @@ const MAIN_PAGES = {
   PROPERTIES: "properties",
   PROFILE: "profile",
   ADD_PROPERTY: "add-property",
+  UPDATE_PROPERTY: (propertyId: string) => `property/${propertyId}/update`,
 };
 const NAVIGATION = {
   AUTH,

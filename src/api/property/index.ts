@@ -17,6 +17,7 @@ import {
   PredictPriceOfPropertyResponse,
   AddPropertyBody,
   PropertyFilters,
+  DeletePropertyParams,
 } from "./type";
 import protectedAxiosInstance from "../protectedAxiosInstance";
 
@@ -145,6 +146,12 @@ const addProperty = async (body: AddPropertyBody) => {
   );
   return data;
 };
+const deleteProperty = async ({ propertyId }: DeletePropertyParams) => {
+  const { data } = await protectedAxiosInstance.delete(
+    API_ROUTE.PROPERTY.DELETE(propertyId)
+  );
+  return data;
+};
 export {
   getSpecialProperties,
   getProperties,
@@ -156,4 +163,5 @@ export {
   addFeature,
   predictPriceOfProperty,
   addProperty,
+  deleteProperty,
 };
