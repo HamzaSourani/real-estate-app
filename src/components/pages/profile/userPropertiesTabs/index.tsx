@@ -50,7 +50,7 @@ const UserPropertiesTabs = () => {
                 <ProperCard
                   key={property.id}
                   {...property}
-                  queryKey="get-user-properties"
+                  queryKey={["get-user-properties"]}
                   isUserProperty
                 />
               </Grid>
@@ -69,7 +69,7 @@ const UserPropertiesTabs = () => {
                 <ProperCard
                   key={property.id}
                   {...property}
-                  queryKey="get-user-favorite-properties"
+                  queryKey={["get-user-favorite-properties"]}
                 />
               </Grid>
             ))

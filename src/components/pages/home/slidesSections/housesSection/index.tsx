@@ -41,7 +41,7 @@ const HousesSection = () => {
       >
         {data.data.properties.map((property, index) => (
           <SwiperSlide className="slide-section" key={property.id}>
-            <ProperCard {...property} queryKey="get-chalets-properties" />
+            <ProperCard {...property} queryKey={["get-chalets-properties"]} />
           </SwiperSlide>
         ))}
       </Swiper>

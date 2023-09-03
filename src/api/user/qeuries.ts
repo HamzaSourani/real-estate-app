@@ -1,4 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  InfiniteData,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { PROPERTIES_TABS } from "@/components/pages/profile/userPropertiesTabs/type";
 import {
   addImage,
@@ -34,40 +39,55 @@ const useGetUserFavoriteProperties = ({ tab }: UserPropertiesQueryParams) =>
     queryFn: () => getUserFavoriteProperties(),
     enabled: tab === PROPERTIES_TABS.USER_FAVORITE_PROPERTIES,
   });
-const useToggleFavoriteMutation = (queryKey: string, propertyId: string) => {
+const useToggleFavoriteMutation = (
+  queryKey: (string | number)[],
+  propertyId: string
+) => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationKey: ["add-to-favorite"],
     mutationFn: (params: ToggleFavoriteParams) => toggleFavorite(params),
     onMutate() {
-      queryClient.cancelQueries([queryKey]);
-      const previousProperties = queryClient.getQueryData([queryKey]);
+      queryClient.cancelQueries(queryKey);
+      const previousProperties = queryClient.getQueryData(queryKey);
       queryClient.setQueriesData(
-        [queryKey],
+        queryKey,
         (
-          previousProperties: PropertiesResponse | undefined
+          previousProperties:
+            | InfiniteData<{
+                data: PropertiesResponse;
+                pageParam: any;
+              }>
+            | PropertiesResponse
+            | undefined
         ): PropertiesResponse | undefined => {
-          const properties = previousProperties?.data.properties?.map(
-            (property: Property) => {
-              if (property.id === propertyId)
-                return {
-                  ...property,
-                  favorite_count: property.is_favorite
-                    ? property.favorite_count - 1
-                    : property.favorite_count + 1,
-                  is_favorite: !property.is_favorite,
-                };
-              return property;
-            }
-          );
+          if (previousProperties) {
+            if ("pages" in previousProperties) {
+              return undefined; //if pagination then don't do optimistic update
+            } else {
+              const properties = previousProperties?.data.properties?.map(
+                (property: Property) => {
+                  if (property.id === propertyId)
+                    return {
+                      ...property,
+                      favorite_count: property.is_favorite
+                        ? property.favorite_count - 1
+                        : property.favorite_count + 1,
+                      is_favorite: !property.is_favorite,
+                    };
+                  return property;
+                }
+              );
 
-          return {
-            ...previousProperties,
-            data: {
-              properties,
-              total: previousProperties?.data.total,
-            },
-          } as PropertiesResponse;
+              return {
+                ...previousProperties,
+                data: {
+                  properties,
+                  total: previousProperties?.data.total,
+                },
+              } as PropertiesResponse;
+            }
+          } else return undefined;
         }
       );
 
