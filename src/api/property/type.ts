@@ -6,6 +6,10 @@ export type PropertiesResponse = GenericResponse<{
   properties: Property[];
   total: number;
 }>;
+export type PropertyResponse = GenericResponse<{
+  property: Property;
+}>;
+
 export type RegionsResponse = GenericResponse<{
   regions: AutocompleteObject[];
 }>;
@@ -24,19 +28,48 @@ export type FeaturesResponse = GenericResponse<{
 export interface DeletePropertyParams {
   propertyId: string;
 }
+
 export interface Property {
   id: string;
   name: string;
-  date_of_publish: string;
   contract_type: number;
   bed_rooms: number;
+  bath_room: number;
+  kitchens: number;
+  floors: number;
+  floor_level: number;
   sqft_living: number;
+  sqft_living_15: number;
+  sqft_lot: number;
+  sqft_lot_15: number;
+  sqft_above: number;
+  sqft_basement: number;
+  view: number;
+  condition: number;
+  grade: number;
+  water_front: number;
+  north: boolean;
+  south: boolean;
+  east: boolean;
+  west: boolean;
+  yr_built: string;
+  yr_renovated: string;
+  zip_code: string;
+  lat: string;
+  long: string;
+  address: string;
+  detail: string;
   price: number;
   is_favorite: boolean;
   favorite_count: number;
   views_count: number;
+  furnish: AutocompleteObject;
+  region: AutocompleteObject;
+  features: any[];
+  type: AutocompleteObject;
+  date_of_publish: string;
   city: AutocompleteObject;
-  image: Image;
+  image: Image | Image[];
 }
 export interface AddFeatureBody {
   name: string;
@@ -79,9 +112,9 @@ export type PropertyFilters = Partial<{
   typeId: number | null;
   sort: Sort;
 }>;
-export type GetPropertyParamsKeys = keyof GetPropertyParams;
+export type GetPropertiesParamsKeys = keyof GetPropertiesParams;
 
-export type GetPropertyParams = Partial<{
+export type GetPropertiesParams = Partial<{
   page: number;
   perPage: number;
   name: string;

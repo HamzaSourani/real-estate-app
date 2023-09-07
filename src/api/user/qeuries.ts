@@ -19,7 +19,11 @@ import {
   ToggleFavoriteParams,
   UserPropertiesQueryParams,
 } from "./type";
-import { PropertiesResponse, Property } from "../property/type";
+import {
+  PropertiesResponse,
+  Property,
+  PropertyResponse,
+} from "../property/type";
 
 const useGetUserProfile = (isAuthorized: boolean) =>
   useQuery({
@@ -50,6 +54,7 @@ const useToggleFavoriteMutation = (
     onMutate() {
       queryClient.cancelQueries(queryKey);
       const previousProperties = queryClient.getQueryData(queryKey);
+      console.log(previousProperties, "property", queryKey);
       queryClient.setQueriesData(
         queryKey,
         (
@@ -59,12 +64,13 @@ const useToggleFavoriteMutation = (
                 pageParam: any;
               }>
             | PropertiesResponse
+            | PropertyResponse
             | undefined
-        ): PropertiesResponse | undefined => {
+        ): PropertiesResponse | PropertyResponse | undefined => {
           if (previousProperties) {
             if ("pages" in previousProperties) {
               return undefined; //if pagination then don't do optimistic update
-            } else {
+            } else if ("properties" in previousProperties.data) {
               const properties = previousProperties?.data.properties?.map(
                 (property: Property) => {
                   if (property.id === propertyId)
@@ -86,6 +92,20 @@ const useToggleFavoriteMutation = (
                   total: previousProperties?.data.total,
                 },
               } as PropertiesResponse;
+            } else if ("property" in previousProperties.data) {
+              return {
+                ...previousProperties,
+                data: {
+                  property: {
+                    ...previousProperties?.data.property,
+                    favorite_count: previousProperties?.data.property
+                      .is_favorite
+                      ? previousProperties?.data.property.favorite_count - 1
+                      : previousProperties?.data.property.favorite_count + 1,
+                    is_favorite: !previousProperties?.data.property.is_favorite,
+                  },
+                },
+              } as PropertyResponse;
             }
           } else return undefined;
         }
@@ -97,7 +117,7 @@ const useToggleFavoriteMutation = (
       queryClient.setQueriesData([queryKey], context?.previousProperties);
     },
     onSettled(data, error, variables, context) {
-      queryClient.invalidateQueries({ queryKey: [queryKey] });
+      queryClient.invalidateQueries({ queryKey: queryKey });
     },
   });
 };

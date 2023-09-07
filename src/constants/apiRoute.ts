@@ -22,6 +22,8 @@ const PROPERTY = {
   ADD: "/api/property/store",
   GET_PRICE_RANGE: "/api/property/priceRange",
   GET_AREA_RANGE: "/api/property/areaRange",
+  GET_PROPERTY: (propertyId: string | undefined) =>
+    `/api/property/${propertyId}/show`,
   DELETE: (propertyId: string) => `/api/property/${propertyId}/destroy`,
 };
 const IMAGE = {

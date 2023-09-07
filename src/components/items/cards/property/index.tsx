@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import {
@@ -12,6 +13,7 @@ import {
   Stack,
   Grid,
   IconButton,
+  CardActionArea,
 } from "@mui/material";
 
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
@@ -28,6 +30,8 @@ import useToggleEle from "@/hooks/useToggleEle";
 import UnAuthorizedDialog from "../../dialog/unAuthDialog";
 import useAuthorization from "@/hooks/useAuthorization";
 import PropertyOptions from "./options";
+import NAVIGATION from "@/constants/navigation";
+import { Image } from "@/api/property/type";
 
 const PropertyCard = ({
   id,
@@ -45,6 +49,7 @@ const PropertyCard = ({
   queryKey,
   isUserProperty = false,
 }: Props) => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [
     openUnAuthorizedDialog,
@@ -72,58 +77,64 @@ const PropertyCard = ({
             )
           }
         />
-        <CardMedia
-          component={"img"}
-          height={194}
-          src={image.media_url}
-          alt={name}
-        />
-        <CardContent>
-          <Grid container spacing={1}>
-            <Grid item xs={6}>
-              <Typography color={"primary"} sx={{ fontWeight: "500" }}>
-                {t("components.property-card.rooms")}
-                <Box
-                  component={"span"}
-                  sx={{
-                    ml: 1,
+        <CardActionArea
+          onClick={() =>
+            navigate(`/${NAVIGATION.MAIN_PAGES.SHOW_PROPERTY(id)}`)
+          }
+        >
+          <CardMedia
+            component={"img"}
+            height={194}
+            src={(image as Image).media_url}
+            alt={name}
+          />
+          <CardContent>
+            <Grid container spacing={1}>
+              <Grid item xs={6}>
+                <Typography color={"primary"} sx={{ fontWeight: "500" }}>
+                  {t("components.property-card.rooms")}
+                  <Box
+                    component={"span"}
+                    sx={{
+                      ml: 1,
 
-                    fontWeight: "initial",
-                  }}
-                >
-                  {bed_rooms}
-                </Box>
-              </Typography>
-            </Grid>
-            <Grid item xs={6}>
-              <Typography color={"primary"} sx={{ fontWeight: "500" }}>
-                {t("components.property-card.area")}
-                <Box
-                  component={"span"}
-                  sx={{
-                    ml: 1,
+                      fontWeight: "initial",
+                    }}
+                  >
+                    {bed_rooms}
+                  </Box>
+                </Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography color={"primary"} sx={{ fontWeight: "500" }}>
+                  {t("components.property-card.area")}
+                  <Box
+                    component={"span"}
+                    sx={{
+                      ml: 1,
 
-                    fontWeight: "initial",
-                  }}
-                >
-                  {sqft_living}
-                </Box>
-              </Typography>
+                      fontWeight: "initial",
+                    }}
+                  >
+                    {sqft_living}
+                  </Box>
+                </Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Stack direction={"row"} alignItems={"center"} spacing={1}>
+                  <AttachMoneyIcon color="primary" />
+                  <Typography>{price}</Typography>
+                </Stack>
+              </Grid>
+              <Grid item xs={6}>
+                <Stack direction={"row"} alignItems={"center"} spacing={1}>
+                  <LocationOnIcon color="primary" />
+                  <Typography>{city.label}</Typography>
+                </Stack>
+              </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <Stack direction={"row"} alignItems={"center"} spacing={1}>
-                <AttachMoneyIcon color="primary" />
-                <Typography>{price}</Typography>
-              </Stack>
-            </Grid>
-            <Grid item xs={6}>
-              <Stack direction={"row"} alignItems={"center"} spacing={1}>
-                <LocationOnIcon color="primary" />
-                <Typography>{city.label}</Typography>
-              </Stack>
-            </Grid>
-          </Grid>
-        </CardContent>
+          </CardContent>
+        </CardActionArea>
         <CardActions>
           <Stack direction={"row"} alignItems={"center"} spacing={1}>
             <IconButton

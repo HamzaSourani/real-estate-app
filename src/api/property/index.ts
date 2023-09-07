@@ -3,13 +3,14 @@ import API_ROUTE from "@/constants/apiRoute";
 import { PREDICT_URL } from "@/constants/domines";
 import publicAxiosInstance from "../publicAxiosInstance";
 import {
+  PropertyResponse,
   AddFeatureBody,
   AddFeatureResponse,
   CladdingsResponse,
   FeaturesResponse,
   FurnishesResponse,
-  GetPropertyParams,
-  GetPropertyParamsKeys,
+  GetPropertiesParams,
+  GetPropertiesParamsKeys,
   PropertiesResponse,
   PropertyTypesResponse,
   RegionsResponse,
@@ -22,6 +23,7 @@ import {
   AreaRangResponse,
 } from "./type";
 import protectedAxiosInstance from "../protectedAxiosInstance";
+import { Params } from "@/type";
 
 const getSpecialProperties = async () => {
   const { data } = await publicAxiosInstance.get<PropertiesResponse>(
@@ -53,7 +55,7 @@ const getProperties = async (params: PropertyFilters) => {
     sqftLivingMax,
     sort,
   } = params;
-  const getPropertyParams: GetPropertyParams = {
+  const getPropertiesParams: GetPropertiesParams = {
     name,
     address,
     bed_rooms: bedrooms,
@@ -73,10 +75,10 @@ const getProperties = async (params: PropertyFilters) => {
     sqft_living_min: sqftLivingMin,
     sqft_living_max: sqftLivingMax,
   };
-  const filterParams = Object.keys(getPropertyParams).reduce(
+  const filterParams = Object.keys(getPropertiesParams).reduce(
     (acc: any, key: string) => {
       const transformedKey = `filter[${key}]`;
-      acc[transformedKey] = getPropertyParams[key as GetPropertyParamsKeys];
+      acc[transformedKey] = getPropertiesParams[key as GetPropertiesParamsKeys];
       return acc;
     },
     {}
@@ -86,6 +88,13 @@ const getProperties = async (params: PropertyFilters) => {
     {
       params: { ...filterParams, sort, page, perPage },
     }
+  );
+  return data;
+};
+const getProperty = async ({ propertyId }: Params) => {
+  console.log("enter api area");
+  const { data } = await publicAxiosInstance.get<PropertyResponse>(
+    API_ROUTE.PROPERTY.GET_PROPERTY(propertyId)
   );
   return data;
 };
@@ -169,6 +178,7 @@ const deleteProperty = async ({ propertyId }: DeletePropertyParams) => {
 export {
   getSpecialProperties,
   getProperties,
+  getProperty,
   getRegions,
   getPropertyTypes,
   getFurnishes,

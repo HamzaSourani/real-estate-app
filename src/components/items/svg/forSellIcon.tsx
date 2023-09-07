@@ -1,18 +1,9 @@
 import React from "react";
-import SvgIcon from "@mui/material/SvgIcon";
-import { SxProps } from "@mui/material";
+import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 
-const ForSellIcon = (sx: SxProps) => {
+const ForSellIcon = (props: SvgIconProps) => {
   return (
-    <SvgIcon
-      sx={sx}
-      fill="#000000"
-      height="800px"
-      width="800px"
-      version="1.1"
-      id="Layer_1"
-      viewBox="0 0 512 512"
-    >
+    <SvgIcon {...props} version="1.1" id="Layer_1" viewBox="0 0 512 512">
       <g>
         <g>
           <path

@@ -8,6 +8,9 @@ export interface SelectObject {
   value: number;
   label: string;
 }
+export type Params = {
+  propertyId: string | undefined;
+};
 export enum ContractType {
   SELL = 1,
   RENT = 2,

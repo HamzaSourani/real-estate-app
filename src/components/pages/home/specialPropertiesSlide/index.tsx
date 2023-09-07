@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Empty from "./empty";
+import { Image } from "@/api/property/type";
 
 const SpecialPropertiesSlide = () => {
   const { t } = useTranslation();
@@ -38,7 +39,7 @@ const SpecialPropertiesSlide = () => {
           {data.data.properties.map((property, index) => (
             <SwiperSlide key={property.id}>
               <Box
-                src={property.image.media_url}
+                src={(property.image as Image).media_url}
                 component={"img"}
                 sx={{
                   objectFit: "cover",

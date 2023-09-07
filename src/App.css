@@ -5,6 +5,7 @@
   --primary-color-dark: #151c26;
   --primary-color-light: #4b535f;
 }
+
 ::-webkit-scrollbar {
   width: 5px;
 }

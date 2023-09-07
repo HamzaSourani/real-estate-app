@@ -14,6 +14,7 @@ import {
   deleteProperty,
   getPriceRange,
   getAreaRange,
+  getProperty,
 } from ".";
 import {
   AddFeatureBody,
@@ -22,6 +23,7 @@ import {
   PredictPriceOfPropertyBody,
   PropertyFilters,
 } from "./type";
+import { Params } from "@/type";
 const useGetPropertiesInfinityQuery = (params: PropertyFilters) =>
   useInfiniteQuery({
     queryKey: ["get-properties", params.typeId],
@@ -45,11 +47,18 @@ const useGetPropertiesInfinityQuery = (params: PropertyFilters) =>
       return undefined;
     },
   });
+
 const useGetSpecialPropertiesQuery = () =>
   useQuery({
     queryKey: ["get-special-properties"],
     queryFn: () => getSpecialProperties(),
   });
+const useGetPropertyQuery = (params: Params) => {
+  return useQuery({
+    queryKey: ["get-property", params.propertyId],
+    queryFn: () => getProperty(params),
+  });
+};
 const useGetVillasPropertiesQuery = () =>
   useQuery({
     queryKey: ["get-villas-properties"],
@@ -125,6 +134,7 @@ const useDeletePropertyMutation = () =>
 export {
   useGetPropertiesInfinityQuery,
   useGetSpecialPropertiesQuery,
+  useGetPropertyQuery,
   useGetVillasPropertiesQuery,
   useGetChaletsPropertiesQuery,
   useGetHousesPropertiesQuery,
