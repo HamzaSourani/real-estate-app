@@ -3,18 +3,13 @@ import { useFormikContext } from "formik";
 import { Grid, TextField } from "@mui/material";
 import { AddPropertyValues } from "@/pages/addEditProperty/type";
 import SelectFiled from "@/components/items/inputs/selectField";
+import { RATES } from "@/constants/property";
 
 const RatingAndDateStep = () => {
   const { t } = useTranslation();
   const { values, errors, touched, handleChange, setFieldTouched } =
     useFormikContext<AddPropertyValues>();
-  const RATES = {
-    VERY_POOR: "very-poor",
-    POOR: "poor",
-    GOOD: "good",
-    VERY_GOOD: "very-good",
-    EXCELLENT: "excellent",
-  };
+
   const CONDITION_OPTIONS = Object.values(RATES).map((condition, index) => ({
     value: index + 1,
     label: `common.rates.${condition}`,

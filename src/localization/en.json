@@ -64,7 +64,8 @@
       "filter": { "title": "filter", "error": "failed to apply filters" },
       "create-at": "create at",
       "empty": "there is no such ",
-      "error": "error while fetching "
+      "error": "error while fetching ",
+      "directions": "Directions"
     }
   },
   "components": {
@@ -172,6 +173,17 @@
       "add-successfully": "your property has been added successfully",
       "add-failed": "failed to add property please try again",
       "max-images": "you reach the max number of images"
+    },
+    "show-property": {
+      "areas": {
+        "title": "areas",
+        "lot": "lot",
+        "lot-15": "lot fifteen block",
+        "living": "living",
+        "living-15": "living fifteen block ",
+        "above": "above",
+        "basement": "basement"
+      }
     },
     "forbidden": {
       "title": "you do not have permission to visit this page"

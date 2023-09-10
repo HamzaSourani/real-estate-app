@@ -65,7 +65,7 @@ export interface Property {
   views_count: number;
   furnish: AutocompleteObject;
   region: AutocompleteObject;
-  features: any[];
+  features: AutocompleteObject[];
   type: AutocompleteObject;
   date_of_publish: string;
   city: AutocompleteObject;

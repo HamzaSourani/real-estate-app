@@ -21,9 +21,16 @@ const STEPS = [
   },
   { label: "pages.add-edit-property.steps.price", icon: PriceIcon },
 ];
+const RATES = {
+  VERY_POOR: "very-poor",
+  POOR: "poor",
+  GOOD: "good",
+  VERY_GOOD: "very-good",
+  EXCELLENT: "excellent",
+};
 const PROPERTY_TYPE = {
   house: 1,
   villa: 2,
   chalet: 3,
 } as const;
-export { STEPS, PROPERTY_TYPE };
+export { STEPS, PROPERTY_TYPE, RATES };

@@ -12,6 +12,9 @@ import PropertyImagesSlide from "@/components/pages/property/imagesSlide";
 import { Image } from "@/api/property/type";
 import PropertyAction from "@/components/pages/property/action";
 import MainPropertyInfo from "@/components/pages/property/mainInfo";
+import ReviewProperty from "@/components/pages/property/review";
+import Directions from "@/components/pages/property/directions";
+import AreaAndRestInfo from "@/components/pages/property/areaAndRestInfo";
 var myIcon = L.icon({
   iconUrl: "/location-sign-svgrepo-com.svg",
   iconSize: [38, 95],
@@ -113,22 +116,68 @@ const ShowProperty = () => {
           />
         </Grid>
       </Grid>
-      {/* <MapContainer
-        style={{ width: 400, height: 400 }}
-        center={[51.505, -0.09]}
-        zoom={13}
-        scrollWheelZoom={false}
+      <Grid
+        item
+        container
+        alignItems={"center"}
+        xs={12}
+        spacing={2}
+        sx={{
+          px: 2,
+          py: 4,
+        }}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker icon={myIcon} position={[51.505, -0.09]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-      </MapContainer> */}
+        <Grid item xs={12} md={7}>
+          <ReviewProperty {...{ view, condition, grade }} />
+        </Grid>
+        <Grid item xs={12} md={5}>
+          <Directions {...{ north, south, east, west }} />
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        xs={12}
+        spacing={2}
+        sx={{
+          bgcolor: (theme) => alpha(theme.palette.primary.dark, 0.1),
+          px: 2,
+          py: 4,
+        }}
+      >
+        <Grid item xs={12} md={5}>
+          <AreaAndRestInfo
+            {...{
+              floors,
+              floor_level,
+              sqft_living,
+              sqft_living_15,
+              sqft_lot,
+              sqft_lot_15,
+              sqft_above,
+              sqft_basement,
+              water_front,
+              features,
+            }}
+          />
+        </Grid>
+        <Grid item xs={12} md={7}>
+          <MapContainer
+            style={{ width: "100%", aspectRatio: "1/1" }}
+            center={[Number(lat), Number(long)]}
+            zoom={13}
+            scrollWheelZoom={false}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker icon={myIcon} position={[Number(lat), Number(long)]}>
+              <Popup>{name}</Popup>
+            </Marker>
+          </MapContainer>
+        </Grid>
+      </Grid>
     </Grid>
   );
 };
