@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import ForSellIcon from "@/components/items/svg/forSellIcon";
 import ForRentIcon from "@/components/items/svg/forRentIcon";
-import { ContractType } from "@/type";
+import { CONTRACT_TYPE } from "@/type";
 import { Props } from "./type";
 
 const PropertyHeader = ({ name, contract_type }: Props) => {
@@ -16,7 +16,7 @@ const PropertyHeader = ({ name, contract_type }: Props) => {
         {name}
       </Typography>
       <Box>
-        {contract_type === ContractType.SELL ? (
+        {contract_type === CONTRACT_TYPE.SELL ? (
           <ForSellIcon
             sx={{
               color: "red",

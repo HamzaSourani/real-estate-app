@@ -16,11 +16,12 @@ import {
   RegionsResponse,
   PredictPriceOfPropertyBody,
   PredictPriceOfPropertyResponse,
-  AddPropertyBody,
+  AddUpdatePropertyBody,
   PropertyFilters,
   DeletePropertyParams,
   PriceRangResponse,
   AreaRangResponse,
+  UpdateProperty,
 } from "./type";
 import protectedAxiosInstance from "../protectedAxiosInstance";
 import { Params } from "@/type";
@@ -162,7 +163,7 @@ const getAreaRange = async () => {
   );
   return data;
 };
-const addProperty = async (body: AddPropertyBody) => {
+const addProperty = async (body: AddUpdatePropertyBody) => {
   const { data } = await protectedAxiosInstance.post(
     API_ROUTE.PROPERTY.ADD,
     body
@@ -174,6 +175,13 @@ const deleteProperty = async ({ propertyId }: DeletePropertyParams) => {
     API_ROUTE.PROPERTY.DELETE(propertyId)
   );
   return data;
+};
+const updateProperty = async ({ body, params }: UpdateProperty) => {
+  const { data } = await protectedAxiosInstance.post(
+    API_ROUTE.PROPERTY.UPDATE_PROPERTY(params.id),
+    body
+  );
+  return { data };
 };
 export {
   getSpecialProperties,
@@ -190,4 +198,5 @@ export {
   getPriceRange,
   getAreaRange,
   deleteProperty,
+  updateProperty,
 };

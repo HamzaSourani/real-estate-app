@@ -21,7 +21,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { ContractType } from "@/type";
+import { CONTRACT_TYPE } from "@/type";
 import ForSellIcon from "../../svg/forSellIcon";
 import ForRentIcon from "../../svg/forRentIcon";
 import { useToggleFavoriteMutation } from "@/api/user/qeuries";
@@ -70,7 +70,7 @@ const PropertyCard = ({
           action={
             isUserProperty ? (
               <PropertyOptions id={id} name={name} />
-            ) : contract_type === ContractType.SELL ? (
+            ) : contract_type === CONTRACT_TYPE.SELL ? (
               <ForSellIcon sx={{ color: "red" }} />
             ) : (
               <ForRentIcon sx={{ color: "green" }} />

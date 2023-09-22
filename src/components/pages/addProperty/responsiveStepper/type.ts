@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 export interface Props {
   activeStep: Steps;
   setActiveStep: Dispatch<SetStateAction<number>>;
+  isLoading: boolean;
 }
 export enum Steps {
   INFO,

@@ -1,4 +1,5 @@
-import { AutocompleteObject } from "@/type";
+import { Image } from "@/api/property/type";
+import { AutocompleteObject, CONTRACT_TYPE } from "@/type";
 
 export interface AddPropertyValues {
   name: string;
@@ -8,10 +9,13 @@ export interface AddPropertyValues {
   furnish: AutocompleteObject | null;
   address: string;
   detail: string;
+  contract_type: CONTRACT_TYPE;
   cladding: AutocompleteObject | null;
   features: AutocompleteObject[];
   water_front: boolean;
   images: string[];
+  old_images?: Image[];
+  images_delete_ids?: string[];
   bed_rooms: number;
   bath_rooms: number;
   kitchens: number;

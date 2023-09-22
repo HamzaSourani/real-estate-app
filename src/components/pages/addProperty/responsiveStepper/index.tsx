@@ -20,7 +20,7 @@ import { AddPropertyValues } from "@/pages/addEditProperty/type";
 import { Props, Steps } from "./type";
 import AddPropertyStepperContent from "./content";
 
-const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
+const ResponsiveStepper = ({ activeStep, isLoading, setActiveStep }: Props) => {
   const { t } = useTranslation();
   const { isSubmitting, setTouched } = useFormikContext();
   const xs = useMediaQuery((theme: Theme) => theme.breakpoints.only("xs"));
@@ -37,6 +37,7 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
       cladding: true,
       features: true,
       water_front: true,
+      contract_type: true,
     },
     {
       bed_rooms: true,
@@ -86,6 +87,7 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
   const BackButton = (
     <Button
       variant="contained"
+      type="button"
       onClick={handleBack}
       disabled={activeStep === Steps.INFO}
     >
@@ -99,7 +101,7 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
         buttonText={t("common.create")}
       />
     ) : (
-      <Button variant="contained" onClick={handleNext}>
+      <Button variant="contained" type="button" onClick={handleNext}>
         {t("pages.add-edit-property.pagination.next")}
       </Button>
     );
@@ -125,7 +127,7 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
           </Typography>
           {<currentStep.icon />}
         </Stack>
-        <AddPropertyStepperContent activeStep={activeStep} />
+        {isLoading ? "" : <AddPropertyStepperContent activeStep={activeStep} />}
         <MobileStepper
           variant="text"
           position="static"
@@ -167,7 +169,11 @@ const ResponsiveStepper = ({ activeStep, setActiveStep }: Props) => {
             ))}
           </Stepper>
           <Box mt={4}>
-            <AddPropertyStepperContent activeStep={activeStep} />
+            {isLoading ? (
+              "loading..."
+            ) : (
+              <AddPropertyStepperContent activeStep={activeStep} />
+            )}
           </Box>
           <Stack
             mt={2}

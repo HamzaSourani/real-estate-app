@@ -47,6 +47,11 @@
       "above": "above",
       "basement": "basement",
       "view": "view",
+      "contract-type": {
+        "title": "contract type",
+        "sell": "Sell",
+        "rent": "Rent"
+      },
       "condition": "condition",
       "grade": "grade",
       "yr-build": "year of build",
@@ -160,8 +165,10 @@
       "add": "add property",
       "upload-image": "upload image",
       "failed-to-add-new-feature": "failed to add new feature please try agin",
-      "add-successfully": "your property has been added successfully",
-      "add-failed": "failed to add property please try again",
+      "added-successfully": "check your property box to see status of your order to add {{property}} ",
+      "failed-to-add": "failed to add {{property}} please try again",
+      "updated-successfully": "check your property box to see status of your order to update {{property}}",
+      "failed-to-update": "failed to update {{property}} please try again",
       "max-images": "you reach the max number of images"
     },
     "show-property": {

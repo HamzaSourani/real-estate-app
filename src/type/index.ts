@@ -11,7 +11,7 @@ export interface SelectObject {
 export type Params = {
   propertyId: string | undefined;
 };
-export enum ContractType {
+export enum CONTRACT_TYPE {
   SELL = 1,
   RENT = 2,
 }

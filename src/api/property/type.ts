@@ -1,4 +1,4 @@
-import { AutocompleteObject } from "@/type";
+import { AutocompleteObject, CONTRACT_TYPE } from "@/type";
 import { GenericResponse } from "../type";
 import { Sort } from "@/pages/properties/type";
 
@@ -7,7 +7,7 @@ export type PropertiesResponse = GenericResponse<{
   total: number;
 }>;
 export type PropertyResponse = GenericResponse<{
-  property: Property;
+  property: ShowProperty;
 }>;
 
 export type RegionsResponse = GenericResponse<{
@@ -71,6 +71,9 @@ export interface Property {
   city: AutocompleteObject;
   image: Image | Image[];
 }
+export interface ShowProperty extends Property {
+  image: Image[];
+}
 export interface AddFeatureBody {
   name: string;
 }
@@ -87,7 +90,8 @@ export type AreaRangResponse = GenericResponse<{
 }>;
 export interface Image {
   media_url: string;
-  hash: string;
+  hash?: string;
+  id?: string;
 }
 export type PropertyFilters = Partial<{
   page: number;
@@ -137,7 +141,7 @@ export type GetPropertiesParams = Partial<{
   sqft_living_max: number | null;
   sort: string;
 }>;
-export interface AddPropertyBody {
+export interface AddUpdatePropertyBody {
   name: string;
   address: string;
   type_id: string;
@@ -161,6 +165,7 @@ export interface AddPropertyBody {
   sqft_above: number;
   sqft_basement: number;
   view: number;
+  contract_type: CONTRACT_TYPE;
   condition: number;
   grade: number;
   yr_built: string;
@@ -173,6 +178,11 @@ export interface AddPropertyBody {
   east: boolean;
   west: boolean;
   price: number;
+  images_delete_ids?: string[];
+}
+export interface UpdateProperty {
+  body: AddUpdatePropertyBody;
+  params: { id: string };
 }
 export interface PredictPriceOfPropertyBody {
   bedrooms: number;

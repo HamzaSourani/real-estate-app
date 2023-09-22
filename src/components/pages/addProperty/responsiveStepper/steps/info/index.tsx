@@ -16,6 +16,8 @@ import {
 import { useGetAllCitiesQuery } from "@/api/city/queries";
 import { AddPropertyValues } from "@/pages/addEditProperty/type";
 import FeaturesAutocomplete from "./featureAutocomplete";
+import SelectFiled from "@/components/items/inputs/selectField";
+import { CONTRACT_TYPE } from "@/type";
 
 const InfoStep = () => {
   const { t } = useTranslation();
@@ -36,8 +38,16 @@ const InfoStep = () => {
     useGetFurnishesQuery();
   const { data: claddings, isLoading: isCladdingsLoading } =
     useGetCladdingsQuery();
-
-  console.log(touched, errors, values);
+  const CONTRACT_TYPE_OPTIONS = [
+    {
+      value: CONTRACT_TYPE.SELL,
+      label: t("common.property.contract-type.sell"),
+    },
+    {
+      value: CONTRACT_TYPE.RENT,
+      label: t("common.property.contract-type.rent"),
+    },
+  ];
 
   return (
     <Grid container spacing={2}>
@@ -175,7 +185,7 @@ const InfoStep = () => {
           )}
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} lg={5}>
         {" "}
         <TextField
           name="detail"
@@ -188,7 +198,7 @@ const InfoStep = () => {
           onChange={handleChange}
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} lg={5}>
         {" "}
         <TextField
           name="address"
@@ -201,7 +211,13 @@ const InfoStep = () => {
           onChange={handleChange}
         />
       </Grid>
-
+      <Grid item xs={12} sm={6} lg={2}>
+        <SelectFiled<keyof AddPropertyValues>
+          name={"contract_type"}
+          label="common.property.contract-type.title"
+          options={CONTRACT_TYPE_OPTIONS}
+        />
+      </Grid>
       <Grid item xs={12}>
         <FeaturesAutocomplete />
       </Grid>

@@ -24,6 +24,7 @@ const PROPERTY = {
   GET_AREA_RANGE: "/api/property/areaRange",
   GET_PROPERTY: (propertyId: string | undefined) =>
     `/api/property/${propertyId}/show`,
+  UPDATE_PROPERTY: (propertyId: string) => `/api/property/${propertyId}/update`,
   DELETE: (propertyId: string) => `/api/property/${propertyId}/destroy`,
 };
 const IMAGE = {

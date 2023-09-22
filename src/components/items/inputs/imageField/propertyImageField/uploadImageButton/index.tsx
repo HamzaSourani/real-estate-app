@@ -19,11 +19,11 @@ const UploadImageButton = ({ push, setImages }: Props) => {
         { image: e.target.files[0] },
         {
           onSuccess(data, variables, context) {
-            push(data.data.image);
             setImages((preImages) => [
               ...preImages,
-              URL.createObjectURL(e.target.files?.[0]!),
+              { media_url: URL.createObjectURL(e.target.files?.[0]!) },
             ]);
+            push(data.data.image);
           },
           onError() {
             showError(t("common.something-went-wrong"));

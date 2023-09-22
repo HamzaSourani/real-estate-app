@@ -98,6 +98,7 @@ const PriceStep = () => {
           </Typography>
           <button
             ref={predictButtonRef}
+            type="button"
             style={{ display: "none" }}
             onClick={handlePredict}
           />

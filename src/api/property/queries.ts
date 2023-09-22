@@ -15,13 +15,15 @@ import {
   getPriceRange,
   getAreaRange,
   getProperty,
+  updateProperty,
 } from ".";
 import {
   AddFeatureBody,
-  AddPropertyBody,
+  AddUpdatePropertyBody,
   DeletePropertyParams,
   PredictPriceOfPropertyBody,
   PropertyFilters,
+  UpdateProperty,
 } from "./type";
 import { Params } from "@/type";
 const useGetPropertiesInfinityQuery = (params: PropertyFilters) =>
@@ -55,8 +57,11 @@ const useGetSpecialPropertiesQuery = () =>
   });
 const useGetPropertyQuery = (params: Params) => {
   return useQuery({
-    queryKey: ["get-property", params.propertyId],
+    queryKey: ["get-property"],
     queryFn: () => getProperty(params),
+    enabled: !!params.propertyId,
+    cacheTime: 0,
+    refetchOnWindowFocus: false,
   });
 };
 const useGetVillasPropertiesQuery = () =>
@@ -124,12 +129,17 @@ const usePredictPriceOfPropertyMutation = () =>
 const useAddPropertyMutation = () =>
   useMutation({
     mutationKey: ["add-property"],
-    mutationFn: (body: AddPropertyBody) => addProperty(body),
+    mutationFn: (body: AddUpdatePropertyBody) => addProperty(body),
   });
 const useDeletePropertyMutation = () =>
   useMutation({
     mutationKey: ["delete-property"],
     mutationFn: (params: DeletePropertyParams) => deleteProperty(params),
+  });
+const useUpdatePropertyMutation = () =>
+  useMutation({
+    mutationKey: ["update-property"],
+    mutationFn: (payload: UpdateProperty) => updateProperty(payload),
   });
 export {
   useGetPropertiesInfinityQuery,
@@ -149,4 +159,5 @@ export {
   usePredictPriceOfPropertyMutation,
   useAddPropertyMutation,
   useDeletePropertyMutation,
+  useUpdatePropertyMutation,
 };
