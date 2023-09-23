@@ -19,6 +19,7 @@ const Profile = lazy(() => import("@/pages/profile"));
 const AddEditProperty = lazy(() => import("@/pages/addEditProperty"));
 const Properties = lazy(() => import("@/pages/properties"));
 const ShowProperty = lazy(() => import("@/pages/properties/showProperty"));
+const Orders = lazy(() => import("@/pages/orders"));
 const Routes = () => {
   const isAuthorized = useAuthorization();
   const router = createBrowserRouter(
@@ -48,6 +49,10 @@ const Routes = () => {
           <Route
             path="property/:propertyId/update"
             element={isAuthorized ? <AddEditProperty /> : <Forbidden />}
+          />
+          <Route
+            path="orders"
+            element={isAuthorized ? <Orders /> : <Forbidden />}
           />
         </Route>
       </Route>

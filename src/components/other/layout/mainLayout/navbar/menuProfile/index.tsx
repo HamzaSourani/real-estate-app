@@ -12,6 +12,7 @@ import SignOutIcon from "@mui/icons-material/Logout";
 import UserProfileIcon from "@mui/icons-material/AccountCircle";
 import AddPropertyIcon from "@mui/icons-material/AddHome";
 import PasswordIcon from "@mui/icons-material/Password";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import useAnchorEle from "@/hooks/useAnchorEle";
 import { useNavigate } from "react-router-dom";
 import NAVIGATION from "@/constants/navigation";
@@ -115,6 +116,17 @@ const MenuProfile = () => {
                 <AddPropertyIcon />
               </ListItemIcon>
               <Typography>{t("pages.profile.add-property")}</Typography>
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleClose();
+                handleNavigate(`/${NAVIGATION.MAIN_PAGES.ORDERS}`);
+              }}
+            >
+              <ListItemIcon>
+                <MailOutlineIcon />
+              </ListItemIcon>
+              <Typography>{t("pages.profile.orders")}</Typography>
             </MenuItem>
             <MenuItem
               onClick={() => {

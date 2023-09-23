@@ -25,6 +25,7 @@ import {
 } from "./type";
 import protectedAxiosInstance from "../protectedAxiosInstance";
 import { Params } from "@/type";
+import { filterParams } from "@/utils/filterParams";
 
 const getSpecialProperties = async () => {
   const { data } = await publicAxiosInstance.get<PropertiesResponse>(
@@ -76,18 +77,16 @@ const getProperties = async (params: PropertyFilters) => {
     sqft_living_min: sqftLivingMin,
     sqft_living_max: sqftLivingMax,
   };
-  const filterParams = Object.keys(getPropertiesParams).reduce(
-    (acc: any, key: string) => {
-      const transformedKey = `filter[${key}]`;
-      acc[transformedKey] = getPropertiesParams[key as GetPropertiesParamsKeys];
-      return acc;
-    },
-    {}
-  );
+
   const { data } = await publicAxiosInstance.get<PropertiesResponse>(
     API_ROUTE.PROPERTY.GET_PROPERTIES,
     {
-      params: { ...filterParams, sort, page, perPage },
+      params: {
+        ...filterParams<GetPropertiesParams>(getPropertiesParams),
+        sort,
+        page,
+        perPage,
+      },
     }
   );
   return data;

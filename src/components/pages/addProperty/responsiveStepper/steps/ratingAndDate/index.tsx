@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useFormikContext } from "formik";
 import { Grid, TextField } from "@mui/material";
 import { AddPropertyValues } from "@/pages/addEditProperty/type";
-import SelectFiled from "@/components/items/inputs/selectField";
+import SelectFiled from "@/components/items/inputs/formSelectField";
 import { RATES } from "@/constants/property";
 
 const RatingAndDateStep = () => {

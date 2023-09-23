@@ -196,10 +196,10 @@ export interface PredictPriceOfPropertyBody {
   grade: number;
   sqft_above: number;
   sqft_basement: number;
-  yr_built: string;
-  yr_renovated: string;
-  zipcode: string;
-  lat: string;
+  yr_built: number;
+  yr_renovated: number;
+  zipcode: number;
+  lat: number;
   sqft_living15: number;
   sqft_lot15: number;
 }

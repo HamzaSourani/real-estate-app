@@ -16,7 +16,7 @@ import {
 import { useGetAllCitiesQuery } from "@/api/city/queries";
 import { AddPropertyValues } from "@/pages/addEditProperty/type";
 import FeaturesAutocomplete from "./featureAutocomplete";
-import SelectFiled from "@/components/items/inputs/selectField";
+import SelectFiled from "@/components/items/inputs/formSelectField";
 import { CONTRACT_TYPE } from "@/type";
 
 const InfoStep = () => {

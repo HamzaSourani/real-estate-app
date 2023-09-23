@@ -151,6 +151,7 @@
     "profile": {
       "title": "User Profile",
       "add-property": "add property",
+      "orders": "orders",
       "do-not-have-favorite-properties": " do not have favorite properties go to ",
       "do-not-have-properties": " do not have properties "
     },
@@ -191,6 +192,23 @@
         "above": "above",
         "basement": "basement"
       }
+    },
+    "orders": {
+      "status": {
+        "title": "order status",
+        "requested": "requested",
+        "rejected": "rejected"
+      },
+      "type": {
+        "title": "order type",
+        "update": "update",
+        "upload": "upload",
+        "special-offer": "special offer"
+      },
+      "name": "name",
+      "message-of-reject": "message of reject",
+      "empty": "there is no {{status}} orders",
+      "error": " failed to load {{status}} orders"
     },
     "forbidden": {
       "title": "you do not have permission to visit this page"

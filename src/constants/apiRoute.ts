@@ -30,6 +30,11 @@ const PROPERTY = {
 const IMAGE = {
   UPLOAD: "/api/image/store",
 };
+const ORDERS = {
+  GET_ALL: "/api/userRequest/index",
+  ORDER_SPECIAL_OFFER: (propertyId: string) =>
+    `/api/userRequest/property/${propertyId}/orderSpecialOffer`,
+};
 const USER = {
   GET_PROFILE: "/api/user/showProfile",
   GET_PROPERTIES: "/api/user/indexProperties",
@@ -39,5 +44,5 @@ const USER = {
   TOGGLE_FAVORITE: (propertyId: string) =>
     `/api/user/property/${propertyId}/toggleFavorites`,
 };
-const API_ROUTE = { CITY, SIGN_UP, SIGN_IN, PROPERTY, IMAGE, USER };
+const API_ROUTE = { CITY, SIGN_UP, SIGN_IN, PROPERTY, IMAGE, ORDERS, USER };
 export default API_ROUTE;

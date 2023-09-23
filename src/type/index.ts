@@ -15,5 +15,13 @@ export enum CONTRACT_TYPE {
   SELL = 1,
   RENT = 2,
 }
-
+export enum ORDER_STATUS {
+  REQUESTED = 1,
+  REJECTED = 2,
+}
+export enum ORDER_TYPE {
+  UPLOAD = 1,
+  UPDATE = 2,
+  SPECIAL_OFFER = 3,
+}
 export type PropertyTypeKeys = keyof typeof PROPERTY_TYPE;

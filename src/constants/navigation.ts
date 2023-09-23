@@ -11,6 +11,7 @@ const MAIN_PAGES = {
   PROPERTIES: "properties",
   PROFILE: "profile",
   ADD_PROPERTY: "add-property",
+  ORDERS: "orders",
   SHOW_PROPERTY: (propertyId: string) =>
     `properties/property/${propertyId}/show`,
   UPDATE_PROPERTY: (propertyId: string) => `property/${propertyId}/update`,
