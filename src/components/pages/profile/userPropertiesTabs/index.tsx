@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Box, Tabs, Tab, alpha, Grid } from "@mui/material";
 import {
   useGetUserFavoriteProperties,
@@ -14,6 +15,7 @@ const UserPropertiesTabs = () => {
   const [selectedTab, setsSelectedTab] = useState<number>(
     PROPERTIES_TABS.USER_PROPERTIES
   );
+  const { t } = useTranslation();
   const { data: properties, isLoading: isPropertiesLoading } =
     useGetUserProperties({
       tab: selectedTab,
@@ -36,8 +38,8 @@ const UserPropertiesTabs = () => {
     >
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={selectedTab} onChange={handleSelectTap}>
-          <Tab label="properties" />
-          <Tab label="favorite properties" />
+          <Tab label={t("common.properties")} />
+          <Tab label={t("common.favorite-properties")} />
         </Tabs>
       </Box>
       <Grid container spacing={2} py={4}>

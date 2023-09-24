@@ -57,7 +57,7 @@ const useGetSpecialPropertiesQuery = () =>
   });
 const useGetPropertyQuery = (params: Params) => {
   return useQuery({
-    queryKey: ["get-property"],
+    queryKey: ["get-property", params.propertyId],
     queryFn: () => getProperty(params),
     enabled: !!params.propertyId,
     cacheTime: 0,

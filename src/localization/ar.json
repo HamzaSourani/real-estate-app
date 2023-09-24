@@ -12,6 +12,7 @@
     "chalets": "شاليهات",
     "houses": "منازل",
     "properties": "properties",
+    "favorite-properties": "favorite properties",
     "operation-succeeded": " تمت العملية بنجاح",
     "something-went-wrong": "حدث خطأ ما ",
     "submit": "ارسال",
@@ -77,7 +78,8 @@
       "city": "city",
       "price": "price",
       "edit-property": "edit property",
-      "delete-property": "delete property"
+      "delete-property": "delete property",
+      "add-to-special-property": "add to special"
     },
     "un-auth-dialog": {
       "title": "you are un authorized, sign in to have all site's features"
@@ -125,7 +127,13 @@
       "orders": "الطلابات",
       "add-property": "إضافة عقار",
       "do-not-have-favorite-properties": "لا تمتلك عقارات مفضلة إذهب إلى ",
-      "do-not-have-properties": " لا تمتلك عقار"
+      "do-not-have-properties": " لا تمتلك عقار",
+      "order-special-property-dialog": {
+        "title": "add {{propertyName}} to special property",
+        "success": "{{propertyName}} has been added to order table successfully",
+        "failed": "failed to add  {{propertyName}} to special offer property",
+        "order": "order"
+      }
     },
     "home": {
       "special-properties": {

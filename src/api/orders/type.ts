@@ -12,5 +12,7 @@ export interface Order {
   status: ORDER_STATUS;
   message_of_reject: String | null;
 }
-
+export interface OrderSpecialPropertyParams {
+  id: string;
+}
 export type OrderResponse = GenericResponse<Order[][]>;

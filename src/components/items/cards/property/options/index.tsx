@@ -11,11 +11,13 @@ import {
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
-import DeletePropertyDialog from "@/components/items/dialog/deletePorperty";
+import StarsIcon from "@mui/icons-material/Stars";
+import DeletePropertyDialog from "@/components/pages/profile/dialog/deletePorperty";
 import useAnchorEle from "@/hooks/useAnchorEle";
 import useToggleEle from "@/hooks/useToggleEle";
 import { Props } from "./type";
 import NAVIGATION from "@/constants/navigation";
+import OrderSpecialPropertyDialog from "@/components/pages/profile/dialog/orderSpecialProperty";
 const PropertyOptions = (props: Props) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -24,6 +26,11 @@ const PropertyOptions = (props: Props) => {
     openDeletePropertyDialog,
     handleOpenDeletePropertyDialog,
     handleCloseDeletePropertyDialog,
+  ] = useToggleEle(false);
+  const [
+    openOrderSpecialPropertyDialog,
+    handleOpenOrderSpecialPropertyDialog,
+    handleCloseOrderSpecialPropertyDialog,
   ] = useToggleEle(false);
   return (
     <>
@@ -84,10 +91,23 @@ const PropertyOptions = (props: Props) => {
             {t("components.property-card.delete-property")}
           </ListItemText>
         </MenuItem>
+        <MenuItem onClick={handleOpenOrderSpecialPropertyDialog}>
+          <ListItemIcon>
+            <StarsIcon color="primary" />
+          </ListItemIcon>
+          <ListItemText>
+            {t("components.property-card.add-to-special-property")}
+          </ListItemText>
+        </MenuItem>
       </Menu>
       <DeletePropertyDialog
         open={openDeletePropertyDialog}
         handleClose={handleCloseDeletePropertyDialog}
+        property={{ ...props }}
+      />
+      <OrderSpecialPropertyDialog
+        open={openOrderSpecialPropertyDialog}
+        handleClose={handleCloseOrderSpecialPropertyDialog}
         property={{ ...props }}
       />
     </>

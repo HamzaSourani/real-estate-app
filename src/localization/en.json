@@ -12,6 +12,7 @@
     "chalets": "chalets",
     "houses": "houses",
     "properties": "properties",
+    "favorite-properties": "favorite properties",
     "operation-succeeded": " operation succeeded",
     "something-went-wrong": "something went wrong",
     "submit": "submit",
@@ -80,7 +81,8 @@
       "city": "city",
       "price": "price",
       "edit-property": "edit property",
-      "delete-property": "delete property"
+      "delete-property": "delete property",
+      "add-to-special-property": "add to special"
     },
     "un-auth-dialog": {
       "title": "you are un authorized, sign in to have all site's features"
@@ -153,7 +155,13 @@
       "add-property": "add property",
       "orders": "orders",
       "do-not-have-favorite-properties": " do not have favorite properties go to ",
-      "do-not-have-properties": " do not have properties "
+      "do-not-have-properties": " do not have properties ",
+      "order-special-property-dialog": {
+        "title": "add {{propertyName}} to special property",
+        "success": "{{propertyName}} has been added to order table successfully",
+        "failed": "failed to add  {{propertyName}} to special offer property",
+        "order": "order"
+      }
     },
 
     "add-edit-property": {

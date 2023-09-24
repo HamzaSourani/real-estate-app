@@ -182,6 +182,7 @@ const updateProperty = async ({ body, params }: UpdateProperty) => {
   );
   return { data };
 };
+
 export {
   getSpecialProperties,
   getProperties,

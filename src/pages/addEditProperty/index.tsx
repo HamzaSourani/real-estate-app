@@ -100,7 +100,6 @@ const AddEditProperty = () => {
         ...property.data.property,
         propertyType: property.data.property.type,
         bath_rooms: property.data.property.bath_room,
-        cladding: null,
         water_front: property.data.property.water_front ? true : false,
         images: property.data.property.image.map((image) => image.media_url),
         old_images: property.data.property.image,

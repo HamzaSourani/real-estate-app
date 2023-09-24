@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Dialog, DialogActions, Button, DialogTitle } from "@mui/material";
-import Transition from "../transition";
+import Transition from "../../../../items/dialog/transition";
 import { Props } from "./type";
 import { useDeletePropertyMutation } from "@/api/property/queries";
 import { showError, showSuccess } from "@/libs/reactToastify";
