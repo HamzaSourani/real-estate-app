@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   IconButton,
   Tooltip,
@@ -10,6 +11,7 @@ import {
 } from "@mui/material";
 import SignOutIcon from "@mui/icons-material/Logout";
 import UserProfileIcon from "@mui/icons-material/AccountCircle";
+import TranslateIcon from "@mui/icons-material/Translate";
 import AddPropertyIcon from "@mui/icons-material/AddHome";
 import PasswordIcon from "@mui/icons-material/Password";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -18,6 +20,7 @@ import { useNavigate } from "react-router-dom";
 import NAVIGATION from "@/constants/navigation";
 import useToggleEle from "@/hooks/useToggleEle";
 import ChangePassword from "@/components/items/dialog/changePassword";
+import { UserProfileResponse } from "@/api/user/type";
 
 const MenuProfile = () => {
   const [open, anchorEl, handleClick, handleClose] = useAnchorEle();
@@ -27,12 +30,31 @@ const MenuProfile = () => {
     handleCloseChangePasswordDialog,
   ] = useToggleEle(false);
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const queryClient = useQueryClient();
+  const userProfileData: UserProfileResponse | undefined =
+    queryClient.getQueryData(["get-user-profile"]);
   const handleNavigate = (href: string) => {
     handleClose();
     navigate(href);
   };
+  const handleChangeLanguage = (lang: "en" | "ar") => {
+    i18n.changeLanguage(lang);
+    document.documentElement.lang = lang;
+    localStorage.setItem("lang", lang);
+    switch (lang) {
+      case "ar":
+        document.dir = "rtl";
+        break;
+      default:
+        document.dir = "ltr";
+    }
+  };
   const handleSignOut = () => {
+    localStorage.removeItem("token");
+    window.location.replace(
+      `/${NAVIGATION.AUTH.INDEX}/${NAVIGATION.AUTH.SIGN_IN}`
+    );
     handleClose();
   };
   const MENU_PROFILE_ITEM = [
@@ -57,7 +79,7 @@ const MenuProfile = () => {
     <Tooltip title={t("pages.profile.title")}>
       <>
         <IconButton onClick={handleClick}>
-          <Avatar src="" />
+          <Avatar src={userProfileData?.data.user.image.media_url} />
         </IconButton>
         {open && (
           <Menu
@@ -131,6 +153,19 @@ const MenuProfile = () => {
             <MenuItem
               onClick={() => {
                 handleClose();
+                handleChangeLanguage(i18n.language === "ar" ? "en" : "ar");
+              }}
+            >
+              <ListItemIcon>
+                <TranslateIcon />
+              </ListItemIcon>
+              <Typography>
+                {t(`languages.${i18n.language === "ar" ? "en" : "ar"}`)}
+              </Typography>
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleClose();
                 handleOpenChangePasswordDialog();
               }}
             >
@@ -141,7 +176,7 @@ const MenuProfile = () => {
                 {t("components.change-password-dialog.title")}
               </Typography>
             </MenuItem>
-            <MenuItem onClick={handleClose}>
+            <MenuItem onClick={handleSignOut}>
               <ListItemIcon>
                 <SignOutIcon />
               </ListItemIcon>
