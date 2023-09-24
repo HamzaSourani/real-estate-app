@@ -17,11 +17,13 @@ export enum CONTRACT_TYPE {
 }
 export enum ORDER_STATUS {
   REQUESTED = 1,
-  REJECTED = 2,
+  REJECTED,
+  ALL,
 }
 export enum ORDER_TYPE {
   UPLOAD = 1,
-  UPDATE = 2,
-  SPECIAL_OFFER = 3,
+  UPDATE,
+  SPECIAL_OFFER,
+  ALL,
 }
 export type PropertyTypeKeys = keyof typeof PROPERTY_TYPE;

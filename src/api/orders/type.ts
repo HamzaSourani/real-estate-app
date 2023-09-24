@@ -2,8 +2,8 @@ import { ORDER_STATUS, ORDER_TYPE } from "@/type";
 import { GenericResponse } from "../type";
 
 export interface GetOrdersParams {
-  status: ORDER_STATUS | null;
-  type: ORDER_TYPE | null;
+  status: ORDER_STATUS;
+  type: ORDER_TYPE;
 }
 export interface Order {
   id: string;

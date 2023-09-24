@@ -26,8 +26,8 @@ import EmptyOrders from "@/components/pages/orders/table/fullback/empty";
 import ErrorOrders from "@/components/pages/orders/table/fullback/error";
 
 const Orders = () => {
-  const [status, setStatus] = useState<ORDER_STATUS | null>(null);
-  const [type, setType] = useState<ORDER_TYPE | null>(null);
+  const [status, setStatus] = useState<ORDER_STATUS>(ORDER_STATUS.ALL);
+  const [type, setType] = useState<ORDER_TYPE>(ORDER_TYPE.ALL);
   const { t } = useTranslation();
   const {
     data: orders,
@@ -35,10 +35,12 @@ const Orders = () => {
     isError,
   } = useGetAllOrdersQuery({ status, type });
   const ORDER_STATUS_OPTIONS = [
+    { value: ORDER_STATUS.ALL, label: "pages.orders.status.all" },
     { value: ORDER_STATUS.REQUESTED, label: "pages.orders.status.requested" },
     { value: ORDER_STATUS.REJECTED, label: "pages.orders.status.rejected" },
   ];
   const ORDER_TYPE_OPTIONS = [
+    { value: ORDER_TYPE.ALL, label: "pages.orders.type.all" },
     { value: ORDER_TYPE.UPLOAD, label: "pages.orders.type.upload" },
     { value: ORDER_TYPE.UPDATE, label: "pages.orders.type.update" },
     {
@@ -46,7 +48,6 @@ const Orders = () => {
       label: "pages.orders.type.special-offer",
     },
   ];
-  console.log(orders?.data);
   return (
     <Box my={5}>
       <Grid container spacing={4}>

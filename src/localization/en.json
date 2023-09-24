@@ -204,11 +204,13 @@
     "orders": {
       "status": {
         "title": "order status",
+        "all": "all",
         "requested": "requested",
         "rejected": "rejected"
       },
       "type": {
         "title": "order type",
+        "all": "all",
         "update": "update",
         "upload": "upload",
         "special-offer": "special offer"
