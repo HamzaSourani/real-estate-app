@@ -44,6 +44,8 @@ export interface Property {
   sqft_lot_15: number;
   sqft_above: number;
   sqft_basement: number;
+  has_special_order?: boolean;
+  has_update_order?: boolean;
   view: number;
   condition: number;
   grade: number;

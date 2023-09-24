@@ -7,6 +7,7 @@ import {
   ListItemText,
   Menu,
   MenuItem,
+  Typography,
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
@@ -18,7 +19,12 @@ import useToggleEle from "@/hooks/useToggleEle";
 import { Props } from "./type";
 import NAVIGATION from "@/constants/navigation";
 import OrderSpecialPropertyDialog from "@/components/pages/profile/dialog/orderSpecialProperty";
-const PropertyOptions = (props: Props) => {
+const PropertyOptions = ({
+  id,
+  name,
+  hasSpecialOrder,
+  hasUpdateOrder,
+}: Props) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [open, anchorEle, handleClick, handleClose] = useAnchorEle();
@@ -73,14 +79,31 @@ const PropertyOptions = (props: Props) => {
       >
         <MenuItem
           onClick={() => {
-            navigate(`/${NAVIGATION.MAIN_PAGES.UPDATE_PROPERTY(props.id)}`);
+            !hasUpdateOrder &&
+              navigate(`/${NAVIGATION.MAIN_PAGES.UPDATE_PROPERTY(id)}`);
           }}
         >
           <ListItemIcon>
-            <EditIcon color="primary" />
+            <EditIcon color={hasUpdateOrder ? "disabled" : "primary"} />
           </ListItemIcon>
           <ListItemText>
-            {t("components.property-card.edit-property")}
+            <Typography color={hasUpdateOrder ? "GrayText" : "primary"}>
+              {t("components.property-card.edit-property")}
+            </Typography>
+          </ListItemText>
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            !hasSpecialOrder && handleOpenOrderSpecialPropertyDialog();
+          }}
+        >
+          <ListItemIcon>
+            <StarsIcon color={hasSpecialOrder ? "disabled" : "primary"} />
+          </ListItemIcon>
+          <ListItemText>
+            <Typography color={hasSpecialOrder ? "GrayText" : "primary"}>
+              {t("components.property-card.add-to-special-property")}
+            </Typography>
           </ListItemText>
         </MenuItem>
         <MenuItem onClick={handleOpenDeletePropertyDialog}>
@@ -91,24 +114,16 @@ const PropertyOptions = (props: Props) => {
             {t("components.property-card.delete-property")}
           </ListItemText>
         </MenuItem>
-        <MenuItem onClick={handleOpenOrderSpecialPropertyDialog}>
-          <ListItemIcon>
-            <StarsIcon color="primary" />
-          </ListItemIcon>
-          <ListItemText>
-            {t("components.property-card.add-to-special-property")}
-          </ListItemText>
-        </MenuItem>
       </Menu>
       <DeletePropertyDialog
         open={openDeletePropertyDialog}
         handleClose={handleCloseDeletePropertyDialog}
-        property={{ ...props }}
+        property={{ name, id }}
       />
       <OrderSpecialPropertyDialog
         open={openOrderSpecialPropertyDialog}
         handleClose={handleCloseOrderSpecialPropertyDialog}
-        property={{ ...props }}
+        property={{ name, id }}
       />
     </>
   );

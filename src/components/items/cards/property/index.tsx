@@ -47,6 +47,8 @@ const PropertyCard = ({
   favorite_count,
   views_count,
   queryKey,
+  has_special_order,
+  has_update_order,
   isUserProperty = false,
 }: Props) => {
   const navigate = useNavigate();
@@ -69,7 +71,12 @@ const PropertyCard = ({
           subheader={moment(date_of_publish).format("MMM Do YY")}
           action={
             isUserProperty ? (
-              <PropertyOptions id={id} name={name} />
+              <PropertyOptions
+                id={id}
+                name={name}
+                hasSpecialOrder={has_special_order}
+                hasUpdateOrder={has_update_order}
+              />
             ) : contract_type === CONTRACT_TYPE.SELL ? (
               <ForSellIcon sx={{ color: "red" }} />
             ) : (

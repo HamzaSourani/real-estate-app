@@ -34,6 +34,8 @@ const OrderTypeChip = ({ type }: TProps) => {
           sx={{ minWidth: 75 }}
         />
       );
+    default:
+      return null;
   }
 };
 
