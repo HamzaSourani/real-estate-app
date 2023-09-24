@@ -11,6 +11,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Empty from "./empty";
 import { Image } from "@/api/property/type";
+import { Link } from "react-router-dom";
+import NAVIGATION from "@/constants/navigation";
 
 const SpecialPropertiesSlide = () => {
   const { t } = useTranslation();
@@ -38,17 +40,19 @@ const SpecialPropertiesSlide = () => {
         >
           {data.data.properties.map((property, index) => (
             <SwiperSlide key={property.id}>
-              <Box
-                src={(property.image as Image).media_url}
-                component={"img"}
-                sx={{
-                  objectFit: "cover",
-                  overflow: "hidden",
-                  borderRadius: "1rem",
-                }}
-                width={"100%"}
-                height={"100%"}
-              />
+              <Link to={`/${NAVIGATION.MAIN_PAGES.SHOW_PROPERTY(property.id)}`}>
+                <Box
+                  src={(property.image as Image).media_url}
+                  component={"img"}
+                  sx={{
+                    objectFit: "cover",
+                    overflow: "hidden",
+                    borderRadius: "1rem",
+                  }}
+                  width={"100%"}
+                  height={"100%"}
+                />
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
