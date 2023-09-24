@@ -22,7 +22,9 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <LogoIcon sx={{ width: 60, height: 60 }} />
+        <Link to={NAVIGATION.MAIN_PAGES.HOME}>
+          <LogoIcon sx={{ width: 60, height: 60 }} />
+        </Link>
         <Stack direction={"row"} justifyContent={"end"} sx={{ flexGrow: 1 }}>
           <NavTabs />
           {isAuthorized ? (
