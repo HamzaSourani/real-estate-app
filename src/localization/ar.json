@@ -11,100 +11,100 @@
     "villas": "فيلات",
     "chalets": "شاليهات",
     "houses": "منازل",
-    "properties": "properties",
-    "favorite-properties": "favorite properties",
+    "properties": "عقارات",
+    "favorite-properties": "العقارات المفضلة",
     "operation-succeeded": " تمت العملية بنجاح",
     "something-went-wrong": "حدث خطأ ما ",
     "submit": "ارسال",
-    "cancel": "cancel",
+    "cancel": "إلغاء",
     "rates": {
-      "very-poor": "very poor",
-      "poor": "poor",
-      "good": "good",
-      "very-good": "very good",
-      "excellent": "excellent"
+      "very-poor": "سيئ",
+      "poor": "عادي",
+      "good": "جيد",
+      "very-good": "جيد جدا",
+      "excellent": "ممتاز"
     },
     "property": {
-      "name": "name",
-      "address": "address",
-      "property-type": "property type",
-      "region": "region",
-      "furnish": "furnish",
-      "cladding": "cladding",
-      "detail": "detail",
-      "city": "city",
-      "features": "features",
-      "water-front": "water front",
-      "images": "images",
-      "bedrooms": "bedrooms",
-      "bathrooms": "bathrooms",
-      "kitchens": "kitchens",
-      "floors": "floors",
-      "floor-level": "floor level",
-      "sqft-living": "living",
-      "sqft-living-15": "living 15",
-      "sqft-lot": "lot",
-      "sqft-lot-15": "lot 15",
-      "above": "above",
-      "basement": "basement",
-      "view": "view",
+      "name": "اسم العقار",
+      "address": "العنوان",
+      "property-type": "نوع العقار",
+      "region": "المنطقة",
+      "furnish": "الفرش",
+      "cladding": "الإكساء",
+      "detail": "التفاصيل",
+      "city": "المدينة",
+      "features": "الميزات الإضافية",
+      "water-front": "إطلالة على مسطح مائي",
+      "images": "الصور",
+      "bedrooms": "الغرف",
+      "bathrooms": "الحمامات",
+      "kitchens": "المطابخ",
+      "floors": "الطوابق",
+      "floor-level": "الطابق",
+      "sqft-living": "مساحة العقار الكلية",
+      "sqft-living-15": "متوسط مساحة العقارات المجاورة",
+      "sqft-lot": "مساحة أرض بناء العقار",
+      "sqft-lot-15": "مساحة أرض بناء العقارات المجاورة",
+      "above": "مساحة المبنى",
+      "basement": "مساحة القبو",
+      "view": "تقييم الإطلالة",
       "contract-type": {
-        "title": "contract type",
-        "sell": "Sell",
-        "rent": "Rent"
+        "title": "نوع العقد",
+        "sell": "بيع",
+        "rent": "آجار"
       },
-      "condition": "condition",
-      "grade": "grade",
-      "yr-build": "year of build",
-      "yr-renovated": "year of renovated",
+      "condition": "تقييم حالة العقار",
+      "grade": "درجة العقار",
+      "yr-build": "سنة البناء",
+      "yr-renovated": "سنة إعادة التجديد",
       "zip-code": "zip code",
-      "lat": "alt",
-      "long": "long",
-      "north": "north",
-      "south": "south",
-      "east": "east",
-      "west": "west",
-      "price": "price",
-      "sort": "sort",
-      "filter": { "title": "filter", "error": "failed to apply filters" },
-      "create-at": "create at",
-      "directions": "Directions"
+      "lat": "إحداثيات الطول",
+      "long": "إحداثيات العرض",
+      "north": "شمال",
+      "south": "جنوب",
+      "east": "شرق",
+      "west": "غرب",
+      "price": "السعر",
+      "sort": "ترتيب",
+      "filter": { "العنوان": "فلتر", "خطأ": "حدث خطأ في تطبيق الفلاتر" },
+      "create-at": "تاريخ الإضافة",
+      "directions": "الإتجاهات"
     }
   },
   "components": {
     "property-card": {
-      "rooms": "rooms",
-      "area": "area",
-      "city": "city",
-      "price": "price",
-      "edit-property": "edit property",
-      "delete-property": "delete property",
-      "add-to-special-property": "add to special"
+      "rooms": "الغرف",
+      "area": "المساحة",
+      "city": "المدينة",
+      "price": "السعر",
+      "edit-property": "تعديل العقار",
+      "delete-property": "حذف العقار",
+      "add-to-special-property": "إضافة إلى لائحة العروض"
     },
     "un-auth-dialog": {
-      "title": "you are un authorized, sign in to have all site's features"
+      "title": "أنت غير مسجل في الموقع ,قم بتسجيل الدخول لكي تستفيد من كافة مميزات الموقع"
     },
     "change-password-dialog": {
-      "title": "change password",
-      "change": "change",
-      "old-password": "old password",
-      "new-password": "new password",
-      "new-password-confirmation": "new password confirmation",
-      "success": "password changed successfully",
-      "failed": "failed to change password"
+      "title": "تغيير كلمة المرور",
+      "change": "تغيير",
+      "old-password": "كلمة المرور القديمة",
+      "new-password": "كلمة المرور الجديدة",
+      "new-password-confirmation": "تأكيد كلمة المرور الجديدة",
+      "success": "تم تغيير كلمة المرور بنجاح",
+      "failed": "حدث خطأ عند تغيير كلمة المرور"
     },
     "delete-property-dialog": {
-      "title": "are you shore you want to delete {{propertyName}} property",
-      "delete": "delete",
-      "success": "{{propertyName}} has been deleted successfully",
-      "failed": "failed to delete {{propertyName}}"
+      "title": " {العقار {propertyName}} هل أنت متأكد من حذف هذا",
+      "delete": "حذف",
+      "success": "{{propertyName}} تم حذف العقار",
+      "failed": "{{propertyName}} حدث خطأ أثناء حذف"
     }
   },
   "form-validation": {
     "required": "هذا الحقل مطلوب",
-    "email": "ها الحقل يجب ان يكون بيرد إلكتروني",
+    "email": "هذا الحقل يجب ان يكون بريد إلكتروني",
     "password-confirmation": "كلمات المرور غير متطابقة",
-    "min-to": "this field must be equal or grater than {{number}}"
+    "min-to": "{{number}} هذا الحقل يجب أن يكون أكبر أو يساوي"
   },
   "pages": {
     "auth": {
@@ -129,86 +129,86 @@
       "do-not-have-favorite-properties": "لا تمتلك عقارات مفضلة إذهب إلى ",
       "do-not-have-properties": " لا تمتلك عقار",
       "order-special-property-dialog": {
-        "title": "add {{propertyName}} to special property",
-        "success": "{{propertyName}} has been added to order table successfully",
-        "failed": "failed to add  {{propertyName}} to special offer property",
-        "order": "order"
+        "title": "إلى لائحة العروض {{propertyName}} أضف",
+        "success": "يمكنك مشاهدته في طلباتك {{propertyName}} تم إرسال طلب لإضافة",
+        "failed": "إلى لائحة العروض {{propertyName}} حدث خطأ أثناءإضافة",
+        "order": "طلب"
       }
     },
     "home": {
       "special-properties": {
-        "empty": "there is no special properties",
-        "error": "failed to load special properties"
+        "empty": "لا يوجد عقارات في العروض",
+        "error": "خطأ أثناء تحميل لائحة العروض"
       },
       "houses-section": {
-        "empty": "there is no house properties",
-        "error": "failed to load house properties"
+        "empty": "لا يوجد منازل",
+        "error": "حدث خطأ أثناء تحميل المنازل"
       },
       "villas-section": {
-        "empty": "there is no villa properties",
-        "error": "failed to load villa properties"
+        "empty": "لا يوجد فيلات",
+        "error": "حدث خطأ أثناء تحميل الفيلات"
       },
       "chalets-section": {
-        "empty": "there is no chalet properties",
-        "error": "failed to load chalet properties"
+        "empty": "لا يوجد شاليهات",
+        "error": "حدث خطأ أثناء تحميل الشاليهات"
       }
     },
     "add-edit-property": {
       "steps": {
-        "info": "info",
-        "rooms-and-floor-details": "rooms and floor details",
-        "areas-in-square-feet": "areas in square feet",
-        "rating-and-date": "rating and date",
-        "location-and-directions": "location and directions",
-        "price": "price"
+        "info": "حول",
+        "rooms-and-floor-details": "تفاصيل الغرف و الطوابق",
+        "areas-in-square-feet": "المساحات في الفدم المربعة",
+        "rating-and-date": "التقييمات و التواريخ",
+        "location-and-directions": "الموقع والاتجاهات",
+        "price": "السعر"
       },
 
       "pagination": {
-        "next": "next",
-        "back": "back"
+        "next": "التالي",
+        "back": "السابق"
       },
       "predict": {
-        "title": "the prediction of your property's price is",
-        "failed": "failed to predict please try again"
+        "title": "السعر المتوقع لعقارك هو",
+        "failed": "حدث خطأ أثناء توقع سعر عقارك"
       },
-      "add": "add property",
-      "upload-image": "upload image",
-      "failed-to-add-new-feature": "failed to add new feature please try agin",
-      "added-successfully": "check your property box to see status of your order to add {{property}} ",
-      "failed-to-add": "failed to add {{property}} please try again",
-      "updated-successfully": "check your property box to see status of your order to update {{property}}",
-      "failed-to-update": "failed to update {{property}} please try again",
-      "max-images": "you reach the max number of images"
+      "add": "إضافة عقار",
+      "upload-image": "ترفيع صورة",
+      "failed-to-add-new-feature": "حدث خطأ أثناء إضافة ميزة جديدة",
+      "added-successfully": "راجع طلباتك لمتابعة حالة الطلب {{property}} تم إرسال طلب لإضافة",
+      "failed-to-add": " {{property}} حدث خطأ أثناء إضافة",
+      "updated-successfully": "راجع طلباتك لمتابعة حالة الطلب {{property}} تم إرسال طلب لتعديل",
+      "failed-to-update": " {{property}} حدث خطأ أثناء تعديل",
+      "max-images": "لقد وصلت إلى الحد المسموح به من عدد الصور"
     },
     "show-property": {
       "areas": {
-        "title": "areas",
-        "lot": "lot",
-        "lot-15": "lot fifteen block",
-        "living": "living",
-        "living-15": "living fifteen block ",
-        "above": "above",
-        "basement": "basement"
+        "title": "المساحات",
+        "lot": "مساحة المبنى ",
+        "lot-15": "مساحة المبنى للعقارات المجاورة",
+        "living": "المساحة الكلية للعقار",
+        "living-15": "المساحة الكلية للعقارات المجاورة",
+        "above": "مساحة المبنى فوق الأرض",
+        "basement": "مساحة القبو"
       }
     },
     "orders": {
       "status": {
-        "title": "order status",
-        "all": "all",
-        "requested": "requested",
-        "rejected": "rejected"
+        "title": "حالة الطلب",
+        "all": "الكل",
+        "requested": "مطلوب",
+        "rejected": "تم رفضه"
       },
       "type": {
-        "title": "order type",
-        "all": "all",
-        "update": "update",
-        "upload": "upload",
-        "special-offer": "special offer"
+        "title": "نوع الطلب",
+        "all": "الكل",
+        "update": "طلب تعديل",
+        "upload": "طلب إضافة",
+        "special-offer": "طلب إضافة إلى لائحة العروض"
       },
-      "name": "name",
-      "message-of-reject": "message of reject",
-      "empty": "there is no {{status}} orders",
-      "error": " failed to load {{status}} orders"
+      "name": "عنوان الطلب",
+      "message-of-reject": "سبب الرفض",
+      "empty": " {{status}} لا يوجد لديك طلبات",
+      "error": " {{status}} حدث خطأ أثناء تحميل طلبات"
     },
     "forbidden": {
       "title": "انت لا تمتلك صلاحية لزيارة هذه الصفحة"
